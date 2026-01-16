@@ -457,11 +457,15 @@ export default function PortfolioPage() {
         </motion.div>
 
         {/* Bento Grid - Exactly Like Homepage */}
-        <AnimatePresence mode="sync">
+        <AnimatePresence mode="wait">
           {filteredProjects.length > 0 ? (
             <motion.div 
               key={selectedCategory}
               className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15, ease: "easeInOut" }}
             >
               {filteredProjects.slice(0, 8).map((project, index) => {
               // Bento grid pattern - SAME AS HOMEPAGE
@@ -482,14 +486,12 @@ export default function PortfolioPage() {
                 <motion.div
                   key={project.slug}
                   className={config.colSpan}
-                  layout
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
                   transition={{
-                    duration: 0.2,
-                    delay: index * 0.02,
-                    ease: "easeOut",
+                    duration: 0.3,
+                    delay: index * 0.03,
+                    ease: [0.4, 0, 0.2, 1],
                   }}
                 >
                 <Link
