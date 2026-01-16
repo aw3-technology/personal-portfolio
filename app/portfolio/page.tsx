@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
@@ -457,35 +457,45 @@ export default function PortfolioPage() {
         </motion.div>
 
         {/* Bento Grid - Exactly Like Homepage */}
-        {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
-            {filteredProjects.slice(0, 8).map((project, index) => {
-            // Bento grid pattern - SAME AS HOMEPAGE
-            const cardConfigs = [
-              { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-              { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-              { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-              { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-              { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-              { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-              { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-              { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-            ];
-            
-            const config = cardConfigs[index];
-            
-            return (
-              <motion.div
-                key={project.slug}
-                className={config.colSpan}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.1 * (index % 6),
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-              >
+        <AnimatePresence mode="wait">
+          {filteredProjects.length > 0 ? (
+            <motion.div 
+              key={selectedCategory}
+              className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {filteredProjects.slice(0, 8).map((project, index) => {
+              // Bento grid pattern - SAME AS HOMEPAGE
+              const cardConfigs = [
+                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
+                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
+                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
+                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
+                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
+                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
+                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
+                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
+              ];
+              
+              const config = cardConfigs[index];
+              
+              return (
+                <motion.div
+                  key={project.slug}
+                  className={config.colSpan}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.05 * index,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                >
                 <Link
                   href={`/work/${project.slug}`}
                   className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg rounded-3xl"
@@ -528,11 +538,11 @@ export default function PortfolioPage() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
-            );
-          })}
-        </div>
-        ) : (
+                </motion.div>
+              );
+            })}
+          </motion.div>
+          ) : (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -559,8 +569,9 @@ export default function PortfolioPage() {
                 <span className="text-sm text-text relative z-10">View All Projects</span>
               </button>
             </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
       {/* Footer CTA - Same as Contact Section */}
