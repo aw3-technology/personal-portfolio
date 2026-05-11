@@ -58,7 +58,7 @@ export function renderHeadingBlock(
   }
 
   return (
-    <h2 className="text-3xl md:text-[2.75rem] lg:text-5xl text-text leading-[1.08]">
+    <h2 className="text-3xl md:text-display-md lg:text-5xl text-text leading-[1.08]">
       {textProcessor.renderHeadingText(heading)}
     </h2>
   );
@@ -75,14 +75,14 @@ export function renderCaseStudyBlock(
       const headingClass =
         block.level === 3
           ? "text-2xl md:text-[2rem] text-text"
-          : "text-3xl md:text-[2.75rem] text-text";
+          : "text-3xl md:text-display-md text-text";
       const headingParts = block.text.split("—");
 
       return (
         <div key={`block-${index}`} className="space-y-4">
           {block.eyebrow && (
-            <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em]">
-              <span className="w-8 h-px bg-stroke" />
+            <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em]">
+              <span className="section-divider" />
               {block.eyebrow}
             </span>
           )}
@@ -108,7 +108,7 @@ export function renderCaseStudyBlock(
       return (
         <p
           key={`block-${index}`}
-          className="text-base md:text-[1.05rem] text-muted leading-[1.8] max-w-3xl"
+          className="text-base md:text-lead text-muted leading-[1.8] max-w-3xl"
         >
           {block.text}
         </p>
@@ -119,7 +119,7 @@ export function renderCaseStudyBlock(
           {block.items.map((item, itemIndex) => (
             <li
               key={`block-${index}-item-${itemIndex}`}
-              className="flex items-start gap-3 text-base md:text-[1.05rem] text-muted leading-[1.75]"
+              className="flex items-start gap-3 text-base md:text-lead text-muted leading-[1.75]"
             >
               <span className="text-accent text-sm mt-0.5 flex-shrink-0">→</span>
               <span>{item}</span>
@@ -149,7 +149,7 @@ export function renderCaseStudyBlock(
                 </span>
               )}
 
-              <h3 className="text-3xl md:text-[2.75rem] lg:text-5xl text-text leading-[1.08] max-w-2xl">
+              <h3 className="text-3xl md:text-display-md lg:text-5xl text-text leading-[1.08] max-w-2xl">
                 <span className="font-display italic">{block.text}</span>
               </h3>
             </div>
@@ -293,7 +293,7 @@ export function renderLayoutSection(
               >
                 <div className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
 
-                <p className="text-[11px] text-muted/80 uppercase tracking-[0.3em] mb-4">
+                <p className="text-caption text-muted/80 uppercase tracking-[0.3em] mb-4">
                   Step {stepIndex + 1}
                 </p>
 

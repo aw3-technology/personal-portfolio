@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { easing } from "@/lib/animations";
 
 const pageVariants = {
   initial: {
@@ -19,7 +20,7 @@ const pageVariants = {
 
 const pageTransition = {
   type: "tween",
-  ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier easing
+  ease: easing.smooth,
   duration: 0.5,
 };
 

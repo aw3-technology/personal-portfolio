@@ -58,7 +58,7 @@ export default function CustomCursor() {
       >
         {(cursorType === "project" || cursorType === "text") && cursorText && (
             <div className="flex flex-col items-center gap-1">
-                <span className="text-black text-[10px] font-bold uppercase tracking-widest">
+                <span className="text-black text-2xs font-bold uppercase tracking-widest">
                 {cursorText}
                 </span>
                 <span className="w-1 h-1 bg-black rounded-full" />

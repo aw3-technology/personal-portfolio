@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { experiences } from "@/lib/experience";
-import { fadeUp, fadeUpSm, smoothTransition, viewportOnce } from "@/lib/animations";
+import { fadeUpSm, smoothTransition, viewportOnce } from "@/lib/animations";
 import { ArrowDiagonal } from "./Icons";
-import GradientBorderRing from "./ui/GradientBorderRing";
+import AnimatedSection from "./ui/AnimatedSection";
+import GradientButton from "./ui/GradientButton";
+import StatusBadge from "./ui/StatusBadge";
 
 export default function Journey() {
   return (
@@ -14,16 +16,10 @@ export default function Journey() {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header - Right aligned like reference */}
-        <motion.div
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2"
-          initial={fadeUp.hidden}
-          whileInView={fadeUp.visible}
-          viewport={viewportOnce}
-          transition={smoothTransition()}
-        >
+        <AnimatedSection className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2">
           <div>
-            <span className="eyebrow-label inline-flex items-center gap-2 mb-4">
-              <span className="w-8 h-px bg-stroke" />
+            <span className="section-eyebrow mb-4">
+              <span className="section-divider" />
               Experience
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-text leading-[1.1]">
@@ -38,20 +34,20 @@ export default function Journey() {
           <div className="flex flex-wrap items-center gap-4 md:gap-8">
             <div className="text-center">
               <span className="block text-2xl md:text-3xl font-display italic text-text">4+</span>
-              <span className="text-[10px] text-muted uppercase tracking-wider">Years</span>
+              <span className="text-2xs text-muted uppercase tracking-wider">Years</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-stroke" />
             <div className="text-center">
               <span className="block text-2xl md:text-3xl font-display italic text-text">20+</span>
-              <span className="text-[10px] text-muted uppercase tracking-wider">Projects</span>
+              <span className="text-2xs text-muted uppercase tracking-wider">Projects</span>
             </div>
             <div className="hidden sm:block w-px h-8 bg-stroke" />
             <div className="text-center">
               <span className="block text-2xl md:text-3xl font-display italic text-text">15+</span>
-              <span className="text-[10px] text-muted uppercase tracking-wider">Clients</span>
+              <span className="text-2xs text-muted uppercase tracking-wider">Clients</span>
             </div>
           </div>
-        </motion.div>
+        </AnimatedSection>
 
         {/* Experience List - Clean table style like reference */}
         <div className="px-2">
@@ -93,34 +89,24 @@ export default function Journey() {
         </div>
 
         {/* Bottom section with status */}
-        <motion.div
-          className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mt-16 px-2"
-          initial={fadeUp.hidden}
-          whileInView={fadeUp.visible}
-          viewport={viewportOnce}
-          transition={smoothTransition()}
-        >
+        <AnimatedSection className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mt-12 md:mt-16 px-2">
           {/* Status */}
           <div className="inline-flex items-center gap-3 justify-center md:justify-start text-center md:text-left">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
+            <StatusBadge />
             <span className="text-sm text-text">Available for new projects</span>
             <span className="text-muted">·</span>
             <span className="text-sm text-muted">Based in San Francisco</span>
           </div>
-          
+
           {/* CTA */}
-          <a
+          <GradientButton
             href="#contact"
-            className="group relative inline-flex w-fit items-center gap-3 px-5 py-3 bg-bg border-2 border-stroke rounded-full text-sm text-muted transition-all duration-500 overflow-visible self-center mt-2 md:mt-0 md:self-auto md:ml-auto"
+            className="inline-flex w-fit items-center gap-3 px-5 py-3 text-sm text-muted self-center mt-2 md:mt-0 md:self-auto md:ml-auto"
           >
-            <GradientBorderRing />
             <span className="relative z-10 group-hover:text-text transition-colors duration-300">Get in touch</span>
             <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 relative z-10" />
-          </a>
-        </motion.div>
+          </GradientButton>
+        </AnimatedSection>
       </div>
     </section>
   );

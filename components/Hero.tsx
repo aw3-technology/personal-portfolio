@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
-import GradientBorderRing from "./ui/GradientBorderRing";
+import GradientButton from "./ui/GradientButton";
 
 const roles = ["Developer", "Designer", "Creative", "Founder"];
 
@@ -94,20 +94,21 @@ export default function Hero() {
 
         {/* CTA */}
         <div className="blur-in flex flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <Link
+          <GradientButton
+            as={Link}
             href="#work"
-            className="group relative w-fit px-7 py-3.5 bg-text text-bg text-sm rounded-full hover:scale-105 transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+            variant="filled"
+            className="w-fit px-7 py-3.5 text-sm hover:scale-105"
           >
-            <GradientBorderRing />
             <span className="relative z-10 group-hover:text-text transition-colors duration-500">View Work</span>
-          </Link>
-          <Link
+          </GradientButton>
+          <GradientButton
+            as={Link}
             href="#contact"
-            className="group relative w-fit px-7 py-3.5 bg-bg text-text text-sm rounded-full border-2 border-stroke transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+            className="w-fit px-7 py-3.5 text-text text-sm"
           >
-            <GradientBorderRing />
             <span className="relative z-10">Get in Touch</span>
-          </Link>
+          </GradientButton>
         </div>
 
       </div>

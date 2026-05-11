@@ -2,6 +2,7 @@
  
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { easing } from "@/lib/animations";
 
 const words = ["Design", "Create", "Inspire"];
 
@@ -47,7 +48,7 @@ const words = ["Design", "Create", "Inspire"];
      <motion.div
       className="fixed inset-0 z-[9999] bg-bg"
        exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.6, ease: easing.standard }}
      >
       {/* Top - Portfolio text */}
       <motion.div
@@ -70,7 +71,7 @@ const words = ["Design", "Create", "Inspire"];
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.4, ease: easing.standard }}
           >
             {words[wordIndex]}
           </motion.span>

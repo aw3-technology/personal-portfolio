@@ -7,13 +7,26 @@
     @apply text-xs text-muted uppercase tracking-[0.3em];
   }
 
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em];
+  }
+
+  .section-divider {
+    @apply block w-8 h-px bg-stroke;
+  }
+
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
   }
 
   .focus-ring-lg {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-bg;
   }
+}
+
+.focus-ring:focus-visible,
+.focus-ring-lg:focus-visible {
+  --tw-ring-color: color-mix(in srgb, var(--text) 60%, transparent);
 }
 
 :root {
@@ -73,22 +86,6 @@ main {
   background: var(--bg);
   position: relative;
   z-index: 1;
-}
-
-.section {
-  padding: 120px 24px;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 160px 48px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding: 200px 80px;
-  }
 }
 
 /* Typography */

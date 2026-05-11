@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
 import WireframeShape from "./WireframeShape";
+import FloatingBackground from "./FloatingBackground";
 
 function Scene({ compact }: { compact: boolean }) {
   const spread = compact ? 0.6 : 1;
@@ -98,14 +98,8 @@ export default function FloatingObjects() {
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      <Canvas
-        camera={{ position: [0, 0, 6], fov: 45 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <Scene compact={isCompact} />
-      </Canvas>
-    </div>
+    <FloatingBackground>
+      <Scene compact={isCompact} />
+    </FloatingBackground>
   );
 }

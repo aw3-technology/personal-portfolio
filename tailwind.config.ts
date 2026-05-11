@@ -14,11 +14,21 @@ const config: Config = {
         text: "var(--text)",
         muted: "var(--muted)",
         accent: "var(--accent)",
-        stroke: "var(--stroke)"
+        stroke: "var(--stroke)",
+        dribbble: "#ea4c89"
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"]
+      },
+      fontSize: {
+        "2xs": "0.625rem",
+        caption: "0.6875rem",
+        lead: "1.05rem",
+        "display-md": "2.75rem",
+        hero: "15vw",
+        "hero-md": "12vw",
+        "hero-lg": "10vw"
       },
       boxShadow: {
         glow: "0 0 80px rgba(118, 228, 247, 0.2)"

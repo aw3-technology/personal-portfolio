@@ -10,7 +10,7 @@ export default function VinylLogo() {
   return (
     <Link
       href="/"
-      className="group relative flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-full"
+      className="group relative flex items-center justify-center focus-ring rounded-full"
       aria-label="Back to home"
     >
       {/* Outer ring with vibrant gradient border */}

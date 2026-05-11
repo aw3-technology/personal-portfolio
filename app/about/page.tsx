@@ -1,21 +1,22 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import gsap from "gsap";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import Navbar from "@/components/Navbar";
 import { ArrowDiagonal } from "@/components/Icons";
+import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
+import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
   ssr: false,
 });
 
 export default function AboutPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  useMarqueeAnimation(marqueeRef);
   const skills = [
     "Blockchain",
     "AI",
@@ -43,39 +44,6 @@ export default function AboutPage() {
     show: { scale: 1, transition: { duration: 0.4 } },
   };
 
-  // Handle scroll for navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
-
-  // Marquee animation
-  useEffect(() => {
-    let animation: gsap.core.Tween | null = null;
-
-    if (marqueeRef.current) {
-      const marqueeInner = marqueeRef.current.querySelector(".marquee-inner");
-      if (marqueeInner) {
-        animation = gsap.to(marqueeInner, {
-          xPercent: -50,
-          duration: 40,
-          ease: "none",
-          repeat: -1,
-        });
-      }
-    }
-
-    return () => {
-      if (animation) animation.kill();
-    };
-  }, []);
-
   return (
     <main className="bg-bg min-h-screen relative z-10">
       {/* Navbar */}
@@ -84,9 +52,9 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
+          transition={smoothTransition(0, 0.8)}
           className="text-center mb-8 md:mb-12"
         >
           <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
@@ -568,7 +536,7 @@ export default function AboutPage() {
               {[...Array(10)].map((_, i) => (
                 <span
                   key={i}
-                  className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-display italic text-text leading-none"
+                  className="text-hero md:text-hero-md lg:text-hero-lg font-display italic text-text leading-none"
                 >
                   LET&apos;S WORK TOGETHER
                   <span className="text-muted mx-6 md:mx-10">•</span>
@@ -580,10 +548,10 @@ export default function AboutPage() {
           {/* Center content */}
           <motion.div
             className="text-center mb-16 md:mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition()}
           >
             <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
               Have a project in mind? I&apos;m always open to new ideas and collaborations.
@@ -592,7 +560,7 @@ export default function AboutPage() {
             <motion.a
               whileTap={{ scale: 0.97 }}
               href="mailto:will.schulz@aw3.tech"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-ring overflow-visible"
             >
               <span
                 className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"

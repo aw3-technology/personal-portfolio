@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import type { Project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
 import { groupCaseStudyBlocks } from "@/lib/utils";
@@ -14,6 +14,7 @@ import { useCursor } from "./CursorContext";
 import Navbar from "./Navbar";
 import { ArrowRight } from "./Icons";
 import { createTextProcessor } from "./TextProcessor";
+import StatusBadge from "./ui/StatusBadge";
 import {
   renderCaseStudyBlock,
   renderLayoutSection,
@@ -27,7 +28,6 @@ import {
 } from "@/lib/animations";
 
 export default function CaseStudyPage({ project }: { project: Project }) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const { theme } = useTheme();
   const { setCursorType, setCursorText } = useCursor();
@@ -39,19 +39,6 @@ export default function CaseStudyPage({ project }: { project: Project }) {
     offset: ["start end", "end start"]
   });
   const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "10%"]);
-
-  useEffect(() => {
-    // Handle scroll for navbar
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     // Reset cursor state on page load to avoid stale hover text.
@@ -93,7 +80,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               initial={fadeUpSm.hidden}
               animate={fadeUpSm.visible}
               transition={smoothTransition(0.1, 0.8)}
-              className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7"
+              className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7"
             >
               <span className="w-8 h-px bg-stroke" />
               {project.category}
@@ -130,7 +117,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                 {project.meta && project.meta.length > 0 ? (
                   project.meta.map((item, index) => (
                     <div key={item.label}>
-                      <span className="text-[10px] text-muted uppercase tracking-[0.24em] block mb-2">
+                      <span className="text-2xs text-muted uppercase tracking-[0.24em] block mb-2">
                         {item.label}
                       </span>
                       {Array.isArray(item.value) ? (
@@ -138,7 +125,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                           {item.value.map((value) => (
                             <span
                               key={value}
-                              className="px-2.5 py-1 text-[11px] text-muted bg-surface border border-stroke rounded-full"
+                              className="px-2.5 py-1 text-caption text-muted bg-surface border border-stroke rounded-full"
                             >
                               {value}
                             </span>
@@ -152,22 +139,22 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                 ) : (
                   <>
                     <div className="pr-4 border-r border-stroke md:border-r-0 md:pr-0">
-                      <span className="text-[10px] text-muted uppercase tracking-[0.24em] block mb-2">Role</span>
+                      <span className="text-2xs text-muted uppercase tracking-[0.24em] block mb-2">Role</span>
                       <span className="text-sm md:text-[0.98rem] text-text">{project.role}</span>
                     </div>
                     <div className="hidden md:block w-px h-10 bg-stroke" />
                     <div className="pr-4 border-r border-stroke md:border-r-0 md:pr-0">
-                      <span className="text-[10px] text-muted uppercase tracking-[0.24em] block mb-2">Tools</span>
+                      <span className="text-2xs text-muted uppercase tracking-[0.24em] block mb-2">Tools</span>
                       <span className="text-sm md:text-[0.98rem] text-text">Figma</span>
                     </div>
                     <div className="hidden md:block w-px h-10 bg-stroke" />
                     <div className="pr-4 border-r border-stroke md:border-r-0 md:pr-0">
-                      <span className="text-[10px] text-muted uppercase tracking-[0.24em] block mb-2">Duration</span>
+                      <span className="text-2xs text-muted uppercase tracking-[0.24em] block mb-2">Duration</span>
                       <span className="text-sm md:text-[0.98rem] text-text">6-8 weeks</span>
                     </div>
                     <div className="hidden md:block w-px h-10 bg-stroke" />
                     <div>
-                      <span className="text-[10px] text-muted uppercase tracking-[0.24em] block mb-2">Scope</span>
+                      <span className="text-2xs text-muted uppercase tracking-[0.24em] block mb-2">Scope</span>
                       <div className="mt-1 text-sm md:text-[0.98rem] text-text">
                         {project.tags.map((tag, index) => (
                           <span key={tag}>
@@ -232,7 +219,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               viewport={viewportOnce}
               transition={smoothTransition()}
             >
-               <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
+               <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7">
                  <span className="w-6 h-px bg-stroke" />
                  Challenge
                </span>
@@ -241,10 +228,10 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                       <h2 className="text-2xl md:text-[2rem] text-text mb-5">
                         The <span className="font-display italic">Challenge</span>
                       </h2>
-                      <p className="text-base md:text-[1.05rem] text-muted leading-[1.8]">{project.problem}</p>
+                      <p className="text-base md:text-lead text-muted leading-[1.8]">{project.problem}</p>
                   </div>
                   <div className="bg-surface p-7 md:p-9 rounded-2xl border border-stroke">
-                      <h3 className="text-[11px] text-muted/80 mb-6 uppercase tracking-[0.3em]">Key Outcomes</h3>
+                      <h3 className="text-caption text-muted/80 mb-6 uppercase tracking-[0.3em]">Key Outcomes</h3>
                       <ul className="space-y-3.5">
                         {metrics.map((metric, i) => {
                           const rewritten = (() => {
@@ -275,7 +262,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               viewport={viewportOnce}
               transition={smoothTransition()}
             >
-                <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
+                <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7">
                   <span className="w-6 h-px bg-stroke" />
                   Process
                 </span>
@@ -283,7 +270,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                   From ambiguity to <span className="font-display italic">clarity.</span>
                 </h2>
                 
-                <p className="text-base md:text-[1.05rem] text-muted max-w-3xl leading-[1.8] mb-10">
+                <p className="text-base md:text-lead text-muted max-w-3xl leading-[1.8] mb-10">
                     {project.process}
                 </p>
 
@@ -318,14 +305,14 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               viewport={viewportOnce}
               transition={smoothTransition()}
             >
-                <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
+                <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7">
                   <span className="w-6 h-px bg-stroke" />
                   Solution
                 </span>
                 <h2 className="text-2xl md:text-[2rem] text-text mb-10">
                   Precision at <span className="font-display italic">scale.</span>
                 </h2>
-                <p className="text-base md:text-[1.05rem] text-muted max-w-3xl leading-[1.8] mb-10">
+                <p className="text-base md:text-lead text-muted max-w-3xl leading-[1.8] mb-10">
                     {project.solution}
                 </p>
                 <div className="w-full aspect-video bg-surface rounded-3xl border border-stroke overflow-hidden group mb-8 relative">
@@ -368,14 +355,14 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               viewport={viewportOnce}
               transition={smoothTransition()}
             >
-                <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7 max-w-3xl">
+                <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7 max-w-3xl">
                   <span className="w-6 h-px bg-stroke" />
                   Results
                 </span>
                 <h2 className="text-2xl md:text-[2rem] text-text mb-6 max-w-3xl">
                   Measurable <span className="font-display italic">results.</span>
                 </h2>
-                <p className="text-base md:text-[1.05rem] text-muted leading-[1.8] max-w-3xl">
+                <p className="text-base md:text-lead text-muted leading-[1.8] max-w-3xl">
                     {project.outcome}
                 </p>
 
@@ -412,12 +399,12 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                     setCursorType("default");
                     setCursorText("");
                   }}
-                  className="group relative block py-12 md:py-16 border-b border-stroke hover:border-text/30 transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
+                  className="group relative block py-12 md:py-16 border-b border-stroke hover:border-text/30 transition-all duration-500 focus-ring-lg"
                 >
                   <div className="relative flex items-center justify-between gap-6">
                     {/* Left - Project info */}
                     <div className="flex-1">
-                      <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-5">
+                      <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-5">
                         <span className="w-8 h-px bg-stroke group-hover:bg-text/30 transition-colors duration-300" />
                         Next Project
                       </span>
@@ -536,10 +523,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
             
             {/* Status */}
             <div className="flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
+              <StatusBadge />
               <span className="text-sm text-muted">Available for projects</span>
             </div>
           </div>

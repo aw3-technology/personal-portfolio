@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowDiagonal } from "./Icons";
-import GradientBorderRing from "./ui/GradientBorderRing";
-import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
+import AnimatedSection from "./ui/AnimatedSection";
+import GradientButton from "./ui/GradientButton";
+import StatusBadge from "./ui/StatusBadge";
+import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 
 const FloatingObjectsContact = dynamic(() => import("./FloatingObjectsContact"), {
   ssr: false,
@@ -24,27 +25,7 @@ const socials = [
 
 export default function Contact() {
   const marqueeRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Marquee animation
-    let animation: gsap.core.Tween | null = null;
-    
-    if (marqueeRef.current) {
-      const marqueeInner = marqueeRef.current.querySelector(".marquee-inner");
-      if (marqueeInner) {
-        animation = gsap.to(marqueeInner, {
-          xPercent: -50,
-          duration: 40,
-          ease: "none",
-          repeat: -1,
-        });
-      }
-    }
-
-    return () => {
-      if (animation) animation.kill();
-    };
-  }, []);
+  useMarqueeAnimation(marqueeRef);
 
   const marqueeText = "LET'S WORK TOGETHER";
 
@@ -67,7 +48,7 @@ export default function Contact() {
             {[...Array(10)].map((_, i) => (
               <span
                 key={i}
-                className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-display italic text-text leading-none"
+                className="text-hero md:text-hero-md lg:text-hero-lg font-display italic text-text leading-none"
               >
                 {marqueeText}
                 <span className="text-muted mx-6 md:mx-10">•</span>
@@ -77,27 +58,21 @@ export default function Contact() {
         </div>
 
         {/* Center content */}
-        <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={fadeUp.hidden}
-          whileInView={fadeUp.visible}
-          viewport={viewportOnce}
-          transition={smoothTransition()}
-        >
+        <AnimatedSection className="text-center mb-12 md:mb-16">
           <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
             Have a project in mind? I&apos;m always open to new ideas and collaborations.
           </p>
-          
-          <motion.a
+
+          <GradientButton
+            as={motion.a}
             whileTap={{ scale: 0.97 }}
             href="mailto:will.schulz@aw3.tech"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+            className="inline-flex items-center gap-3 px-8 py-4"
           >
-            <GradientBorderRing />
             <span className="text-lg text-text relative z-10 break-all sm:break-normal">will.schulz@aw3.tech</span>
             <ArrowDiagonal width={18} height={18} className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10" />
-          </motion.a>
-        </motion.div>
+          </GradientButton>
+        </AnimatedSection>
 
         {/* Bottom bar */}
         <div 
@@ -111,7 +86,7 @@ export default function Contact() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 {social.name}
               </Link>
@@ -120,10 +95,7 @@ export default function Contact() {
           
           {/* Status */}
           <div className="flex items-center gap-3">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-            </span>
+            <StatusBadge />
             <span className="text-sm text-muted">Available for projects</span>
           </div>
         </div>

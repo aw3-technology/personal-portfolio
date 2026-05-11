@@ -2,6 +2,17 @@ import type { Transition } from "framer-motion";
 
 type Bezier = [number, number, number, number];
 
+export type ViewportOptions = {
+  once?: boolean;
+  margin?: string;
+  amount?: "some" | "all" | number;
+};
+
+export type FadeStates = {
+  readonly hidden: { readonly opacity: number; readonly y: number };
+  readonly visible: { readonly opacity: number; readonly y: number };
+};
+
 export const easing: {
   smooth: Bezier;
   expo: Bezier;

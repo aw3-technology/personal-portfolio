@@ -8,7 +8,8 @@ import { useCursor } from "./CursorContext";
 import { ArrowDiagonal, Dribbble } from "./Icons";
 import { explorations } from "@/lib/explorations";
 import { easing, fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
-import GradientBorderRing from "./ui/GradientBorderRing";
+import AnimatedSection from "./ui/AnimatedSection";
+import GradientButton from "./ui/GradientButton";
 
 // Different mockup variations
 const MockupDashboard = () => (
@@ -150,34 +151,27 @@ export default function Explorations() {
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         
         {/* Header */}
-        <motion.div
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2"
-          initial={fadeUp.hidden}
-          whileInView={fadeUp.visible}
-          viewport={viewportOnce}
-          transition={smoothTransition()}
-        >
+        <AnimatedSection className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2">
           <div>
-            <span className="eyebrow-label inline-flex items-center gap-2 mb-4">
-              <span className="w-8 h-px bg-stroke" />
+            <span className="section-eyebrow mb-4">
+              <span className="section-divider" />
               Explorations
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-text leading-[1.1]">
               Visual <span className="font-display italic">playground</span>
             </h2>
           </div>
-          <a
+          <GradientButton
             href="https://dribbble.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative hidden md:inline-flex items-center gap-3 px-5 py-2.5 bg-bg border-2 border-stroke rounded-full text-sm text-muted transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+            className="hidden md:inline-flex items-center gap-3 px-5 py-2.5 text-sm text-muted"
           >
-            <GradientBorderRing />
-            <Dribbble width={16} height={16} className="text-[#ea4c89] group-hover:scale-110 transition-transform relative z-10" />
+            <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
             <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
             <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-          </a>
-        </motion.div>
+          </GradientButton>
+        </AnimatedSection>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[240px] gap-5 md:gap-6 px-2">
@@ -185,7 +179,7 @@ export default function Explorations() {
             <motion.button
               key={item.id}
               type="button"
-              className={`group relative rounded-3xl bg-surface border border-stroke overflow-hidden cursor-pointer transition-all duration-300 hover:border-text/30 text-left w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg ${item.span}`}
+              className={`group relative rounded-3xl bg-surface border border-stroke overflow-hidden cursor-pointer transition-all duration-300 hover:border-text/30 text-left w-full h-full focus-ring-lg ${item.span}`}
               initial={fadeUp.hidden}
               whileInView={fadeUp.visible}
               viewport={viewportOnce}
@@ -242,7 +236,7 @@ export default function Explorations() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-bg/90 via-bg/50 to-transparent">
-                    <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">
+                    <span className="text-2xs text-muted uppercase tracking-wider block mb-1">
                       {item.category}
                     </span>
                     <h3 className="text-sm md:text-base text-text font-medium group-hover:translate-x-1 transition-transform">
@@ -260,17 +254,16 @@ export default function Explorations() {
           ))}
         </div>
         <div className="mt-12 px-2 md:hidden flex justify-center">
-          <a
+          <GradientButton
             href="https://dribbble.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex w-fit items-center gap-3 px-5 py-2.5 bg-bg border-2 border-stroke rounded-full text-sm text-muted transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+            className="inline-flex w-fit items-center gap-3 px-5 py-2.5 text-sm text-muted"
           >
-            <GradientBorderRing />
-            <Dribbble width={16} height={16} className="text-[#ea4c89] group-hover:scale-110 transition-transform relative z-10" />
+            <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
             <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
             <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-          </a>
+          </GradientButton>
         </div>
 
         {/* Lightbox Modal */}

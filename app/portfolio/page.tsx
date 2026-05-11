@@ -4,9 +4,8 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import gsap from "gsap";
 import { projects } from "@/lib/projects";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton";
+import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 import VinylLogo from "@/components/VinylLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/components/ThemeProvider";
@@ -14,6 +13,15 @@ import { useCursor } from "@/components/CursorContext";
 import BackToTop from "@/components/BackToTop";
 import Navbar from "@/components/Navbar";
 import { ArrowDiagonal, Check, ChevronDown } from "@/components/Icons";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import BentoCard, { portfolioBentoConfigs } from "@/components/ui/BentoCard";
+import GradientButton from "@/components/ui/GradientButton";
+import StatusBadge from "@/components/ui/StatusBadge";
+import {
+  easing,
+  fadeUpSm,
+  smoothTransition,
+} from "@/lib/animations";
 import "./portfolio.css";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
@@ -34,45 +42,13 @@ export default function PortfolioPage() {
   const [sortBy, setSortBy] = useState("newest");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { theme } = useTheme();
   const { setCursorType, setCursorText } = useCursor();
   const marqueeRef = useRef<HTMLDivElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
 
-  // Handle scroll for navbar
-  useState(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-    
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  });
-
-  // Marquee animation
-  useEffect(() => {
-    let animation: gsap.core.Tween | null = null;
-    
-    if (marqueeRef.current) {
-      const marqueeInner = marqueeRef.current.querySelector(".marquee-inner");
-      if (marqueeInner) {
-        animation = gsap.to(marqueeInner, {
-          xPercent: -50,
-          duration: 40,
-          ease: "none",
-          repeat: -1,
-        });
-      }
-    }
-
-    return () => {
-      if (animation) animation.kill();
-    };
-  }, []);
+  useMarqueeAnimation(marqueeRef);
 
   // Close sort dropdown on outside click or escape
   useEffect(() => {
@@ -141,9 +117,9 @@ export default function PortfolioPage() {
       {/* Hero Section */}
       <section className="pt-36 pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
+          transition={smoothTransition(0, 0.8)}
           className="text-center mb-12 md:mb-16"
         >
           <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
@@ -160,9 +136,9 @@ export default function PortfolioPage() {
 
         {/* Filters & Sort */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUpSm.hidden}
+          animate={fadeUpSm.visible}
+          transition={smoothTransition(0.2, 0.8)}
           className="mb-12 md:mb-16"
         >
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -226,7 +202,7 @@ export default function PortfolioPage() {
                       initial={{ opacity: 0, y: 8, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.2, ease: easing.expo }}
                       className="absolute left-0 mt-3 w-max min-w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
@@ -293,7 +269,7 @@ export default function PortfolioPage() {
                       initial={{ opacity: 0, y: 8, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.2, ease: easing.expo }}
                       className="absolute right-0 mt-3 w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
@@ -387,7 +363,7 @@ export default function PortfolioPage() {
                   initial={{ opacity: 0, y: 8, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 0.2, ease: easing.expo }}
                   className="absolute right-0 mt-3 w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
@@ -460,12 +436,12 @@ export default function PortfolioPage() {
                   transition={{
                     duration: 0.3,
                     delay: index * 0.03,
-                    ease: [0.4, 0, 0.2, 1],
+                    ease: easing.standard,
                   }}
                 >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg rounded-3xl"
+                  className="group block h-full focus-ring-lg rounded-3xl"
                   onMouseEnter={() => {
                     setCursorType("project");
                     setCursorText("View");
@@ -510,10 +486,10 @@ export default function PortfolioPage() {
             })}
           </motion.div>
           ) : (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          <motion.div
+            initial={fadeUpSm.hidden}
+            animate={fadeUpSm.visible}
+            transition={smoothTransition(0, 0.6)}
             className="text-center py-24 md:py-32"
           >
             <div className="max-w-md mx-auto">
@@ -528,7 +504,7 @@ export default function PortfolioPage() {
               </p>
               <button
                 onClick={() => setSelectedCategory("All")}
-                className="group relative inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-stroke rounded-full hover:border-text/40 transition-all duration-500 overflow-visible focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="group relative inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-stroke rounded-full hover:border-text/40 transition-all duration-500 overflow-visible focus-ring"
               >
                 <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
                   <span className="flex w-full h-full rounded-full bg-bg" />
@@ -560,7 +536,7 @@ export default function PortfolioPage() {
               {[...Array(10)].map((_, i) => (
                 <span
                   key={i}
-                  className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-display italic text-text leading-none"
+                  className="text-hero md:text-hero-md lg:text-hero-lg font-display italic text-text leading-none"
                 >
                   LET'S WORK TOGETHER
                   <span className="text-muted mx-6 md:mx-10">•</span>
@@ -570,12 +546,12 @@ export default function PortfolioPage() {
           </div>
 
           {/* Center content */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16 md:mb-20"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition()}
           >
             <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
               Have a project in mind? I'm always open to new ideas and collaborations.
@@ -584,7 +560,7 @@ export default function PortfolioPage() {
             <motion.a
               whileTap={{ scale: 0.97 }}
               href="mailto:will.schulz@aw3.tech"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-ring overflow-visible"
             >
               {/* Gradient border ring - only outline */}
               <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
@@ -605,7 +581,7 @@ export default function PortfolioPage() {
                 href="https://x.com/aw3_xyz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 X
               </Link>
@@ -613,7 +589,7 @@ export default function PortfolioPage() {
                 href="https://www.linkedin.com/in/will-schulz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 LinkedIn
               </Link>
@@ -621,7 +597,7 @@ export default function PortfolioPage() {
                 href="https://github.com/aw3-technology"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 GitHub
               </Link>
@@ -629,7 +605,7 @@ export default function PortfolioPage() {
                 href="https://www.instagram.com/will_parkerr/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 Instagram
               </Link>
@@ -637,7 +613,7 @@ export default function PortfolioPage() {
                 href="https://calendly.com/will-schulz-aw3/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
               >
                 Calendly
               </Link>

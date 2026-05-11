@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
 import WireframeShape from "./WireframeShape";
+import FloatingBackground from "./FloatingBackground";
 
 function Scene() {
   return (
@@ -40,25 +39,9 @@ function Scene() {
 }
 
 export default function FloatingObjectsContact() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      <Canvas
-        camera={{ position: [0, 0, 6], fov: 45 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <Scene />
-      </Canvas>
-    </div>
+    <FloatingBackground>
+      <Scene />
+    </FloatingBackground>
   );
 }

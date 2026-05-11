@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import VinylLogo from "./VinylLogo";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
+import { useScrolled } from "@/lib/hooks/useScrolled";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -14,19 +14,10 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const isScrolled = useScrolled(100);
   const { theme } = useTheme();
   const pathname = usePathname();
   const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -71,7 +62,7 @@ export default function Navbar() {
               key={link.label} 
               href={link.href}
               onClick={(e) => handleNavigation(e, link.href)}
-              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-200 focus-ring ${
                 isActive 
                   ? "text-text bg-stroke/50" 
                   : "text-muted hover:text-text hover:bg-stroke/50"
@@ -85,10 +76,10 @@ export default function Navbar() {
         <a 
           href="#contact" 
           onClick={handleContactClick}
-          className="group relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-500 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible hover:bg-stroke/30"
+          className="group relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-500 text-text focus-ring overflow-visible hover:bg-stroke/30"
         >
           {/* Gradient border ring on hover */}
-          <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
+          <span className="absolute inset-0 -m-[2px] rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             <span className="flex w-full h-full rounded-full bg-surface backdrop-blur-md" />
           </span>
           <span className="relative z-10">Say hi ↗</span>
