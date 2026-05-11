@@ -16,18 +16,14 @@ export default function AboutPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const skills = [
-    "UI Design",
-    "UX Research",
-    "Prototyping",
-    "Figma",
-    "Framer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Design Systems",
-    "Data Visualization",
-    "Motion Design",
+    "Blockchain",
+    "AI",
+    "Full-Stack Development",
+    "Design + UI/UX",
+    "Data Analytics",
+    "Product Management",
+    "Digital Marketing",
+    "Fundraising",
   ];
   const timelineContainer = {
     hidden: {},
@@ -172,85 +168,243 @@ export default function AboutPage() {
               whileInView="show"
               viewport={{ once: true, margin: "-50px" }}
             >
-              {/* Experience Item 1 */}
-              <motion.div 
+              <motion.div
                 className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
                 variants={timelineItem}
               >
-                {/* Dot */}
-                <motion.div 
+                <motion.div
                   className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
                   variants={timelineDot}
                 />
-                
-                <div className="text-sm text-muted">May 2025 - Dec 2025</div>
+                <div className="text-sm text-muted">Jan 2024 — Present</div>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl text-text font-medium mb-1">UI/UX Designer</h3>
-                    <p className="text-base text-muted font-display italic">Cedarline Labs</p>
+                    <h3 className="text-xl text-text font-medium mb-1">Technology Partner &amp; Advisor</h3>
+                    <p className="text-base text-muted font-display italic">Baird Augustine · San Francisco Bay Area · Part-time, Remote</p>
                   </div>
                   <div className="space-y-3 text-base text-muted leading-[1.7]">
                     <p>
-                      Led design initiatives for SaaS products, establishing user-centered design principles and collaborating with cross-functional teams to deliver high-quality digital experiences.
-                    </p>
-                    <p>
-                      Conducted user research and usability testing to inform design decisions, while developing design systems that improved team velocity and product consistency.
+                      Partnered with a Silicon Valley-based neo-investment bank to advise on technology-related initiatives across deal flow, diligence, and product strategy.
                     </p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Experience Item 2 */}
-              <motion.div 
+              <motion.div
                 className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
                 variants={timelineItem}
               >
-                {/* Dot */}
-                <motion.div 
+                <motion.div
                   className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
                   variants={timelineDot}
                 />
-                
-                <div className="text-sm text-muted">Jun 2024 - Jun 2025</div>
+                <div className="text-sm text-muted">Aug 2023 — Present</div>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl text-text font-medium mb-1">UI Designer</h3>
-                    <p className="text-base text-muted font-display italic">Marrow Studio</p>
+                    <h3 className="text-xl text-text font-medium mb-1">Chief Deals Officer</h3>
+                    <p className="text-base text-muted font-display italic">Deelz · San Francisco Bay Area · Part-time, Remote</p>
                   </div>
                   <div className="space-y-3 text-base text-muted leading-[1.7]">
                     <p>
-                      Designed user interfaces for web and mobile applications across various industries. Created design systems and component libraries that reduced design-to-development handoff time by 40%.
-                    </p>
-                    <p>
-                      Worked closely with developers to ensure pixel-perfect implementations, participating in daily standups and design reviews throughout the development lifecycle.
+                      Leading a project incubated by AW3 Technology to develop an application that helps users find deals on used cars efficiently.
                     </p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Experience Item 3 */}
-              <motion.div 
+              <motion.div
                 className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
                 variants={timelineItem}
               >
-                {/* Dot */}
-                <motion.div 
+                <motion.div
                   className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
                   variants={timelineDot}
                 />
-                
-                <div className="text-sm text-muted">Feb 2025 - May 2025</div>
+                <div className="text-sm text-muted">Mar 2020 — Present</div>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-xl text-text font-medium mb-1">Visual Designer</h3>
-                    <p className="text-base text-muted font-display italic">Northwind Systems, Inc.</p>
+                    <h3 className="text-xl text-text font-medium mb-1">Galactic Ambassador</h3>
+                    <p className="text-base text-muted font-display italic">AW3 Technology · San Francisco Bay Area · Full-time</p>
                   </div>
                   <div className="space-y-3 text-base text-muted leading-[1.7]">
                     <p>
-                      Created visual designs for marketing campaigns and brand materials across digital and print media. Developed brand guidelines and visual identity systems that ensured consistency across all touchpoints.
+                      Founder of an award-winning venture studio using web3, AI, and distributed computing to tackle global challenges. Helped many companies build products from scratch, generate revenue, and raise millions of dollars. Inventor of Proof of Love blockchain consensus (patent pending).
                     </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Jun 2022 — Mar 2023</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Venture Fellow</h3>
+                    <p className="text-base text-muted font-display italic">Newchip Accelerator · San Francisco Bay Area · Part-time</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
                     <p>
-                      Designed graphics for social media and digital platforms, creating templates that empowered marketing teams to produce on-brand content independently.
+                      Participated in an accelerator program focused on venture funding and startup scaling.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Aug 2021 — Dec 2021</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Cohort Participant</h3>
+                    <p className="text-base text-muted font-display italic">VC Lab · Part-time</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Completed a 5-month program on the fundamentals of starting and operating a venture capital fund.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Aug 2018 — Apr 2020</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Co-Founder</h3>
+                    <p className="text-base text-muted font-display italic">Learna Inc. · Greater Los Angeles Area</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Co-founded a SaaS platform for building and administering online courses, enabling educational organizations to scale online learning experiences.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Jan 2017 — Jun 2018</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Co-Founder</h3>
+                    <p className="text-base text-muted font-display italic">We Stand Up</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Established a 501(c)(4) nonprofit aimed at generating social and political awareness among millennials through web-based and social media content.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Jul 2016 — Dec 2016</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Software Consultant</h3>
+                    <p className="text-base text-muted font-display italic">Kunai · Oakland, CA</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Worked on financial technology projects, including a significant engagement for American Express.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Oct 2015 — Apr 2016</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Software Engineer</h3>
+                    <p className="text-base text-muted font-display italic">Gap (through Insight Global) · San Francisco, CA</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Contributed to Gap&apos;s in-house Agile team on point-of-sale systems, implementing and testing web and mobile POS solutions.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">May 2014 — Oct 2015</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Business Intelligence Consultant / Software Engineer</h3>
+                    <p className="text-base text-muted font-display italic">Saama Technologies, Inc. · San Jose, CA</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Managed business intelligence and software engineering projects for clients including Cisco, Unilever, and Genentech.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="grid md:grid-cols-[180px_1fr] gap-6 relative pl-8 md:pl-0"
+                variants={timelineItem}
+              >
+                <motion.div
+                  className="absolute left-0 md:left-[180px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg -translate-x-1/2"
+                  variants={timelineDot}
+                />
+                <div className="text-sm text-muted">Dec 2013 — May 2014</div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl text-text font-medium mb-1">Business Intelligence Training</h3>
+                    <p className="text-base text-muted font-display italic">Saama Technologies, Inc. · Pune Area, India</p>
+                  </div>
+                  <div className="space-y-3 text-base text-muted leading-[1.7]">
+                    <p>
+                      Completed six months of intensive training in business intelligence.
                     </p>
                   </div>
                 </div>
@@ -304,11 +458,11 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3">
             <div>
-              <h3 className="text-lg text-text font-medium mb-1">Self-Taught Designer & Developer</h3>
-              <p className="text-base text-muted font-display italic mb-2">Online Learning & Practice</p>
-              <p className="text-sm text-muted mb-3">2021 - Present</p>
+              <h3 className="text-lg text-text font-medium mb-1">Bachelor of Arts in Computer Science</h3>
+              <p className="text-base text-muted font-display italic mb-2">University of California, Santa Barbara</p>
+              <p className="text-sm text-muted mb-3">2009 — 2013</p>
               <p className="text-base text-muted leading-[1.7]">
-                Continuous learning through online courses, documentation, and hands-on project work. Focused on user-centered design, modern web development, and design systems.
+                B.A. in Computer Science with an emphasis in Computational Economics.
               </p>
             </div>
           </div>
