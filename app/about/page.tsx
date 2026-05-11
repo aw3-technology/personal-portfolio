@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import gsap from "gsap";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import Navbar from "@/components/Navbar";
+import { ArrowDiagonal } from "@/components/Icons";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
   ssr: false,
@@ -88,7 +89,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-8 md:mb-12"
         >
-          <span className="inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em] mb-6">
+          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-stroke" />
             Resume
           </span>
@@ -488,17 +489,11 @@ export default function AboutPage() {
               <span className="text-base text-muted group-hover:text-text transition-colors">
                 Featured on Awwwards
               </span>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={16}
+                height={16}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </Link>
             <Link 
               href="#" 
@@ -507,17 +502,11 @@ export default function AboutPage() {
               <span className="text-base text-muted group-hover:text-text transition-colors">
                 Design work featured on Behance
               </span>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={16}
+                height={16}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </Link>
             <Link 
               href="#" 
@@ -526,17 +515,11 @@ export default function AboutPage() {
               <span className="text-base text-muted group-hover:text-text transition-colors">
                 Speaker at Design Matters Conference
               </span>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={16}
+                height={16}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </Link>
             <Link 
               href="#" 
@@ -545,17 +528,11 @@ export default function AboutPage() {
               <span className="text-base text-muted group-hover:text-text transition-colors">
                 Article published on Smashing Magazine
               </span>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={16}
+                height={16}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </Link>
             <Link 
               href="#" 
@@ -564,17 +541,11 @@ export default function AboutPage() {
               <span className="text-base text-muted group-hover:text-text transition-colors">
                 10x featured on Dribbble
               </span>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={16}
+                height={16}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </Link>
           </div>
         </motion.div>
@@ -630,17 +601,11 @@ export default function AboutPage() {
                 <span className="flex w-full h-full rounded-full bg-bg" />
               </span>
               <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+              <ArrowDiagonal
+                width={18}
+                height={18}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              />
             </motion.a>
           </motion.div>
 

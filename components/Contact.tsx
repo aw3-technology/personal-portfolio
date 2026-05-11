@@ -5,16 +5,21 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { ArrowDiagonal } from "./Icons";
+import GradientBorderRing from "./ui/GradientBorderRing";
+import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
 
 const FloatingObjectsContact = dynamic(() => import("./FloatingObjectsContact"), {
   ssr: false,
 });
 
 const socials = [
-  { name: "Twitter", href: "https://x.com/johnanderson" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/johnanderson/" },
-  { name: "Dribbble", href: "https://dribbble.com/" },
-  { name: "GitHub", href: "https://github.com/johnanderson" },
+  { name: "X", href: "https://x.com/aw3_xyz" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/will-schulz/" },
+  { name: "GitHub", href: "https://github.com/aw3-technology" },
+  { name: "Instagram", href: "https://www.instagram.com/will_parkerr/" },
+  { name: "Facebook", href: "https://www.facebook.com/will.schulz/" },
+  { name: "Calendly", href: "https://calendly.com/will-schulz-aw3/30min" },
 ];
 
 export default function Contact() {
@@ -72,12 +77,12 @@ export default function Contact() {
         </div>
 
         {/* Center content */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUp.hidden}
+          whileInView={fadeUp.visible}
+          viewport={viewportOnce}
+          transition={smoothTransition()}
         >
           <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
             Have a project in mind? I&apos;m always open to new ideas and collaborations.
@@ -85,17 +90,12 @@ export default function Contact() {
           
           <motion.a
             whileTap={{ scale: 0.97 }}
-            href="mailto:hello@johnanderson.com"
+            href="mailto:will.schulz@aw3.tech"
             className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
           >
-            {/* Gradient border ring - only outline */}
-            <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-              <span className="flex w-full h-full rounded-full bg-bg" />
-            </span>
-            <span className="text-lg text-text relative z-10 break-all sm:break-normal">hello@johnanderson.com</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10">
-              <path d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
+            <GradientBorderRing />
+            <span className="text-lg text-text relative z-10 break-all sm:break-normal">will.schulz@aw3.tech</span>
+            <ArrowDiagonal width={18} height={18} className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10" />
           </motion.a>
         </motion.div>
 

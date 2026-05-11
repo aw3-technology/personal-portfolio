@@ -5,6 +5,9 @@ import Link from "next/link";
 import ImageWithSkeleton from "./ImageWithSkeleton";
 import { projects, Project } from "@/lib/projects";
 import { useCursor } from "@/components/CursorContext";
+import { ArrowRight } from "@/components/Icons";
+import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
+import GradientBorderRing from "@/components/ui/GradientBorderRing";
 
 export default function SelectedWorks() {
 
@@ -12,15 +15,15 @@ export default function SelectedWorks() {
     <section id="work" className="bg-bg relative z-10 py-16 md:py-24 overflow-hidden">
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUp.hidden}
+          whileInView={fadeUp.visible}
+          viewport={viewportOnce}
+          transition={smoothTransition()}
         >
           <div>
-            <span className="inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em] mb-4">
+            <span className="eyebrow-label inline-flex items-center gap-2 mb-4">
               <span className="w-8 h-px bg-stroke" />
               Selected Work
             </span>
@@ -35,14 +38,9 @@ export default function SelectedWorks() {
             href="/portfolio"
             className="group relative hidden md:inline-flex items-center gap-3 px-5 py-3 bg-bg border-2 border-stroke rounded-full text-sm text-muted transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
           >
-            {/* Gradient border ring - only outline */}
-            <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-              <span className="flex w-full h-full rounded-full bg-bg" />
-            </span>
+            <GradientBorderRing />
             <span className="relative z-10 group-hover:text-text transition-colors duration-300">View all work</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform relative z-10">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight width={14} height={14} className="group-hover:translate-x-1 transition-transform relative z-10" />
           </Link>
         </motion.div>
 
@@ -61,14 +59,9 @@ export default function SelectedWorks() {
             href="/portfolio"
             className="group relative inline-flex w-fit items-center justify-center gap-3 px-6 py-3 bg-bg border-2 border-stroke rounded-full text-sm text-muted transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
           >
-            {/* Gradient border ring - only outline */}
-            <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-              <span className="flex w-full h-full rounded-full bg-bg" />
-            </span>
+            <GradientBorderRing />
             <span className="relative z-10 group-hover:text-text transition-colors duration-300">View all work</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform relative z-10">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight width={14} height={14} className="group-hover:translate-x-1 transition-transform relative z-10" />
           </Link>
         </div>
       </div>
@@ -98,10 +91,10 @@ const BentoCard = ({
   return (
     <motion.div
       className={`${config.colSpan}`}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={fadeUp.hidden}
+      whileInView={fadeUp.visible}
+      viewport={viewportOnce}
+      transition={smoothTransition(index * 0.1)}
     >
       <Link
         href={`/work/${project.slug}`}

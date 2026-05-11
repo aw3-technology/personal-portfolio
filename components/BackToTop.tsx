@@ -2,6 +2,7 @@
  
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import GradientBorderRing from "./ui/GradientBorderRing";
  
 export default function BackToTop() {
    const [isVisible, setIsVisible] = useState(false);
@@ -31,24 +32,21 @@ export default function BackToTop() {
        }`}
        aria-label="Back to top"
      >
-       {/* Gradient border ring on hover */}
-       <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-         <span className="flex w-full h-full rounded-full bg-bg items-center justify-center">
-           <svg
-             width="20"
-             height="20"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             strokeWidth="2"
-             strokeLinecap="round"
-             strokeLinejoin="round"
-             className="text-text"
-           >
-             <path d="M18 15l-6-6-6 6" />
-           </svg>
-         </span>
-       </span>
+       <GradientBorderRing>
+         <svg
+           width="20"
+           height="20"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           strokeWidth="2"
+           strokeLinecap="round"
+           strokeLinejoin="round"
+           className="text-text"
+         >
+           <path d="M18 15l-6-6-6 6" />
+         </svg>
+       </GradientBorderRing>
        
        {/* Icon for non-hover state */}
        <svg

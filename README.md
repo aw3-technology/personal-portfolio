@@ -1,6 +1,6 @@
-# Modern Portfolio Template
+# William Schulz — Personal Portfolio
 
-A clean, modern portfolio template for designers and developers. Built with Next.js 14, TypeScript, and Tailwind CSS.
+Personal portfolio for William Schulz — software developer, designer, creative, and founder based in San Francisco. Built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## What's Inside
 
@@ -31,7 +31,7 @@ A clean, modern portfolio template for designers and developers. Built with Next
 
 ## Getting Started
 
-You'll need Node.js 18 or newer installed.
+You'll need Node.js 20 LTS or newer installed (Node 24 LTS recommended).
 
 1. Download and unzip the template
 2. Open terminal and navigate to the folder
@@ -43,7 +43,7 @@ That's it. You're running locally now.
 
 ## Making It Yours
 
-The template comes with sample content (John Anderson from San Francisco). Here's what you need to change:
+The site is configured for William Schulz (willschulz.me). If you fork this for your own use, here's what to change:
 
 ### Your Info
 
@@ -57,7 +57,7 @@ Open these files and update them with your details:
 // In Contact.tsx, update this:
 const socials = [
   { name: "Twitter", href: "https://x.com/yourhandle" },
-  { name: "LinkedIn", href: "https://linkedin.com/in/yourprofile" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/will-schulz/" },
   // ... etc
 ];
 ```
@@ -376,4 +376,4 @@ Includes homepage, portfolio page, about page, case study templates, dark mode, 
 
 Built for designers and developers who want a solid starting point for their portfolio.
 
-Questions? luttestudio28@gmail.com
+Questions? will.schulz@aw3.tech

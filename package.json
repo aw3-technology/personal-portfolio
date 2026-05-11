@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "description": "A modern, premium portfolio template built with Next.js 14, TypeScript, and Framer Motion",
-  "author": "Your Name",
+  "author": "William Schulz",
   "license": "MIT",
   "type": "module",
   "scripts": {

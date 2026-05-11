@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState, useRef } from "react";
-import type { CaseStudyBlock, CaseStudyLayout, Project } from "@/lib/projects";
+import type { Project } from "@/lib/projects";
 import { projects } from "@/lib/projects";
+import { groupCaseStudyBlocks } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import ImageWithSkeleton from "./ImageWithSkeleton";
@@ -11,6 +12,19 @@ import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
 import { useCursor } from "./CursorContext";
 import Navbar from "./Navbar";
+import { ArrowRight } from "./Icons";
+import { createTextProcessor } from "./TextProcessor";
+import {
+  renderCaseStudyBlock,
+  renderLayoutSection,
+} from "./CaseStudyBlockRenderer";
+import {
+  fadeUp,
+  fadeUpSm,
+  fadeUpLg,
+  smoothTransition,
+  viewportOnce,
+} from "@/lib/animations";
 
 export default function CaseStudyPage({ project }: { project: Project }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,401 +63,15 @@ export default function CaseStudyPage({ project }: { project: Project }) {
   const caseStudyBlocks = project.caseStudy?.blocks ?? [];
   const caseStudyLayout = project.caseStudy?.layout ?? [];
 
-  type RenderBlock = CaseStudyBlock | { type: "imageGroup"; blocks: CaseStudyBlock[] };
-
-  const groupCaseStudyBlocks = (blocks: CaseStudyBlock[]): RenderBlock[] => {
-    const grouped: RenderBlock[] = [];
-    let buffer: CaseStudyBlock[] = [];
-
-    const flushBuffer = () => {
-      if (buffer.length === 1) {
-        grouped.push(buffer[0]);
-      } else if (buffer.length > 1) {
-        grouped.push({ type: "imageGroup", blocks: [...buffer] });
-      }
-      buffer = [];
-    };
-
-    blocks.forEach((block) => {
-      if (block.type === "image") {
-        buffer.push(block);
-      } else {
-        flushBuffer();
-        grouped.push(block);
-      }
-    });
-
-    flushBuffer();
-    return grouped;
-  };
-
   const groupedCaseStudyBlocks = useMemo(
     () => groupCaseStudyBlocks(caseStudyBlocks),
     [caseStudyBlocks]
   );
 
-  const emphasisKeywords = [
-    "REZI.AI",
-    "AI music",
-    "AI",
-    "Calm",
-    "Headspace",
-    "Endel",
-    "RemoteNest",
-    "Figma"
-  ];
-
-  const escapeRegExp = (value: string) =>
-    value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  const renderEmphasis = (text: string) => {
-    const pattern = new RegExp(
-      `(${emphasisKeywords.map(escapeRegExp).join("|")})`,
-      "g"
-    );
-    const parts = text.split(pattern).filter(Boolean);
-
-    return parts.map((part, partIndex) =>
-      emphasisKeywords.includes(part) ? (
-        <span key={`em-${partIndex}`} className="font-display italic">
-          {part}
-        </span>
-      ) : (
-        part
-      )
-    );
-  };
-
-  const renderQuotedText = (text: string) => {
-    const parts: React.ReactNode[] = [];
-    const regex = /"([^"]+)"/g;
-    let lastIndex = 0;
-    let match: RegExpExecArray | null;
-    let keyIndex = 0;
-
-    while ((match = regex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        parts.push(...renderEmphasis(text.slice(lastIndex, match.index)));
-      }
-      parts.push(
-        <span key={`quote-${keyIndex++}`} className="font-display italic">
-          {renderEmphasis(`"${match[1]}"`)}
-        </span>
-      );
-      lastIndex = match.index + match[0].length;
-    }
-
-    if (lastIndex < text.length) {
-      parts.push(...renderEmphasis(text.slice(lastIndex)));
-    }
-
-    return parts;
-  };
-
-  const renderHeadingText = (text: string, applyLastWord = true) => {
-    if (!applyLastWord) {
-      return renderQuotedText(text);
-    }
-
-    const words = text.trim().split(" ");
-    if (words.length < 2) {
-      return renderQuotedText(text);
-    }
-
-    const lastWord = words.pop() ?? "";
-    const rest = words.join(" ");
-
-    return (
-      <>
-        {renderQuotedText(rest)}{" "}
-        <span className="font-display italic">{renderQuotedText(lastWord)}</span>
-      </>
-    );
-  };
-  const renderBodyText = (text: string) => text;
-
-  const renderImageBlock = (
-    block: Extract<CaseStudyBlock, { type: "image" }>,
-    index: number,
-    aspectOverride?: "video" | "4/3" | "3/2" | "square"
-  ) => {
-    const aspectKey = aspectOverride ?? block.aspect;
-    const aspectClass =
-      aspectKey === "4/3"
-        ? "aspect-[4/3]"
-        : aspectKey === "3/2"
-          ? "aspect-[3/2]"
-          : aspectKey === "square"
-            ? "aspect-square"
-            : "aspect-video";
-
-    return (
-      <div key={`block-${index}`} className="h-full">
-        <div
-          className={`w-full h-full ${aspectClass} bg-surface rounded-2xl border border-stroke overflow-hidden relative group`}
-        >
-          {block.src ? (
-            <ImageWithSkeleton
-              src={block.src}
-              alt={block.alt ?? block.label}
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          ) : (
-            <div className="flex items-center justify-center px-6 h-full">
-              <span className="text-muted/50 text-sm md:text-base text-center font-display italic">
-                {block.label}
-              </span>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  const renderHeadingBlock = (heading?: string) => {
-    if (!heading) {
-      return null;
-    }
-
-    return (
-      <h2 className="text-3xl md:text-[2.75rem] lg:text-5xl text-text leading-[1.08]">
-        {renderHeadingText(heading)}
-      </h2>
-    );
-  };
-
-  const renderCaseStudyBlock = (block: RenderBlock, index: number) => {
-    switch (block.type) {
-      case "heading": {
-        const HeadingTag = block.level === 3 ? "h3" : "h2";
-        const headingClass =
-          block.level === 3
-            ? "text-2xl md:text-[2rem] text-text"
-            : "text-3xl md:text-[2.75rem] text-text";
-        const headingParts = block.text.split("—");
-
-        return (
-          <div key={`block-${index}`} className="space-y-4">
-            {block.eyebrow && (
-              <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em]">
-                <span className="w-8 h-px bg-stroke" />
-                {block.eyebrow}
-              </span>
-            )}
-            <HeadingTag className={`${headingClass} leading-[1.08]`}>
-              {headingParts.length > 1 ? (
-                <>
-                  {renderHeadingText(headingParts[0].trim())}{" "}
-                  <span className="font-display italic">
-                    {renderHeadingText(
-                      headingParts.slice(1).join("—").trim(),
-                      false
-                    )}
-                  </span>
-                </>
-              ) : (
-                renderHeadingText(block.text)
-              )}
-            </HeadingTag>
-          </div>
-        );
-      }
-      case "paragraph":
-        return (
-          <p
-            key={`block-${index}`}
-            className="text-base md:text-[1.05rem] text-muted leading-[1.8] max-w-3xl"
-          >
-            {renderBodyText(block.text)}
-          </p>
-        );
-      case "list":
-        return (
-          <ul
-            key={`block-${index}`}
-            className="space-y-3 max-w-3xl"
-          >
-            {block.items.map((item, itemIndex) => (
-              <li key={`block-${index}-item-${itemIndex}`} className="flex items-start gap-3 text-base md:text-[1.05rem] text-muted leading-[1.75]">
-                <span className="text-accent text-sm mt-0.5 flex-shrink-0">→</span>
-                <span>{renderBodyText(item)}</span>
-              </li>
-            ))}
-          </ul>
-        );
-      case "callout": {
-        const isMetric = block.tone === "metric";
-        
-        if (isMetric) {
-           return (
-            <motion.div
-              key={`block-${index}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full py-12 md:py-14 border-y border-stroke my-12"
-            >
-              <div className="flex flex-col items-center gap-3 text-center">
-                {block.label && (
-                  <span className="inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em]">
-                    <span className="w-6 h-px bg-stroke" />
-                    {block.label}
-                    <span className="w-6 h-px bg-stroke" />
-                  </span>
-                )}
-
-                <h3 className="text-3xl md:text-[2.75rem] lg:text-5xl text-text leading-[1.08] max-w-2xl">
-                  <span className="font-display italic">{block.text}</span>
-                </h3>
-              </div>
-            </motion.div>
-           );
-        }
-
-        return (
-          <motion.div
-            key={`block-${index}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full pl-6 md:pl-8 border-l-2 border-accent my-12 max-w-4xl"
-          >
-            <p className="text-xl md:text-[1.6rem] text-text/90 leading-[1.6] italic">
-              "{renderBodyText(block.text)}"
-            </p>
-          </motion.div>
-        );
-      }
-      case "image":
-        return renderImageBlock(block, index);
-      case "imageGroup": {
-        const columnClass =
-          block.blocks.length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2";
-        const imageBlocks = block.blocks.map(b => b as Extract<CaseStudyBlock, { type: "image" }>);
-        const aspectOverride =
-          imageBlocks.every((item) => item.aspect === imageBlocks[0].aspect)
-            ? imageBlocks[0].aspect
-            : "video";
-
-        return (
-          <div
-            key={`block-${index}`}
-            className={`grid grid-cols-1 ${columnClass} gap-10 md:gap-12`}
-          >
-            {imageBlocks.map((imageBlock, imageIndex) =>
-              renderImageBlock(
-                imageBlock,
-                index * 100 + imageIndex,
-                aspectOverride
-              )
-            )}
-          </div>
-        );
-      }
-      default:
-        return null;
-    }
-  };
-
-  const renderLayoutSection = (layout: CaseStudyLayout, index: number) => {
-    switch (layout.type) {
-      case "split": {
-        const isFlipped = layout.flip;
-        return (
-          <section
-            key={`layout-${index}`}
-            className="grid gap-12 md:gap-16 md:grid-cols-2 items-start"
-          >
-            <div className={isFlipped ? "md:order-2" : ""}>
-              <div className="flex flex-col gap-6 md:gap-8">
-                {renderHeadingBlock(layout.heading)}
-                {layout.content.map((block, blockIndex) =>
-                  renderCaseStudyBlock(block, index * 1000 + blockIndex)
-                )}
-              </div>
-            </div>
-            <div className={isFlipped ? "md:order-1" : ""}>
-              <div className="flex flex-col gap-6 md:gap-8">
-                {layout.media?.map((block, blockIndex) =>
-                  renderCaseStudyBlock(block, index * 1000 + blockIndex + 100)
-                )}
-              </div>
-            </div>
-          </section>
-        );
-      }
-      case "grid":
-        return (
-          <section key={`layout-${index}`} className="flex flex-col gap-10 md:gap-14">
-            {renderHeadingBlock(layout.heading)}
-            {/* Bento Grid - Asymmetric Layout */}
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-8 auto-rows-[240px]">
-              {layout.items.map((block, itemIndex) => {
-                // Define bento grid patterns
-                const bentoPatterns = [
-                  "col-span-2 md:col-span-4 md:row-span-2", // Large featured
-                  "col-span-1 md:col-span-2 md:row-span-1", // Medium square
-                  "col-span-1 md:col-span-2 md:row-span-2", // Tall
-                ];
-                const pattern = bentoPatterns[itemIndex % bentoPatterns.length];
-                
-                return (
-                  <div key={`grid-${index}-${itemIndex}`} className={pattern}>
-                    {renderCaseStudyBlock(block, index * 1000 + itemIndex)}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        );
-      case "timeline":
-        return (
-          <section key={`layout-${index}`} className="flex flex-col gap-8 md:gap-12">
-            {renderHeadingBlock(layout.heading)}
-            <div className="grid gap-10 md:grid-cols-3">
-              {layout.steps.map((step, stepIndex) => (
-                <motion.div
-                  key={`timeline-${index}-${stepIndex}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: stepIndex * 0.1 }}
-                  className="relative pl-6 border-l-2 border-stroke"
-                >
-                  <div className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
-                  
-                  <p className="text-[11px] text-muted/80 uppercase tracking-[0.3em] mb-4">
-                    Step {stepIndex + 1}
-                  </p>
-                  
-                  <h3 className="text-lg md:text-[1.35rem] text-text mb-2">
-                    <span className="font-display italic">{step.title}</span>
-                  </h3>
-                  <p className="text-sm md:text-[1.02rem] text-muted leading-[1.7]">{step.body}</p>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-        );
-      case "stack":
-        return (
-          <section key={`layout-${index}`} className="flex flex-col gap-8 md:gap-12">
-            {renderHeadingBlock(layout.heading)}
-            <div className="flex flex-col gap-6 md:gap-8">
-              {layout.blocks.map((block, blockIndex) =>
-                renderCaseStudyBlock(block, index * 1000 + blockIndex)
-              )}
-            </div>
-          </section>
-        );
-      default:
-        return null;
-    }
-  };
+  const textProcessor = useMemo(
+    () => createTextProcessor(project.emphasisKeywords ?? []),
+    [project.emphasisKeywords]
+  );
 
   // Get next and previous projects
   const currentIndex = projects.findIndex((p) => p.slug === project.slug);
@@ -461,30 +89,30 @@ export default function CaseStudyPage({ project }: { project: Project }) {
       <section ref={heroRef} className="pt-36 pb-20 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
         <div className="max-w-4xl">
             {/* Category Badge */}
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            <motion.span
+              initial={fadeUpSm.hidden}
+              animate={fadeUpSm.visible}
+              transition={smoothTransition(0.1, 0.8)}
               className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7"
             >
               <span className="w-8 h-px bg-stroke" />
               {project.category}
             </motion.span>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            <motion.h1
+              initial={fadeUpLg.hidden}
+              animate={fadeUpLg.visible}
+              transition={smoothTransition(0.2, 0.9)}
               className="text-4xl md:text-[3.25rem] lg:text-6xl text-text leading-[1.03] mb-6"
             >
               {project.title.split(' ')[0]}{' '}
               <span className="font-display italic">{project.title.split(' ').slice(1).join(' ')}</span>
             </motion.h1>
             
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            <motion.p
+              initial={fadeUpSm.hidden}
+              animate={fadeUpSm.visible}
+              transition={smoothTransition(0.3, 0.9)}
               className="text-lg md:text-[1.25rem] text-muted max-w-2xl leading-[1.75] mb-10"
             >
               {project.summary}
@@ -492,10 +120,10 @@ export default function CaseStudyPage({ project }: { project: Project }) {
         </div>
         
             {/* Meta Info */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            <motion.div
+              initial={fadeUpSm.hidden}
+              animate={fadeUpSm.visible}
+              transition={smoothTransition(0.4, 0.9)}
               className="pt-8 border-t border-stroke"
             >
               <div className="flex flex-wrap items-start gap-7 md:gap-12">
@@ -557,9 +185,9 @@ export default function CaseStudyPage({ project }: { project: Project }) {
       {/* Main Image Mockup */}
       <section ref={heroImageRef} className="px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto mb-24 md:mb-32">
          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            animate={fadeUp.visible}
+            transition={smoothTransition(0.5)}
             className="w-full aspect-video rounded-2xl md:rounded-3xl overflow-hidden bg-surface border border-stroke relative"
           >
             <div className="absolute inset-0 w-full h-full">
@@ -584,25 +212,25 @@ export default function CaseStudyPage({ project }: { project: Project }) {
             {caseStudyLayout.length > 0 ? (
               <div className="flex flex-col gap-14 md:gap-20">
                 {caseStudyLayout.map((layout, index) =>
-                  renderLayoutSection(layout, index)
+                  renderLayoutSection(layout, index, textProcessor)
                 )}
               </div>
             ) : groupedCaseStudyBlocks.length > 0 ? (
               <div className="flex flex-col gap-8 md:gap-10">
                 {groupedCaseStudyBlocks.map((block, index) =>
-                  renderCaseStudyBlock(block, index)
+                  renderCaseStudyBlock(block, index, textProcessor)
                 )}
               </div>
             ) : (
             <>
             {/* Challenge Section (Combined Overview + Problem) */}
-            <motion.section 
-              id="challenge" 
+            <motion.section
+              id="challenge"
               className="scroll-mt-32"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={fadeUp.hidden}
+              whileInView={fadeUp.visible}
+              viewport={viewportOnce}
+              transition={smoothTransition()}
             >
                <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
                  <span className="w-6 h-px bg-stroke" />
@@ -639,13 +267,13 @@ export default function CaseStudyPage({ project }: { project: Project }) {
 
 
             {/* Process */}
-            <motion.section 
-              id="process" 
+            <motion.section
+              id="process"
               className="scroll-mt-32"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={fadeUp.hidden}
+              whileInView={fadeUp.visible}
+              viewport={viewportOnce}
+              transition={smoothTransition()}
             >
                 <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
                   <span className="w-6 h-px bg-stroke" />
@@ -682,13 +310,13 @@ export default function CaseStudyPage({ project }: { project: Project }) {
             </motion.section>
 
             {/* Solution */}
-            <motion.section 
-              id="solution" 
+            <motion.section
+              id="solution"
               className="scroll-mt-32"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={fadeUp.hidden}
+              whileInView={fadeUp.visible}
+              viewport={viewportOnce}
+              transition={smoothTransition()}
             >
                 <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7">
                   <span className="w-6 h-px bg-stroke" />
@@ -732,13 +360,13 @@ export default function CaseStudyPage({ project }: { project: Project }) {
             </motion.section>
 
             {/* Outcome */}
-            <motion.section 
-              id="outcome" 
+            <motion.section
+              id="outcome"
               className="scroll-mt-32"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={fadeUp.hidden}
+              whileInView={fadeUp.visible}
+              viewport={viewportOnce}
+              transition={smoothTransition()}
             >
                 <span className="inline-flex items-center gap-2 text-[11px] text-muted/80 uppercase tracking-[0.32em] mb-7 max-w-3xl">
                   <span className="w-6 h-px bg-stroke" />
@@ -767,12 +395,12 @@ export default function CaseStudyPage({ project }: { project: Project }) {
 
             {/* Next Project Navigation */}
             {nextProject && nextProject.slug !== project.slug && (
-              <motion.section 
+              <motion.section
                 className="mt-24 border-t border-stroke"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={fadeUpSm.hidden}
+                whileInView={fadeUpSm.visible}
+                viewport={viewportOnce}
+                transition={smoothTransition(0, 0.8)}
               >
                 <Link
                   href={`/work/${nextProject.slug}`}
@@ -841,19 +469,13 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                       {/* Static border (visible by default) */}
                       <div className="absolute inset-0 rounded-full border-2 border-stroke group-hover:border-transparent transition-all duration-500" />
                       
-                      <svg 
-                        width="28" 
-                        height="28" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
+                      <ArrowRight
+                        width={28}
+                        height={28}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         className="relative z-10 text-text group-hover:translate-x-1 transition-transform duration-300"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
+                      />
                     </div>
                   </div>
                 </Link>
@@ -869,17 +491,17 @@ export default function CaseStudyPage({ project }: { project: Project }) {
           <div className="pt-8 border-t border-stroke">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Socials */}
-            <div className="flex items-center gap-6 md:gap-8">
+            <div className="flex flex-wrap items-center gap-6 md:gap-8">
               <Link
-                href="https://x.com/yourprofile"
+                href="https://x.com/aw3_xyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
               >
-                Twitter
+                X
               </Link>
               <Link
-                href="https://www.linkedin.com/in/yourprofile"
+                href="https://www.linkedin.com/in/will-schulz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
@@ -887,20 +509,28 @@ export default function CaseStudyPage({ project }: { project: Project }) {
                 LinkedIn
               </Link>
               <Link
-                href="https://dribbble.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Dribbble
-              </Link>
-              <Link
-                href="https://github.com/yourprofile"
+                href="https://github.com/aw3-technology"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
               >
                 GitHub
+              </Link>
+              <Link
+                href="https://www.instagram.com/will_parkerr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
+              >
+                Instagram
+              </Link>
+              <Link
+                href="https://calendly.com/will-schulz-aw3/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
+              >
+                Calendly
               </Link>
             </div>
             

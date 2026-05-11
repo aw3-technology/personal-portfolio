@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://yourportfolio.com/sitemap.xml",
+    sitemap: "https://willschulz.me/sitemap.xml",
   };
 }

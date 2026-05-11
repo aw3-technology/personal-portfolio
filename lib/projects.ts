@@ -16,6 +16,13 @@ export type Project = {
   solution: string;
   outcome: string;
   meta?: { label: string; value: string | string[] }[];
+  /**
+   * Words/phrases inside this project's case-study text that should render
+   * in the display italic font. Only applied when the project also has
+   * `caseStudy.blocks` or `caseStudy.layout`. List longer/more-specific
+   * entries first ("AI music" before "AI") — matching is left-to-right.
+   */
+  emphasisKeywords?: string[];
   caseStudy?: {
     blocks: CaseStudyBlock[];
     layout?: CaseStudyLayout[];
@@ -87,6 +94,16 @@ export const projects: Project[] = [
     outcome:
       "Approved in three iterations and ready for build, with a clearer story and more premium tone."
     ,
+    emphasisKeywords: [
+      "REZI.AI",
+      "AI music",
+      "AI",
+      "Calm",
+      "Headspace",
+      "Endel",
+      "RemoteNest",
+      "Figma",
+    ],
   },
   {
     slug: "orbit-analytics",

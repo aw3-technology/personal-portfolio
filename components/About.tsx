@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
 
 const skills = {
   design: ["UI Design", "UX Research", "Prototyping", "Figma", "Framer"],
@@ -21,15 +22,15 @@ export default function About() {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header - matching Work section */}
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          initial={fadeUp.hidden}
+          whileInView={fadeUp.visible}
+          viewport={viewportOnce}
+          transition={smoothTransition()}
         >
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em] mb-4">
+            <span className="eyebrow-label inline-flex items-center gap-2 mb-4">
               <span className="w-8 h-px bg-stroke" />
               About Me
             </span>
@@ -55,12 +56,12 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 px-2">
           
           {/* Main intro card - spans 7 columns */}
-          <motion.div 
+          <motion.div
             className="md:col-span-7 bg-surface border border-stroke rounded-3xl p-6 md:p-8 relative overflow-hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition(0.1)}
           >
             {/* Wireframe decoration */}
             <div className="absolute top-8 right-8 w-20 h-20 border border-stroke/30 rounded-full opacity-50" />
@@ -79,12 +80,12 @@ export default function About() {
           </motion.div>
 
           {/* Stats card - spans 5 columns */}
-          <motion.div 
+          <motion.div
             className="md:col-span-5 bg-surface border border-stroke rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition(0.2)}
           >
             <span className="text-xs text-muted uppercase tracking-[0.2em] mb-6 block">Numbers</span>
             <div className="space-y-6">
@@ -101,12 +102,12 @@ export default function About() {
           </motion.div>
 
           {/* Design Skills - spans 5 columns */}
-          <motion.div 
+          <motion.div
             className="md:col-span-5 bg-surface border border-stroke rounded-3xl p-6 md:p-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition(0.3)}
           >
             <span className="text-xs text-muted uppercase tracking-[0.2em] mb-6 block">Design</span>
             <div className="flex flex-wrap gap-2">
@@ -122,12 +123,12 @@ export default function About() {
           </motion.div>
 
           {/* Development Skills - spans 7 columns */}
-          <motion.div 
+          <motion.div
             className="md:col-span-7 bg-surface border border-stroke rounded-3xl p-6 md:p-8 relative overflow-hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            initial={fadeUp.hidden}
+            whileInView={fadeUp.visible}
+            viewport={viewportOnce}
+            transition={smoothTransition(0.4)}
           >
             {/* Wireframe decoration */}
             <div className="absolute bottom-6 right-6 w-16 h-16 border border-stroke/30 rotate-12 opacity-50" />

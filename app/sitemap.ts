@@ -2,7 +2,7 @@
  import { projects } from "@/lib/projects";
  
  export default function sitemap(): MetadataRoute.Sitemap {
-   const baseUrl = "https://yourportfolio.com";
+   const baseUrl = "https://willschulz.me";
  
    const projectUrls = projects.map((project) => ({
      url: `${baseUrl}/work/${project.slug}`,

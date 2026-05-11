@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .eyebrow-label {
+    @apply text-xs text-muted uppercase tracking-[0.3em];
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+
+  .focus-ring-lg {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-4 focus-visible:ring-offset-bg;
+  }
+}
+
 :root {
   color-scheme: light;
   --bg: #FAFAFA;

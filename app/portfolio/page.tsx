@@ -13,6 +13,7 @@ import { useTheme } from "@/components/ThemeProvider";
 import { useCursor } from "@/components/CursorContext";
 import BackToTop from "@/components/BackToTop";
 import Navbar from "@/components/Navbar";
+import { ArrowDiagonal, Check, ChevronDown } from "@/components/Icons";
 import "./portfolio.css";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
@@ -76,10 +77,14 @@ export default function PortfolioPage() {
   // Close sort dropdown on outside click or escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
+      const target = event.target;
+      if (!(target instanceof Node)) {
+        return;
+      }
+      if (sortRef.current && !sortRef.current.contains(target)) {
         setIsSortOpen(false);
       }
-      if (categoryRef.current && !categoryRef.current.contains(event.target as Node)) {
+      if (categoryRef.current && !categoryRef.current.contains(target)) {
         setIsCategoryOpen(false);
       }
     };
@@ -141,7 +146,7 @@ export default function PortfolioPage() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-flex items-center gap-2 text-xs text-muted uppercase tracking-[0.3em] mb-6">
+          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-stroke" />
             Portfolio
           </span>
@@ -209,15 +214,11 @@ export default function PortfolioPage() {
                     <span className="whitespace-nowrap">
                       {selectedCategory !== "All" ? selectedCategory : "Select Category"}
                     </span>
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
+                    <ChevronDown
+                      width={12}
+                      height={12}
                       className={`shrink-0 text-current transition-transform duration-300 ${isCategoryOpen ? "rotate-180" : ""}`}
-                    >
-                      <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    />
                   </button>
                   
                   {isCategoryOpen && (
@@ -250,15 +251,7 @@ export default function PortfolioPage() {
                               >
                                 <span className="whitespace-nowrap">{cat}</span>
                                 {isActive && (
-                                  <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    className="text-text/90 shrink-0"
-                                  >
-                                    <path d="M2 6.2L4.6 8.6L10 3.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
+                                  <Check width={14} height={14} className="text-text/90 shrink-0" />
                                 )}
                               </button>
                             </li>
@@ -288,15 +281,11 @@ export default function PortfolioPage() {
                       {sortOptions.find((option) => option.value === sortBy)?.label ?? "Sort"}
                     </span>
                     <span className="pointer-events-none shrink-0">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
+                      <ChevronDown
+                        width={12}
+                        height={12}
                         className={`text-text/70 transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`}
-                      >
-                        <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      />
                     </span>
                   </button>
                   {isSortOpen && (
@@ -329,15 +318,7 @@ export default function PortfolioPage() {
                               >
                                 <span>{option.label}</span>
                                 {isActive && (
-                                  <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    className="text-text/90"
-                                  >
-                                    <path d="M2 6.2L4.6 8.6L10 3.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
+                                  <Check width={14} height={14} className="text-text/90" />
                                 )}
                               </button>
                             </li>
@@ -394,15 +375,11 @@ export default function PortfolioPage() {
                   {sortOptions.find((option) => option.value === sortBy)?.label ?? "Sort"}
                 </span>
                 <span className="pointer-events-none shrink-0">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
+                  <ChevronDown
+                    width={12}
+                    height={12}
                     className={`text-text/70 transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`}
-                  >
-                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  />
                 </span>
               </button>
               {isSortOpen && (
@@ -435,15 +412,7 @@ export default function PortfolioPage() {
                           >
                             <span>{option.label}</span>
                             {isActive && (
-                              <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 12 12"
-                                fill="none"
-                                className="text-text/90"
-                              >
-                                <path d="M2 6.2L4.6 8.6L10 3.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                              </svg>
+                              <Check width={14} height={14} className="text-text/90" />
                             )}
                           </button>
                         </li>
@@ -614,17 +583,15 @@ export default function PortfolioPage() {
             
             <motion.a
               whileTap={{ scale: 0.97 }}
-              href="mailto:hello@johnanderson.com"
+              href="mailto:will.schulz@aw3.tech"
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
             >
               {/* Gradient border ring - only outline */}
               <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
                 <span className="flex w-full h-full rounded-full bg-bg" />
               </span>
-              <span className="text-lg text-text relative z-10">hello@johnanderson.com</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10">
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
+              <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
+              <ArrowDiagonal width={18} height={18} className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10" />
             </motion.a>
           </motion.div>
 
@@ -633,17 +600,17 @@ export default function PortfolioPage() {
             className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke"
           >
             {/* Socials */}
-            <div className="flex items-center gap-6 md:gap-8">
+            <div className="flex flex-wrap items-center gap-6 md:gap-8">
               <Link
-                href="https://x.com/yourprofile"
+                href="https://x.com/aw3_xyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
               >
-                Twitter
+                X
               </Link>
               <Link
-                href="https://www.linkedin.com/in/yourprofile/"
+                href="https://www.linkedin.com/in/will-schulz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
@@ -651,20 +618,28 @@ export default function PortfolioPage() {
                 LinkedIn
               </Link>
               <Link
-                href="https://dribbble.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
-              >
-                Dribbble
-              </Link>
-              <Link
-                href="https://github.com/yourprofile"
+                href="https://github.com/aw3-technology"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
               >
                 GitHub
+              </Link>
+              <Link
+                href="https://www.instagram.com/will_parkerr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+              >
+                Instagram
+              </Link>
+              <Link
+                href="https://calendly.com/will-schulz-aw3/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
+              >
+                Calendly
               </Link>
             </div>
             

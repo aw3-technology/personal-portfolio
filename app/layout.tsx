@@ -20,32 +20,35 @@ const displayFont = Instrument_Serif({
   weight: "400",
 });
 
-const siteUrl = "https://yourportfolio.com"; // [REPLACE THIS] Update with your domain
+const siteUrl = "https://willschulz.me";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "John Anderson",
+  name: "William Schulz",
   url: siteUrl,
-  jobTitle: "Product Designer & Developer",
-  description: "Product-focused designer and developer crafting premium, modern digital experiences.",
+  jobTitle: "Software Developer, Designer, Creative & Founder",
+  description: "Software developer, designer, creative, and founder building modern digital experiences.",
   sameAs: [
-    "https://dribbble.com/", // [REPLACE THIS] Update with your Dribbble URL
-    "https://github.com/yourprofile", // [REPLACE THIS] Update with your GitHub URL
-    "https://linkedin.com/in/yourprofile", // [REPLACE THIS] Update with your LinkedIn URL
+    "https://github.com/aw3-technology",
+    "https://www.linkedin.com/in/will-schulz/",
+    "https://x.com/aw3_xyz",
+    "https://www.instagram.com/will_parkerr/",
+    "https://www.facebook.com/will.schulz/",
+    "https://calendly.com/will-schulz-aw3/30min",
   ],
-  knowsAbout: ["UI Design", "UX Design", "Product Design", "Design Systems", "Web Development"],
+  knowsAbout: ["Software Development", "Product Design", "UI Design", "UX Design", "Web Development", "Founder"],
 };
 
 export const metadata: Metadata = {
-  title: "John Anderson — Product Designer & Developer",
-  description: "Product-focused designer and developer crafting premium, modern digital experiences.",
+  title: "William Schulz — Developer, Designer, Creative, Founder",
+  description: "Software developer, designer, creative, and founder building modern digital experiences.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "John Anderson — Product Designer & Developer",
-    description: "Product-focused designer and developer crafting premium, modern digital experiences.",
+    title: "William Schulz — Developer, Designer, Creative, Founder",
+    description: "Software developer, designer, creative, and founder building modern digital experiences.",
     url: siteUrl,
-    siteName: "John Anderson",
+    siteName: "William Schulz",
     locale: "en_US",
     type: "website",
     images: [
@@ -53,14 +56,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "John Anderson — Product Designer & Developer",
+        alt: "William Schulz — Developer, Designer, Creative, Founder",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Anderson — Product Designer & Developer",
-    description: "Product-focused designer and developer crafting premium, modern digital experiences.",
+    title: "William Schulz — Developer, Designer, Creative, Founder",
+    description: "Software developer, designer, creative, and founder building modern digital experiences.",
     images: ["/og-image.png"],
   },
   robots: {
