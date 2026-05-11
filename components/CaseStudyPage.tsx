@@ -380,6 +380,61 @@ export default function CaseStudyPage({ project }: { project: Project }) {
             </>
             )}
 
+            {/* Recognition / Award */}
+            {project.award && (
+              <motion.section
+                id="recognition"
+                className="scroll-mt-32"
+                initial={fadeUp.hidden}
+                whileInView={fadeUp.visible}
+                viewport={viewportOnce}
+                transition={smoothTransition()}
+              >
+                <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7 max-w-3xl">
+                  <span className="w-6 h-px bg-stroke" />
+                  Recognition
+                </span>
+                <h2 className="text-2xl md:text-[2rem] text-text mb-10 max-w-3xl">
+                  Honored for <span className="font-display italic">cutting-edge innovation.</span>
+                </h2>
+
+                <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+                  <div className="relative w-full aspect-[4/5] bg-surface rounded-2xl border border-stroke overflow-hidden">
+                    <ImageWithSkeleton
+                      src={project.award.image}
+                      alt={`${project.award.title} from ${project.award.issuer}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-contain"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-caption text-muted/80 tracking-[0.3em] uppercase mb-3">
+                      {project.award.title}
+                    </div>
+                    <p className="text-base md:text-lead text-text leading-[1.7] mb-6 italic">
+                      &ldquo;{project.award.citation}&rdquo;
+                    </p>
+                    {project.award.body && (
+                      <p className="text-base md:text-lead text-muted leading-[1.8] mb-6">
+                        {project.award.body}
+                      </p>
+                    )}
+                    <dl className="grid grid-cols-1 gap-3 text-sm">
+                      <div className="flex gap-3">
+                        <dt className="text-muted/70 uppercase tracking-[0.2em] text-caption w-20 shrink-0">Issued by</dt>
+                        <dd className="text-text">{project.award.issuer}</dd>
+                      </div>
+                      <div className="flex gap-3">
+                        <dt className="text-muted/70 uppercase tracking-[0.2em] text-caption w-20 shrink-0">Date</dt>
+                        <dd className="text-text">{project.award.date}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </motion.section>
+            )}
+
 
             {/* Next Project Navigation */}
             {nextProject && nextProject.slug !== project.slug && (

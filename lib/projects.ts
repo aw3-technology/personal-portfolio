@@ -23,6 +23,14 @@ export type Project = {
    * entries first ("AI music" before "AI") — matching is left-to-right.
    */
   emphasisKeywords?: string[];
+  award?: {
+    image: string;
+    title: string;
+    issuer: string;
+    date: string;
+    citation: string;
+    body?: string;
+  };
   caseStudy?: {
     blocks: CaseStudyBlock[];
     layout?: CaseStudyLayout[];
@@ -94,7 +102,7 @@ export const projects: Project[] = [
     solution:
       "AW3 operates as a venture studio: a curated set of pre-seed and seed founders each cycle, MVPs shipped in 1–30 days, and continued involvement through capital formation. The studio also incubates internal ventures — Proof of Love (patent-pending consensus), SunScript, and others — so the team is building, not just consulting.",
     outcome:
-      "Built and scaled 10+ startups across Web3, AI, and fintech; received an innovation award from Fiona Ma, California State Treasurer, at the 1000X Summit in Santa Clara; portfolio includes Baird Augustine, Bitwage, Blocksee, Carnomaly, JustiGuide, Wryter, and Nivana — all still operating.",
+      "Built and scaled 10+ startups across Web3, AI, and fintech. AW3 and founder Will Schulz were formally recognized by the Honorable Fiona Ma, California State Treasurer, and the 1000X Silicon Valley Summit for an innovative approach to supporting and investing in early-stage entrepreneurs. Portfolio includes Baird Augustine, Bitwage, Blocksee, Carnomaly, JustiGuide, Wryter, and Nivana — all still operating.",
     image: "/projects/aw3-technology.png",
     meta: [
       { label: "Role", value: "Founder & CEO" },
@@ -103,6 +111,15 @@ export const projects: Project[] = [
       { label: "Scope", value: ["Venture Studio", "Web3", "AI", "Fundraising"] },
     ],
     emphasisKeywords: ["AW3", "Web3", "AI", "venture studio", "Proof of Love", "SunScript", "Fiona Ma"],
+    award: {
+      image: "/projects/aw3-fiona-ma-award.png",
+      title: "Certificate of Recognition",
+      issuer: "The Honorable Fiona Ma, California State Treasurer · 1000X Silicon Valley Summit",
+      date: "September 20, 2024",
+      citation:
+        "On Behalf of the State of California, I Hereby Award this Certificate of Recognition in Honor of Your Innovative Approach to Supporting and Investing in Early Stage Entrepreneurs.",
+      body: "AW3 Technology and founder Will Schulz were formally recognized by California State Treasurer Fiona Ma and the 1000X Silicon Valley Summit for driving cutting-edge innovation and economic activity within the state — specifically for AW3's work supporting and investing in early-stage entrepreneurs.",
+    },
   },
   {
     slug: "openeye",

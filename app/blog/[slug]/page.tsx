@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Navbar from "@/components/Navbar";
+import Contact from "@/components/Contact";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import { getAllPosts, getPostBySlug, formatPostDate } from "@/lib/posts";
 
@@ -117,6 +118,8 @@ export default function BlogPostPage({ params }: { params: Params }) {
           <MDXRemote source={post.content} components={mdxComponents} />
         </div>
       </article>
+
+      <Contact />
     </main>
   );
 }

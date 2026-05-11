@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Contact from "@/components/Contact";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import { getAllPosts, formatPostDate } from "@/lib/posts";
 
@@ -89,6 +90,8 @@ export default function BlogIndexPage() {
           </ul>
         )}
       </section>
+
+      <Contact />
     </main>
   );
 }
