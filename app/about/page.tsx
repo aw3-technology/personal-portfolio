@@ -112,12 +112,13 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative aspect-[4/3] max-h-[640px] w-full rounded-2xl overflow-hidden bg-surface">
+          <div className="relative aspect-square w-full max-w-[480px] mx-auto rounded-2xl overflow-hidden bg-surface">
             <ImageWithSkeleton
-              src="/case-study/3d-render-1.jpg"
-              alt="Workspace"
+              src="/headshot.png"
+              alt="Portrait of Will Schulz"
               fill
               className="object-cover"
+              priority
             />
           </div>
         </motion.div>
