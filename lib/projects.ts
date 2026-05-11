@@ -78,7 +78,7 @@ export const projects: Project[] = [
     summary:
       "Founded and built a San Francisco–based venture studio that combines software development, venture consulting, and internal innovation to 3x early-stage Web3 and AI startups' chances of success.",
     role: "Founder & CEO",
-    year: "2020",
+    year: "2022",
     tags: ["Venture Studio", "Web3", "AI", "Software Development", "Fundraising"],
     metrics: [
       "Award from Fiona Ma, CA State Treasurer",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     image: "/projects/aw3-technology.png",
     meta: [
       { label: "Role", value: "Founder & CEO" },
-      { label: "Founded", value: "2020" },
+      { label: "Founded", value: "2022" },
       { label: "Location", value: "San Francisco, CA" },
       { label: "Scope", value: ["Venture Studio", "Web3", "AI", "Fundraising"] },
     ],

@@ -19,6 +19,7 @@ const navLinks = [
 const moreLinks = [
   { label: "Resume", href: "/about" },
   { label: "Bio", href: "/bio" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
