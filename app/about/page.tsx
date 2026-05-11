@@ -97,10 +97,10 @@ export default function AboutPage() {
             Resume
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl text-text leading-[1.03] mb-6">
-            John <span className="font-display italic">Anderson</span>
+            William <span className="font-display italic">Schulz</span>
           </h1>
           <p className="text-base md:text-lg text-muted max-w-2xl mx-auto">
-            Product designer and developer based in New York, focused on <span className="font-display italic">thoughtful</span> digital experiences.
+            Software developer, designer, creative, and founder based in San Francisco, building <span className="font-display italic">thoughtful</span> digital experiences.
           </p>
         </motion.div>
       </section>
@@ -137,10 +137,16 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3 text-base text-muted leading-[1.7]">
             <p>
-              I'm a passionate designer and developer with 3+ years of experience crafting thoughtful digital experiences. My work sits at the intersection of design and code, specializing in creating interfaces that are both beautiful and functional with meticulous attention to detail.
+              I&apos;m a founder, writer, and systems thinker focused on the intersection of technology, storytelling, and human evolution. As the founder of <span className="font-display italic">AW3 Technology</span>, I&apos;m building ventures that explore decentralized systems, AI-native development, digital infrastructure, and new models for collaboration — work that spans software architecture, product design, venture strategy, and emerging technologies, with a particular focus on systems that empower creators, founders, and communities rather than extract from them.
             </p>
             <p>
-              I approach every project with a focus on user needs, business goals, and technical constraints. Working collaboratively with product teams, engineers, and stakeholders to transform complex problems into delightful experiences that users genuinely enjoy using every day.
+              I&apos;m currently developing projects across AI tooling, programming languages, decentralized consensus, publishing, and creative media. This includes <span className="font-display italic">SunScript</span>, an AI-native programming language and development ecosystem; experimental infrastructure around <span className="font-display italic">Proof of Love</span> consensus; and long-form literary projects exploring civilization, spirituality, empire, memory, and the future of humanity.
+            </p>
+            <p>
+              Alongside technology, writing has always been central to my work. My novels blend philosophical inquiry, psychological realism, mythology, and speculative fiction, often exploring the tension between power and truth, ego and transcendence, collapse and renewal. Whether through software or storytelling, I&apos;m interested in the same underlying question: how human beings create meaning, systems, and futures.
+            </p>
+            <p>
+              My background spans startups, creative direction, branding, software engineering, music, festivals, and independent research. I believe the most important skill in the modern world is self-education — the ability to continuously learn, adapt, and evolve. Technology, at its best, should deepen human potential rather than diminish it. This portfolio is a collection of the worlds I&apos;m building — companies, software, ideas, stories, and experiments — all connected by a desire to explore what comes next.
             </p>
           </div>
         </motion.div>
@@ -460,7 +466,7 @@ export default function AboutPage() {
 
             <motion.a
               whileTap={{ scale: 0.97 }}
-              href="mailto:hello@johnanderson.com"
+              href="mailto:will.schulz@aw3.tech"
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible"
             >
               <span
@@ -469,7 +475,7 @@ export default function AboutPage() {
               >
                 <span className="flex w-full h-full rounded-full bg-bg" />
               </span>
-              <span className="text-lg text-text relative z-10">hello@johnanderson.com</span>
+              <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
               <svg
                 width="18"
                 height="18"
@@ -487,17 +493,17 @@ export default function AboutPage() {
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke">
             {/* Socials */}
-            <div className="flex items-center gap-6 md:gap-8">
+            <div className="flex flex-wrap items-center gap-6 md:gap-8">
               <Link
-                href="https://x.com/yourprofile"
+                href="https://x.com/aw3_xyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
               >
-                Twitter
+                X
               </Link>
               <Link
-                href="https://www.linkedin.com/in/yourprofile/"
+                href="https://www.linkedin.com/in/will-schulz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
@@ -505,20 +511,28 @@ export default function AboutPage() {
                 LinkedIn
               </Link>
               <Link
-                href="https://dribbble.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Dribbble
-              </Link>
-              <Link
-                href="https://github.com/yourprofile"
+                href="https://github.com/aw3-technology"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
               >
                 GitHub
+              </Link>
+              <Link
+                href="https://www.instagram.com/will_parkerr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
+              >
+                Instagram
+              </Link>
+              <Link
+                href="https://calendly.com/will-schulz-aw3/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
+              >
+                Calendly
               </Link>
             </div>
 
