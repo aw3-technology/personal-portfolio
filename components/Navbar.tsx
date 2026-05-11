@@ -40,6 +40,17 @@ export default function Navbar() {
     }, 150);
   };
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      router.push('/#contact');
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 w-full py-3 sm:py-4 md:py-5 flex justify-center z-50">
       <div
@@ -72,7 +83,8 @@ export default function Navbar() {
         })}
         <div className="hidden sm:block w-px h-5 bg-stroke mx-1" />
         <a 
-          href="/#contact" 
+          href="#contact" 
+          onClick={handleContactClick}
           className="group relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-500 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg overflow-visible hover:bg-stroke/30"
         >
           {/* Gradient border ring on hover */}
