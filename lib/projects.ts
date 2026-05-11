@@ -72,270 +72,279 @@ export type CaseStudyLayout =
 
 export const projects: Project[] = [
   {
-    slug: "rezi-ai",
-    title: "REZI.AI Landing Page",
-    category: "Landing Page",
+    slug: "aw3-technology",
+    title: "AW3 Technology",
+    category: "Venture Studio",
     summary:
-      "Designed a clean, conversion-first landing page for REZI.AI, an AI music experience for fast calm.",
-    role: "Product Designer",
-    year: "2025",
-    tags: ["Landing Page", "UI Design", "Wellness", "AI"],
-    metrics: ["2-day delivery", "3 iterations", "Client approved"],
-    image: "https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=1600&h=900&fit=crop",
-    caseStudyImage: "https://images.unsplash.com/photo-1618172193763-c511deb635ca?w=1600&h=900&fit=crop",
-    tagline: "Turn a few words into instant calm",
-    gradient: "from-sky-500 via-blue-400/60 to-bg",
-    problem:
-      "REZI.AI needed a landing page that explains the product in seconds, feels calming without cliches, and nudges visitors into early access.",
-    process:
-      "Rapid wireframes, tight feedback loops, and focused typography and spacing passes to keep the narrative simple across devices.",
-    solution:
-      "A minimal, white-first layout with soft blue accents, a single core CTA, and a clear three-step flow that positions AI-generated music apart from meditation.",
-    outcome:
-      "Approved in three iterations and ready for build, with a clearer story and more premium tone."
-    ,
-    emphasisKeywords: [
-      "REZI.AI",
-      "AI music",
-      "AI",
-      "Calm",
-      "Headspace",
-      "Endel",
-      "RemoteNest",
-      "Figma",
+      "Founded and built a San Francisco–based venture studio that combines software development, venture consulting, and internal innovation to 3x early-stage Web3 and AI startups' chances of success.",
+    role: "Founder & CEO",
+    year: "2020",
+    tags: ["Venture Studio", "Web3", "AI", "Software Development", "Fundraising"],
+    metrics: [
+      "Award from Fiona Ma, CA State Treasurer",
+      "10+ startups built and scaled",
+      "MVPs delivered in 1–30 days",
     ],
+    tagline: "3x your startup's chances of success",
+    gradient: "from-violet-600 via-purple-500/60 to-bg",
+    problem:
+      "Early-stage founders in Web3 and AI face the same gauntlet — ship a credible MVP, tell a story investors actually fund, and stand up a real go-to-market — usually with months of runway and no in-house engineering or design depth. Most agencies hand back a deck or a Figma file; most dev shops can't help with fundraising. The gap kills companies that should have made it.",
+    process:
+      "I designed AW3 as a single roof for the full venture stack — software design and development, branding, digital marketing, generative AI, Web3 protocols, mobile, and fundraising support. I run client engagements personally from concept through scale, leaning on a tight network of engineers, designers, and operators built over a decade in the Bay Area.",
+    solution:
+      "AW3 operates as a venture studio: a curated set of pre-seed and seed founders each cycle, MVPs shipped in 1–30 days, and continued involvement through capital formation. The studio also incubates internal ventures — Proof of Love (patent-pending consensus), SunScript, and others — so the team is building, not just consulting.",
+    outcome:
+      "Built and scaled 10+ startups across Web3, AI, and fintech; received an innovation award from Fiona Ma, California State Treasurer, at the 1000X Summit in Santa Clara; portfolio includes Baird Augustine, Bitwage, Blocksee, Carnomaly, JustiGuide, Wryter, and Nivana — all still operating.",
+    image: "/projects/aw3-technology.png",
+    meta: [
+      { label: "Role", value: "Founder & CEO" },
+      { label: "Founded", value: "2020" },
+      { label: "Location", value: "San Francisco, CA" },
+      { label: "Scope", value: ["Venture Studio", "Web3", "AI", "Fundraising"] },
+    ],
+    emphasisKeywords: ["AW3", "Web3", "AI", "venture studio", "Proof of Love", "SunScript", "Fiona Ma"],
   },
   {
-    slug: "orbit-analytics",
-    title: "Orbit Analytics",
-    category: "B2B SaaS Product",
-    summary: "Redesigned an analytics suite to turn dense data into a confident, executive-grade narrative.",
-    role: "Lead Product Designer",
+    slug: "openeye",
+    title: "OpenEye",
+    category: "Open Source",
+    summary:
+      "Open-source, CLI-first perception engine that turns raw video into structured world models for robots and autonomous agents — like Ollama, but for vision AI.",
+    role: "Creator & Lead Engineer",
+    year: "2026",
+    tags: ["Open Source", "AI", "Computer Vision", "Robotics", "Python"],
+    metrics: [
+      "Pull, run, and serve vision models from the terminal",
+      "Object detection, depth, segmentation, VLM reasoning",
+      "REST + WebSocket API with React dashboard",
+    ],
+    image: "/projects/openeye.png",
+    tagline: "Open-source eyes for the agent era",
+    gradient: "from-rose-500 via-sky-400/60 to-bg",
+    problem:
+      "Robots and autonomous agents need real-time perception — detection, depth, segmentation, scene understanding — but stitching together YOLO, SAM, Depth Anything, and VLMs into a production-grade pipeline is fragmented, brittle, and gated behind heavyweight ML tooling. There was no Ollama-style developer experience for vision AI.",
+    process:
+      "Designed OpenEye as a CLI-first perception engine with a single mental model: pull a model, run inference, serve it. Built the runtime in Python on FastAPI/Typer/Pydantic, integrated Ultralytics, Grounding DINO, SAM2, Depth Anything V2, and VLM providers, and shipped a React/TypeScript dashboard with live streams, fleet management, MLOps, and governance.",
+    solution:
+      "A unified open-source toolkit: `openeye pull`, `openeye run`, `openeye serve`, `openeye watch` — with safety monitoring, agentic perception loops, edge-device fleet management, model registry, policy enforcement, and audit logging. REST + WebSocket APIs, browser dashboard, and Unitree G1 robot integration all from one CLI.",
+    outcome:
+      "Released publicly under aw3-technology on GitHub with an interactive demo, MkDocs documentation, and pipx-installable distribution. Positioned as the open-source perception layer for the agent era — designed to slot into any robotics or autonomous-agent stack with one command.",
+    meta: [
+      { label: "Role", value: "Creator & Lead Engineer" },
+      { label: "Stack", value: ["Python", "FastAPI", "Typer", "React", "TypeScript", "ONNX", "TensorRT"] },
+      { label: "Year", value: "2026" },
+      { label: "Scope", value: ["CLI", "Inference Server", "Web Dashboard", "Fleet & MLOps"] },
+      { label: "Repo", value: "github.com/aw3-technology/openeye.sh" },
+    ],
+    emphasisKeywords: ["OpenEye", "open-source", "perception", "vision AI", "Ollama", "agentic", "robots"],
+  },
+  {
+    slug: "baird-augustine",
+    title: "Baird Augustine",
+    category: "Fintech",
+    summary:
+      "Architected and built Lendya, an AI-powered lending MVP for a neo-investment bank serving 33 family offices deploying over $20BN in 2025.",
+    role: "Technology Partner & Advisor",
     year: "2024",
-    tags: ["UX Strategy", "Data Visualization", "Design Systems"],
-    tagline: "Transform data into executive-grade narratives",
-    metrics: ["+32% activation lift", "-18% time-to-insight", "3 enterprise expansions"],
-    image: "https://images.unsplash.com/photo-1636633762833-5d1658f1e29b?w=1600&h=900&fit=crop",
-    gradient: "from-violet-500 via-fuchsia-400/60 via-indigo-500/60 to-bg",
+    tags: ["Fintech", "AI", "Lending", "TypeScript", "Supabase"],
+    metrics: ["Full MVP shipped from scratch", "33 family offices in network", "$20BN+ deployment scope"],
+    image: "/projects/baird-augustine.png",
+    tagline: "AI-powered lending for Silicon Valley's neo-investment bank",
+    gradient: "from-emerald-500 via-teal-400/60 to-bg",
     problem:
-      "Founders and RevOps teams struggled to explain performance to stakeholders, with dashboards that felt noisy and hard to trust.",
+      "Baird Augustine, an award-winning neo-investment bank specializing in equity fundraising, M&A, and private market lending, needed an AI-powered lending platform — Lendya — to bridge institutional capital with private market borrowers. It had to be fast enough to capture the 2025 deployment cycle and trustworthy enough for family-office scrutiny.",
     process:
-      "Mapped decision journeys with stakeholders, rebuilt the information architecture, and prototyped editorial-style dashboards with progressive disclosure.",
+      "As Baird Augustine's technology partner since the holding company was formed, I led architecture and full-cycle MVP development on Lendya — branding, UI design, backend, AI integration. Built on TypeScript, Supabase, and Plaid, with modules for borrower evaluation, risk scoring, and secure loan approvals.",
     solution:
-      "Introduced narrative analytics, executive summaries, and an adaptive layout that highlights the most critical KPIs first.",
+      "Shipped an AI-powered lending dashboard with lender and borrower roles, multi-user access, smart credit insights, and rapid iteration cycles. AI assistants are integrated directly into the lending workflow rather than bolted on after the fact.",
     outcome:
-      "Adoption climbed across enterprise accounts and onboarding time dropped, making the platform feel purposeful and premium."
+      "Lendya is live and supporting Baird Augustine's lending operations. Ryan Baird, CEO: \"AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology.\"",
+    meta: [
+      { label: "Role", value: "Technology Partner & Advisor" },
+      { label: "Stack", value: ["TypeScript", "Supabase", "Plaid"] },
+      { label: "Year", value: "2024" },
+      { label: "Scope", value: ["AI Lending", "MVP", "Branding", "UI"] },
+    ],
+    emphasisKeywords: ["AI", "Lendya", "TypeScript", "Supabase", "Plaid"],
   },
   {
-    slug: "lumen-billing",
-    title: "Lumen Billing",
-    category: "Fintech Platform",
-    summary: "Designed a billing command center that reframed finance operations as a strategic product surface.",
-    role: "Senior UI/UX Designer",
-    year: "2023",
-    tags: ["Product Strategy", "Motion", "SaaS"],
-    tagline: "Finance operations as a strategic surface",
-    metrics: ["-40% support tickets", "+21% paid conversion", "NPS +12"],
-    image: "https://images.unsplash.com/photo-1636955840493-f43a02bfa064?w=1600&h=900&fit=crop",
-    gradient: "from-emerald-500 via-emerald-300/60 via-teal-500/60 to-bg",
-    problem:
-      "Scaling SaaS teams struggled with fragmented billing workflows and inconsistent payment visibility.",
-    process:
-      "Conducted workflow audits, unified key flows into a single command center, and validated motion cues for confidence.",
-    solution:
-      "Built a modular interface with guided states, proactive alerts, and clear payment narratives.",
-    outcome:
-      "Support load dropped while leadership cited the new billing experience as a sales differentiator."
-  },
-  {
-    slug: "atlas-onboarding",
-    title: "Atlas Onboarding",
-    category: "Product-Led Growth",
-    summary: "Crafted a high-conversion onboarding experience with a premium, guided narrative.",
-    role: "Product Designer",
-    year: "2022",
-    tags: ["Growth", "Onboarding", "Prototyping"],
-    tagline: "High-conversion guided onboarding flow",
-    metrics: ["+28% completion", "+19% activation", "Time-to-value -35%"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&h=900&fit=crop",
-    gradient: "from-amber-500 via-amber-300/60 via-orange-500/60 to-bg",
-    problem:
-      "New users dropped off early due to unclear value and scattered setup flows.",
-    process:
-      "Mapped activation milestones, built onboarding storyboards, and tested progressive profiling with users.",
-    solution:
-      "Delivered a guided, contextual onboarding system with precise microcopy and milestone feedback.",
-    outcome:
-      "Activation improved dramatically, and users reported stronger confidence in the product within minutes."
-  },
-  {
-    slug: "nova-design-system",
-    title: "Nova Design System",
-    category: "Design Infrastructure",
-    summary: "Built a scalable design system that unified product experience across multiple teams and platforms.",
-    role: "Design Systems Lead",
-    year: "2023",
-    tags: ["Design Systems", "Component Library", "Documentation"],
-    tagline: "Unified design infrastructure at scale",
-    metrics: ["+45% dev velocity", "100+ components", "3 product teams"],
-    image: "https://images.unsplash.com/photo-1618556450991-2f1af64e8191?w=1600&h=900&fit=crop",
-    gradient: "from-rose-500 via-rose-300/60 via-pink-500/60 to-bg",
-    problem:
-      "Multiple product teams were building inconsistent interfaces, leading to fragmented user experience and duplicated effort.",
-    process:
-      "Audited existing patterns, established design tokens, and built a component library with clear documentation and governance.",
-    solution:
-      "Created a comprehensive design system with Figma libraries, React components, and interactive documentation.",
-    outcome:
-      "Development velocity increased significantly while maintaining consistent brand experience across all products."
-  },
-  {
-    slug: "stellar-ecommerce",
-    title: "Stellar E-commerce",
-    category: "Landing Page",
-    summary: "Designed a high-converting product landing page for a premium headphone brand with 3D visuals.",
-    role: "UI Designer",
-    year: "2024",
-    tags: ["E-commerce", "3D Design", "Conversion"],
-    tagline: "Premium audio experience landing",
-    metrics: ["+41% conversion", "4.8s avg. session", "23% add-to-cart"],
-    image: "https://images.unsplash.com/photo-1545127398-14699f92334b?w=1600&h=1200&fit=crop",
-    gradient: "from-slate-500 via-gray-400/60 to-bg",
-    problem:
-      "Launch campaign needed a product page that matched the premium positioning and drove pre-orders.",
-    process:
-      "Created interactive 3D product renders, designed scroll-triggered animations, and optimized for mobile conversions.",
-    solution:
-      "Built an immersive landing experience with hero 3D model, feature reveals, and trust-building testimonials.",
-    outcome:
-      "Pre-order campaign exceeded targets by 140% with exceptional engagement metrics."
-  },
-  {
-    slug: "quantum-crm",
-    title: "Quantum CRM",
-    category: "B2B SaaS Product",
-    summary: "Redesigned contact management and pipeline views for a next-gen CRM targeting enterprise sales teams.",
-    role: "Lead Product Designer",
-    year: "2024",
-    tags: ["Enterprise", "CRM", "Workflow Design"],
-    tagline: "Enterprise-grade contact management",
-    metrics: ["-26% time-per-task", "+34% daily actives", "NPS +18"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop",
-    gradient: "from-cyan-500 via-blue-400/60 to-bg",
-    problem:
-      "Sales teams were frustrated with clunky workflows and poor visibility into deal pipeline health.",
-    process:
-      "Conducted user interviews with 20+ sales professionals, mapped task flows, and prototyped smart automation.",
-    solution:
-      "Delivered streamlined contact cards, kanban pipeline views, and AI-powered deal scoring.",
-    outcome:
-      "Enterprise clients reported faster deal cycles and higher team adoption across departments."
-  },
-  {
-    slug: "zenith-wallet",
-    title: "Zenith Crypto Wallet",
-    category: "Fintech Platform",
-    summary: "Designed a secure, user-friendly crypto wallet app that makes DeFi accessible to mainstream users.",
-    role: "Senior Product Designer",
-    year: "2023",
-    tags: ["Web3", "Mobile App", "Security"],
-    tagline: "DeFi made accessible and secure",
-    metrics: ["50K+ downloads", "4.7 App Store", "-62% drop-off"],
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600&h=1200&fit=crop",
-    gradient: "from-purple-500 via-violet-400/60 to-bg",
-    problem:
-      "Crypto wallets intimidated non-technical users with complex jargon and confusing transaction flows.",
-    process:
-      "Simplified onboarding with progressive education, designed guided recovery flows, and tested with crypto-curious users.",
-    solution:
-      "Built an approachable mobile wallet with plain-language explanations, biometric security, and one-tap swaps.",
-    outcome:
-      "Reached 50K downloads in 3 months with strong retention and positive app store feedback."
-  },
-  {
-    slug: "pulse-health",
-    title: "Pulse Health Dashboard",
-    category: "Product-Led Growth",
-    summary: "Created a personal health tracking dashboard with gamified wellness goals and insights.",
-    role: "Product Designer",
-    year: "2024",
-    tags: ["Health Tech", "Gamification", "Mobile First"],
-    tagline: "Gamified wellness tracking",
-    metrics: ["+52% 7-day retention", "3.2 sessions/day", "+44% goal completion"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=1200&fit=crop",
-    gradient: "from-green-500 via-emerald-400/60 to-bg",
-    problem:
-      "Users felt overwhelmed by health data and lacked motivation to maintain tracking habits.",
-    process:
-      "Designed streak mechanics, progress visualizations, and social accountability features with behavioral science principles.",
-    solution:
-      "Launched a beautiful dashboard with daily challenges, achievement badges, and personalized health insights.",
-    outcome:
-      "User retention doubled and engagement metrics exceeded industry benchmarks significantly."
-  },
-  {
-    slug: "vertex-marketplace",
-    title: "Vertex Creative Marketplace",
-    category: "Landing Page",
-    summary: "Designed a conversion-optimized homepage for a digital assets marketplace targeting creators.",
-    role: "UI/UX Designer",
-    year: "2023",
-    tags: ["Marketplace", "Creator Economy", "Conversion"],
-    tagline: "Where creators buy and sell",
-    metrics: ["+38% sign-ups", "5.1min avg. visit", "+27% seller applications"],
-    image: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=1600&h=900&fit=crop",
+    slug: "bitwage",
+    title: "Bitwage",
+    category: "Fintech",
+    summary:
+      "Supported a $4MM equity crowdfunding round and ongoing fundraising for a pioneering global crypto-payroll platform processing $400M+ for 90,000 workers across 200 countries.",
+    role: "Advisor & Angel Investor",
+    year: "2021",
+    tags: ["Fintech", "Crypto", "Payroll", "Fundraising", "Marketing"],
+    metrics: ["$4MM equity crowdfund raised", "30X ARR since 2021", "$400M+ payroll processed", "Acquired by Paystand"],
+    image: "/projects/bitwage.png",
+    tagline: "Global payroll, paid in crypto",
     gradient: "from-orange-500 via-amber-400/60 to-bg",
     problem:
-      "New marketplace needed a homepage that built trust, showcased quality assets, and drove both buyers and sellers.",
+      "Bitwage had a working product paying out global teams in cryptocurrencies and stablecoins since 2014, but needed help unlocking institutional and retail capital, modernizing its public-facing surface, and accelerating ARR growth.",
     process:
-      "Designed featured collections, social proof elements, and dual CTAs for buyers and sellers.",
+      "Since 2021 I've worked alongside Jonathan Chester as an advisor, angel investor, and execution partner — running the equity crowdfund mechanics, rebuilding landing pages, producing sales and marketing collateral, and supporting fundraising strategy.",
     solution:
-      "Created a vibrant, gallery-style homepage with trending items, creator spotlights, and clear value propositions.",
+      "Supported a successful $4MM equity crowdfunding seed round, modernized the marketing surface, and stayed continuously involved in fundraising and growth strategy.",
     outcome:
-      "Launch exceeded traffic goals and achieved healthy buyer-to-seller ratio within first month."
+      "ARR climbed over 30X across the engagement, and Bitwage was ultimately acquired by Paystand. Jonathan Chester, CEO: \"AW3 has played a critical role in our fundraising, website development and sales/marketing execution.\"",
+    meta: [
+      { label: "Role", value: "Advisor & Angel Investor" },
+      { label: "Engaged", value: "2021–present" },
+      { label: "Outcome", value: "Acquired by Paystand" },
+      { label: "Scope", value: ["Fundraising", "Marketing", "Web"] },
+    ],
+    emphasisKeywords: ["Bitwage", "crypto", "ARR", "equity crowdfunding", "Paystand", "acquired"],
   },
   {
-    slug: "forge-collaboration",
-    title: "Forge Team Collaboration",
-    category: "B2B SaaS Product",
-    summary: "Redesigned real-time collaboration features for a project management platform used by 200+ teams.",
-    role: "Staff Product Designer",
-    year: "2023",
-    tags: ["Collaboration", "Real-time", "Enterprise"],
-    tagline: "Real-time team collaboration hub",
-    metrics: ["+29% team adoption", "-31% meeting time", "95% satisfaction"],
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop",
+    slug: "blocksee",
+    title: "Blocksee",
+    category: "Web3",
+    summary:
+      "Built the full frontend and landing page for a Web3 CRM platform helping blockchain projects manage relationships, track engagement, and grow on-chain communities.",
+    role: "Frontend Lead & Fundraising Advisor",
+    year: "2024",
+    tags: ["Web3", "CRM", "React", "Node.js", "Frontend"],
+    metrics: ["Full frontend shipped in React/Node", "Web3 CRM live in market", "Ongoing fundraising support"],
+    tagline: "CRM for the decentralized economy",
     gradient: "from-indigo-500 via-blue-400/60 to-bg",
     problem:
-      "Teams struggled with fragmented communication across multiple tools and missed context.",
+      "Blocksee had a strong product hypothesis — a CRM tuned for blockchain projects to manage relationships, track on-chain engagement, and grow communities — but no frontend, no landing page, and a tight investor timeline.",
     process:
-      "Mapped collaboration patterns, designed threaded discussions, and built live presence indicators.",
+      "I built the complete frontend user interface and landing page from scratch in React and Node.js, designed for blockchain workflows and the visual cues Web3 users expect. In parallel, I supported the team through fundraising and investor readiness.",
     solution:
-      "Introduced contextual comments, @mentions, real-time cursors, and notification intelligence.",
+      "Shipped a responsive, scalable frontend optimized for Web3 workflows, with a marketing surface ready for investor demos. Established a high-performance interface architecture capable of evolving with the product.",
     outcome:
-      "Teams reduced meetings and reported smoother async collaboration with better context retention."
+      "Blocksee is operating in market as a Web3 CRM. Eric Forst, CEO: \"AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time.\"",
+    meta: [
+      { label: "Role", value: "Frontend Lead & Fundraising Advisor" },
+      { label: "Stack", value: ["React", "Node.js"] },
+      { label: "Year", value: "2024" },
+      { label: "Scope", value: ["Frontend", "Landing Page", "Fundraising"] },
+    ],
+    emphasisKeywords: ["Web3", "CRM", "React", "Node.js"],
   },
   {
-    slug: "prism-investments",
-    title: "Prism Investment Platform",
-    category: "Fintech Platform",
-    summary: "Designed an investment portfolio management interface that simplifies complex financial data.",
-    role: "Senior UI Designer",
+    slug: "carnomaly",
+    title: "Carnomaly",
+    category: "Web3",
+    summary:
+      "Rebuilt and shipped the full mobile and web apps for a blockchain-powered automotive platform after another dev shop's effort stalled — now selling to dealerships.",
+    role: "Lead Engineer",
     year: "2024",
-    tags: ["Investing", "Data Viz", "Fintech"],
-    tagline: "Portfolio management simplified",
-    metrics: ["+$2.4M AUM", "+36% deposits", "4.6 rating"],
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&h=900&fit=crop",
-    gradient: "from-teal-500 via-cyan-400/60 to-bg",
+    tags: ["Web3", "Blockchain", "React Native", "Svelte", "Smart Contracts"],
+    metrics: [
+      "Mobile + web shipped end-to-end",
+      "Re-architected stalled prior build",
+      "Selling to dealerships in production",
+    ],
+    tagline: "Blockchain-powered car buying, end to end",
+    gradient: "from-cyan-500 via-sky-400/60 to-bg",
     problem:
-      "Retail investors felt intimidated by traditional investment platforms with overwhelming data.",
+      "Carnomaly's blockchain platform for transparent car buying and selling had been started by a previous dev shop and stalled — incomplete code, no path to a unified mobile/web experience, and dealerships waiting on a working product.",
     process:
-      "Simplified portfolio views, designed educational tooltips, and created guided investment flows.",
+      "I came in to re-architect and complete the product. Built mobile and web apps using React Native and Svelte for a unified cross-platform experience, and integrated blockchain features for secure transactions, verifiable vehicle histories, and digital asset management.",
     solution:
-      "Built an intuitive dashboard with clear performance metrics, risk indicators, and smart recommendations.",
+      "Delivered a responsive, user-friendly Web3 CRM optimized for blockchain workflows — dealership portals connecting buyers and sellers in one application suite, with on-chain transaction integrity surfaced through a clean, conventional UI.",
     outcome:
-      "Assets under management grew rapidly while maintaining high user satisfaction scores."
-  }
+      "Carnomaly is live and selling to dealerships. Larry Kohlieber, CPTO: \"AW3 did an excellent job re-architecting and completing the Carnomaly product where other dev shops failed. We are now successfully selling to dealerships.\"",
+    meta: [
+      { label: "Role", value: "Lead Engineer" },
+      { label: "Stack", value: ["React Native", "Svelte", "Ethereum smart contracts"] },
+      { label: "Year", value: "2024" },
+      { label: "Scope", value: ["Mobile", "Web", "Blockchain Integration"] },
+    ],
+    emphasisKeywords: ["React Native", "Svelte", "Web3", "blockchain"],
+  },
+  {
+    slug: "justiguide",
+    title: "JustiGuide",
+    category: "Legal Tech",
+    summary:
+      "Branded, built, and angel-invested in an AI immigration platform that won Time's Best Inventions of 2025 and took the top spot at TechCrunch SF's Policy + Protection pitch stage.",
+    role: "Brand Lead, Advisor & Angel Investor",
+    year: "2024",
+    tags: ["Legal Tech", "AI", "Branding", "Fundraising", "Advisory"],
+    metrics: [
+      "Time Best Inventions 2025 (Legal Tech)",
+      "TechCrunch SF Policy + Protection — top spot",
+      "Marl5G accelerator participant",
+    ],
+    tagline: "Immigration, made simple — powered by AI",
+    gradient: "from-violet-500 via-purple-400/60 to-bg",
+    problem:
+      "Bisi Obateru had a strong product instinct around AI-powered immigration support but needed a brand identity, a credible web presence, and a fundraising path that would let JustiGuide hold its own in front of investors in a complex regulatory domain.",
+    process:
+      "I worked closely with Bisi from the earliest days as advisor and angel investor — leading branding, website development, pitch deck creation, and fundraising strategy. The goal was a design language confident enough to carry the mission and clear enough to win demos.",
+    solution:
+      "Built the brand and web presence around \"Immigration Made Simple. Powered by AI.\" Supported the team through fundraising, accelerator participation, and customer acquisition.",
+    outcome:
+      "JustiGuide won Time magazine's Best Inventions of 2025 in Legal Technology and took the top spot at TechCrunch SF's Policy + Protection pitch stage (Oct 27–29, 2025). They've raised funding, joined the Marl5G accelerator, and secured paying clients. Bisi Obateru, CEO: \"Will believed in my idea before anyone else was and helped me build a strong brand which gave the vision and idea more confidence and design language we still use today.\"",
+    meta: [
+      { label: "Role", value: "Brand Lead, Advisor & Angel Investor" },
+      { label: "Scope", value: ["Branding", "Web", "Pitch Deck", "Fundraising"] },
+      { label: "Year", value: "2024" },
+    ],
+    emphasisKeywords: ["AI", "Time", "TechCrunch", "JustiGuide"],
+  },
+  {
+    slug: "zero-to-three",
+    title: "Zero to Three",
+    category: "Open Source",
+    summary:
+      "Wrote and released Zero to Three, an open-source book on taking startups from idea (zero) through MVP, fundraising, and scale (three) — drawn from a decade of building ventures at AW3.",
+    role: "Author",
+    year: "2024",
+    tags: ["Open Source", "Writing", "Startups", "Venture Studio"],
+    metrics: ["Open-sourced on GitHub", "Distilled from 10+ shipped startups", "Free for founders"],
+    image: "/projects/zero-to-three.png",
+    caseStudyImage: "/projects/zero-to-three.png",
+    tagline: "From idea to scale, in the open",
+    gradient: "from-blue-600 via-sky-500/60 to-bg",
+    problem:
+      "Most early-stage founders learn the path from idea to funded startup the expensive way — through advisors, accelerators, or trial and error. The playbook exists in fragments across blog posts and paywalled programs, but rarely in one place written from the perspective of someone who has actually shipped MVPs and raised capital alongside founders.",
+    process:
+      "I distilled a decade of AW3 engagements — MVPs shipped in 1–30 days, fundraising rounds supported, brands built — into a structured book covering the stages zero (idea), one (MVP), two (traction), and three (scale). Released on GitHub under an open license so any founder can read, fork, and adapt it.",
+    solution:
+      "Zero to Three is a publicly available, version-controlled book documenting the venture studio playbook: how to validate an idea, ship a credible MVP, tell a fundable story, and grow into a real company. Hosted openly at github.com/aw3-technology/zero-to-three.",
+    outcome:
+      "The book is live on GitHub as an open resource for founders, and continues to be expanded as new lessons emerge from AW3 engagements.",
+    meta: [
+      { label: "Role", value: "Author" },
+      { label: "Year", value: "2024" },
+      { label: "License", value: "Open Source" },
+      { label: "Repo", value: "github.com/aw3-technology/zero-to-three" },
+    ],
+    emphasisKeywords: ["Zero to Three", "open-source", "MVP", "venture studio"],
+  },
+  {
+    slug: "wryter-ai-screenwriter",
+    title: "Wryter / AI Screenwriter",
+    category: "AI",
+    summary:
+      "Designed and built an AI-driven screenwriting platform end-to-end, plus two additional generative AI applications around it — all shipped to production on Vue, Python, Node, and AWS.",
+    role: "Lead Engineer & Architect",
+    year: "2024",
+    tags: ["AI", "Generative AI", "Vue", "Python", "AWS"],
+    metrics: ["3 production apps shipped", "Paying clients + investors landed", "Deployed on AWS / Mongo / Python / Node"],
+    tagline: "Professional-grade screenwriting, powered by AI",
+    gradient: "from-blue-500 via-indigo-400/60 to-bg",
+    problem:
+      "Wryter Inc. had an early prototype for an AI screenwriting tool and a vision for a broader generative-AI suite for creators — but no production system, no scalable architecture, and a need to demo to both investors and paying users.",
+    process:
+      "I led full-stack development — Vue on the frontend, Python and Node on the backend, AI integration woven into the screenwriting flow itself. Then built two additional generative-AI apps from scratch to expand Wryter's product suite, all sharing a common technical foundation.",
+    solution:
+      "Deployed the initial prototype into production on AWS, Mongo, Python, and Node. Built two additional applications from scratch to expand the product suite and establish a strong cross-product technical foundation enabling continued feature growth.",
+    outcome:
+      "Demos landed both paying clients and investors. Liam McMullan, Founder & CTO: \"AW3 goes far above and beyond any other company of its kind. I have worked with them on many different apps, websites and projects and I have been consistently impressed — they have completed ahead of schedule and under budget.\"",
+    meta: [
+      { label: "Role", value: "Lead Engineer & Architect" },
+      { label: "Stack", value: ["Vue", "Python", "Node.js", "AWS", "MongoDB"] },
+      { label: "Year", value: "2024" },
+      { label: "Scope", value: ["Full-stack AI", "Production Infra", "3 Apps"] },
+    ],
+    emphasisKeywords: ["AI", "Vue", "Python", "Node", "AWS", "generative AI"],
+  },
 ];
 
 export const getProject = (slug: string) =>

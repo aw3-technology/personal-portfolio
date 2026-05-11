@@ -6,28 +6,33 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    role: "UI/UX Designer",
-    company: "Cedarline Labs",
-    period: "May 2025 - Dec 2025",
+    role: "Founder & CEO",
+    company: "AW3 Technology",
+    period: "Mar 2020 - Present",
   },
   {
-    role: "UI Designer",
-    company: "Marrow Studio",
-    period: "Jun 2024 - Jun 2025",
+    role: "Co-Host/Producer",
+    company: "Silicon Valley Economic Forum (SVEF)",
+    period: "Sep 2025 - Present",
   },
   {
-    role: "Visual Designer",
-    company: "Northwind Systems, Inc.",
-    period: "Feb 2025 - May 2025",
+    role: "Technology Partner & Advisor",
+    company: "Baird Augustine",
+    period: "Jan 2024 - Present",
   },
   {
-    role: "UI/UX Designer",
-    company: "Sunjet Digital",
-    period: "Aug 2021 - Mar 2023",
+    role: "Venture Partner",
+    company: "Deelz",
+    period: "Aug 2023 - Present",
   },
   {
-    role: "Freelance UI/UX Designer",
-    company: "RemoteNest",
-    period: "Sep 2020 - Aug 2021",
+    role: "Venture Fellow",
+    company: "Newchip Accelerator",
+    period: "Jun 2022 - Mar 2023",
+  },
+  {
+    role: "Participant",
+    company: "VC Lab",
+    period: "Aug 2021 - Dec 2021",
   },
 ];
