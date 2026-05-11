@@ -14,7 +14,8 @@ import { useCursor } from "./CursorContext";
 import Navbar from "./Navbar";
 import { ArrowRight } from "./Icons";
 import { createTextProcessor } from "./TextProcessor";
-import StatusBadge from "./ui/StatusBadge";
+import SocialLinks from "./ui/SocialLinks";
+import StatusDot from "./ui/StatusDot";
 import {
   renderCaseStudyBlock,
   renderLayoutSection,
@@ -82,7 +83,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
               transition={smoothTransition(0.1, 0.8)}
               className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7"
             >
-              <span className="w-8 h-px bg-stroke" />
+              <span className="section-divider" />
               {project.category}
             </motion.span>
             
@@ -478,52 +479,11 @@ export default function CaseStudyPage({ project }: { project: Project }) {
           <div className="pt-8 border-t border-stroke">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Socials */}
-            <div className="flex flex-wrap items-center gap-6 md:gap-8">
-              <Link
-                href="https://x.com/aw3_xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                X
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/will-schulz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                LinkedIn
-              </Link>
-              <Link
-                href="https://github.com/aw3-technology"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                GitHub
-              </Link>
-              <Link
-                href="https://www.instagram.com/will_parkerr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Instagram
-              </Link>
-              <Link
-                href="https://calendly.com/will-schulz-aw3/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Calendly
-              </Link>
-            </div>
+            <SocialLinks />
             
             {/* Status */}
             <div className="flex items-center gap-3">
-              <StatusBadge />
+              <StatusDot />
               <span className="text-sm text-muted">Available for projects</span>
             </div>
           </div>

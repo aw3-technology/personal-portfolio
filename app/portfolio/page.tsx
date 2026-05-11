@@ -6,22 +6,15 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { projects } from "@/lib/projects";
 import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
-import VinylLogo from "@/components/VinylLogo";
-import ThemeToggle from "@/components/ThemeToggle";
-import { useTheme } from "@/components/ThemeProvider";
-import { useCursor } from "@/components/CursorContext";
 import BackToTop from "@/components/BackToTop";
 import Navbar from "@/components/Navbar";
 import { ArrowDiagonal, Check, ChevronDown } from "@/components/Icons";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import BentoCard, { portfolioBentoConfigs } from "@/components/ui/BentoCard";
 import GradientButton from "@/components/ui/GradientButton";
-import StatusBadge from "@/components/ui/StatusBadge";
-import {
-  easing,
-  fadeUpSm,
-  smoothTransition,
-} from "@/lib/animations";
+import SocialLinks from "@/components/ui/SocialLinks";
+import StatusDot from "@/components/ui/StatusDot";
+import { easing, fadeUp, fadeUpSm, smoothTransition } from "@/lib/animations";
 import "./portfolio.css";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
@@ -42,8 +35,6 @@ export default function PortfolioPage() {
   const [sortBy, setSortBy] = useState("newest");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const { theme } = useTheme();
-  const { setCursorType, setCursorText } = useCursor();
   const marqueeRef = useRef<HTMLDivElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
@@ -404,7 +395,7 @@ export default function PortfolioPage() {
         {/* Bento Grid - Exactly Like Homepage */}
         <AnimatePresence mode="wait">
           {filteredProjects.length > 0 ? (
-            <motion.div 
+            <motion.div
               key={selectedCategory}
               className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6"
               initial={{ opacity: 0 }}
@@ -412,79 +403,24 @@ export default function PortfolioPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15, ease: "easeInOut" }}
             >
-              {filteredProjects.slice(0, 8).map((project, index) => {
-              // Bento grid pattern - SAME AS HOMEPAGE
-              const cardConfigs = [
-                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-                { colSpan: 'md:col-span-5 md:row-span-1', aspect: 'aspect-[4/3] md:aspect-auto' },  // Mobile aspect, desktop full height
-                { colSpan: 'md:col-span-7 md:row-span-1', aspect: 'aspect-[4/3]' },  // Wide with aspect
-              ];
-              
-              const config = cardConfigs[index];
-              
-              return (
-                <motion.div
+              {filteredProjects.slice(0, 8).map((project, index) => (
+                <BentoCard
                   key={project.slug}
-                  className={config.colSpan}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.03,
-                    ease: easing.standard,
+                  project={project}
+                  config={portfolioBentoConfigs[index]}
+                  fallbackImageSrc="/placeholder.jpg"
+                  motionProps={{
+                    initial: { opacity: 0, y: 15 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: {
+                      duration: 0.3,
+                      delay: index * 0.03,
+                      ease: easing.standard,
+                    },
                   }}
-                >
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="group block h-full focus-ring-lg rounded-3xl"
-                  onMouseEnter={() => {
-                    setCursorType("project");
-                    setCursorText("View");
-                  }}
-                  onMouseLeave={() => {
-                    setCursorType("default");
-                    setCursorText("");
-                  }}
-                >
-                  <div className="relative h-full rounded-3xl">
-                    <div className={`bg-surface rounded-3xl ${config.aspect} ${config.aspect.includes('md:aspect-auto') ? 'md:h-full' : ''} relative overflow-hidden transition-all duration-300 z-10`}>
-                      {/* Background - Image */}
-                      <div className="absolute inset-0">
-                        <ImageWithSkeleton
-                          src={project.image || "/placeholder.jpg"}
-                          alt={project.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                        />
-                      </div>
-
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-bg/70 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500 ease-out" />
-                      
-                      {/* Blur layer */}
-                      <div className="absolute inset-0 backdrop-blur-[0px] group-hover:backdrop-blur-lg group-focus-visible:backdrop-blur-lg transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100" />
-
-                      {/* Hover label */}
-                      <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0 transition-all duration-300">
-                        <div className={`rounded-full p-[1px] animated-gradient-border bg-gradient-to-br ${project.gradient}`}>
-                          <div className="px-4 py-2 md:px-5 rounded-full bg-white text-black text-xs md:text-base font-medium tracking-wide">
-                            <span className="font-sans">View &mdash; </span>
-                            <span className="font-display italic">{project.title}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                />
+              ))}
+            </motion.div>
           ) : (
           <motion.div
             initial={fadeUpSm.hidden}
@@ -502,15 +438,13 @@ export default function PortfolioPage() {
               <p className="text-base text-muted mb-8">
                 Try selecting a different category to see more work.
               </p>
-              <button
+              <GradientButton
+                as="button"
                 onClick={() => setSelectedCategory("All")}
-                className="group relative inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-stroke rounded-full hover:border-text/40 transition-all duration-500 overflow-visible focus-ring"
+                className="inline-flex items-center gap-2 px-6 py-3"
               >
-                <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-                  <span className="flex w-full h-full rounded-full bg-bg" />
-                </span>
                 <span className="text-sm text-text relative z-10">View All Projects</span>
-              </button>
+              </GradientButton>
             </div>
             </motion.div>
           )}
@@ -546,85 +480,31 @@ export default function PortfolioPage() {
           </div>
 
           {/* Center content */}
-          <motion.div
-            className="text-center mb-16 md:mb-20"
-            initial={fadeUp.hidden}
-            whileInView={fadeUp.visible}
-            viewport={viewportOnce}
-            transition={smoothTransition()}
-          >
+          <AnimatedSection className="text-center mb-16 md:mb-20">
             <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
               Have a project in mind? I'm always open to new ideas and collaborations.
             </p>
-            
-            <motion.a
+
+            <GradientButton
+              as={motion.a}
               whileTap={{ scale: 0.97 }}
               href="mailto:will.schulz@aw3.tech"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-ring overflow-visible"
+              className="inline-flex items-center gap-3 px-8 py-4"
             >
-              {/* Gradient border ring - only outline */}
-              <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ margin: '-2px' }}>
-                <span className="flex w-full h-full rounded-full bg-bg" />
-              </span>
               <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
               <ArrowDiagonal width={18} height={18} className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10" />
-            </motion.a>
-          </motion.div>
+            </GradientButton>
+          </AnimatedSection>
 
           {/* Bottom bar */}
           <div 
             className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke"
           >
-            {/* Socials */}
-            <div className="flex flex-wrap items-center gap-6 md:gap-8">
-              <Link
-                href="https://x.com/aw3_xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                X
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/will-schulz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                LinkedIn
-              </Link>
-              <Link
-                href="https://github.com/aw3-technology"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                GitHub
-              </Link>
-              <Link
-                href="https://www.instagram.com/will_parkerr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                Instagram
-              </Link>
-              <Link
-                href="https://calendly.com/will-schulz-aw3/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                Calendly
-              </Link>
-            </div>
+            <SocialLinks />
             
             {/* Status */}
             <div className="flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
+              <StatusDot />
               <span className="text-sm text-muted">Available for projects</span>
             </div>
           </div>

@@ -1,9 +1,9 @@
 "use client";
 
 import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
-import AnimatedSection from "./ui/AnimatedSection";
 import Card from "./ui/Card";
-import StatusBadge from "./ui/StatusBadge";
+import SectionHeader from "./ui/SectionHeader";
+import StatusDot from "./ui/StatusDot";
 
 const skills = {
   design: ["UI Design", "UX Research", "Prototyping", "Figma", "Framer"],
@@ -24,26 +24,17 @@ export default function About() {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header - matching Work section */}
-        <AnimatedSection className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2">
-          <div className="max-w-2xl">
-            <span className="section-eyebrow mb-4">
-              <span className="section-divider" />
-              About Me
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-text leading-[1.1]">
-              My <span className="font-display italic">journey</span> so far
-            </h2>
-            <p className="text-muted text-sm md:text-base mt-3">
-              A passionate designer and developer, dedicated to creating meaningful digital experiences.
-            </p>
-          </div>
-
-          {/* Status pill - matching Work section button */}
-          <div className="inline-flex items-center gap-3 px-5 py-3 border border-stroke rounded-full text-sm text-muted">
-            <StatusBadge />
-            <span>Available for projects</span>
-          </div>
-        </AnimatedSection>
+        <SectionHeader
+          label="About Me"
+          title={<>My <span className="font-display italic">journey</span> so far</>}
+          subtitle="A passionate designer and developer, dedicated to creating meaningful digital experiences."
+          cta={
+            <div className="inline-flex items-center gap-3 px-5 py-3 border border-stroke rounded-full text-sm text-muted">
+              <StatusDot />
+              <span>Available for projects</span>
+            </div>
+          }
+        />
 
         {/* Bento Grid - matching Work section style */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 px-2">

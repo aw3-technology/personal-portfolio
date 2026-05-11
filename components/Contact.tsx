@@ -2,19 +2,19 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowDiagonal } from "./Icons";
 import AnimatedSection from "./ui/AnimatedSection";
 import GradientButton from "./ui/GradientButton";
-import StatusBadge from "./ui/StatusBadge";
+import SocialLinks from "./ui/SocialLinks";
+import StatusDot from "./ui/StatusDot";
 import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 
 const FloatingObjectsContact = dynamic(() => import("./FloatingObjectsContact"), {
   ssr: false,
 });
 
-const socials = [
+const contactSocials = [
   { name: "X", href: "https://x.com/aw3_xyz" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/will-schulz/" },
   { name: "GitHub", href: "https://github.com/aw3-technology" },
@@ -79,23 +79,14 @@ export default function Contact() {
           className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke"
         >
           {/* Socials */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 md:gap-8">
-            {socials.map((social) => (
-              <Link
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200 focus-ring rounded"
-              >
-                {social.name}
-              </Link>
-            ))}
-          </div>
+          <SocialLinks
+            links={contactSocials}
+            className="flex flex-wrap items-center justify-center md:justify-start gap-6 md:gap-8"
+          />
           
           {/* Status */}
           <div className="flex items-center gap-3">
-            <StatusBadge />
+            <StatusDot />
             <span className="text-sm text-muted">Available for projects</span>
           </div>
         </div>

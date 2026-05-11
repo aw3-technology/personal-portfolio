@@ -8,8 +8,8 @@ import { useCursor } from "./CursorContext";
 import { ArrowDiagonal, Dribbble } from "./Icons";
 import { explorations } from "@/lib/explorations";
 import { easing, fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
-import AnimatedSection from "./ui/AnimatedSection";
 import GradientButton from "./ui/GradientButton";
+import SectionHeader from "./ui/SectionHeader";
 
 // Different mockup variations
 const MockupDashboard = () => (
@@ -151,27 +151,22 @@ export default function Explorations() {
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         
         {/* Header */}
-        <AnimatedSection className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2">
-          <div>
-            <span className="section-eyebrow mb-4">
-              <span className="section-divider" />
-              Explorations
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-text leading-[1.1]">
-              Visual <span className="font-display italic">playground</span>
-            </h2>
-          </div>
-          <GradientButton
-            href="https://dribbble.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-3 px-5 py-2.5 text-sm text-muted"
-          >
-            <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
-            <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
-            <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-          </GradientButton>
-        </AnimatedSection>
+        <SectionHeader
+          label="Explorations"
+          title={<>Visual <span className="font-display italic">playground</span></>}
+          cta={
+            <GradientButton
+              href="https://dribbble.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-3 px-5 py-2.5 text-sm text-muted"
+            >
+              <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
+              <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
+              <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
+            </GradientButton>
+          }
+        />
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[240px] gap-5 md:gap-6 px-2">

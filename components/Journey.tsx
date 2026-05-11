@@ -6,7 +6,8 @@ import { fadeUpSm, smoothTransition, viewportOnce } from "@/lib/animations";
 import { ArrowDiagonal } from "./Icons";
 import AnimatedSection from "./ui/AnimatedSection";
 import GradientButton from "./ui/GradientButton";
-import StatusBadge from "./ui/StatusBadge";
+import SectionHeader from "./ui/SectionHeader";
+import StatusDot from "./ui/StatusDot";
 
 export default function Journey() {
   return (
@@ -16,38 +17,29 @@ export default function Journey() {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header - Right aligned like reference */}
-        <AnimatedSection className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16 px-2">
-          <div>
-            <span className="section-eyebrow mb-4">
-              <span className="section-divider" />
-              Experience
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-text leading-[1.1]">
-              Recent <span className="font-display italic">adventures</span>
-            </h2>
-            <p className="text-muted text-sm md:text-base mt-3 max-w-md">
-              A timeline of roles and learning experiences that shaped my craft.
-            </p>
-          </div>
-          
-          {/* Stats */}
-          <div className="flex flex-wrap items-center gap-4 md:gap-8">
-            <div className="text-center">
-              <span className="block text-2xl md:text-3xl font-display italic text-text">4+</span>
-              <span className="text-2xs text-muted uppercase tracking-wider">Years</span>
+        <SectionHeader
+          label="Experience"
+          title={<>Recent <span className="font-display italic">adventures</span></>}
+          subtitle="A timeline of roles and learning experiences that shaped my craft."
+          cta={
+            <div className="flex flex-wrap items-center gap-4 md:gap-8">
+              <div className="text-center">
+                <span className="block text-2xl md:text-3xl font-display italic text-text">4+</span>
+                <span className="text-2xs text-muted uppercase tracking-wider">Years</span>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-stroke" />
+              <div className="text-center">
+                <span className="block text-2xl md:text-3xl font-display italic text-text">20+</span>
+                <span className="text-2xs text-muted uppercase tracking-wider">Projects</span>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-stroke" />
+              <div className="text-center">
+                <span className="block text-2xl md:text-3xl font-display italic text-text">15+</span>
+                <span className="text-2xs text-muted uppercase tracking-wider">Clients</span>
+              </div>
             </div>
-            <div className="hidden sm:block w-px h-8 bg-stroke" />
-            <div className="text-center">
-              <span className="block text-2xl md:text-3xl font-display italic text-text">20+</span>
-              <span className="text-2xs text-muted uppercase tracking-wider">Projects</span>
-            </div>
-            <div className="hidden sm:block w-px h-8 bg-stroke" />
-            <div className="text-center">
-              <span className="block text-2xl md:text-3xl font-display italic text-text">15+</span>
-              <span className="text-2xs text-muted uppercase tracking-wider">Clients</span>
-            </div>
-          </div>
-        </AnimatedSection>
+          }
+        />
 
         {/* Experience List - Clean table style like reference */}
         <div className="px-2">
@@ -92,7 +84,7 @@ export default function Journey() {
         <AnimatedSection className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mt-12 md:mt-16 px-2">
           {/* Status */}
           <div className="inline-flex items-center gap-3 justify-center md:justify-start text-center md:text-left">
-            <StatusBadge />
+            <StatusDot />
             <span className="text-sm text-text">Available for new projects</span>
             <span className="text-muted">·</span>
             <span className="text-sm text-muted">Based in San Francisco</span>

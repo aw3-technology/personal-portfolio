@@ -7,7 +7,11 @@ import dynamic from "next/dynamic";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import Navbar from "@/components/Navbar";
 import { ArrowDiagonal } from "@/components/Icons";
-import { fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import GradientButton from "@/components/ui/GradientButton";
+import SocialLinks from "@/components/ui/SocialLinks";
+import StatusDot from "@/components/ui/StatusDot";
+import { fadeUp, smoothTransition } from "@/lib/animations";
 import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
@@ -102,10 +106,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-3 text-base text-muted leading-[1.7]">
             <p>
-              I&apos;m a founder, writer, and systems thinker focused on the intersection of technology, storytelling, and human evolution. As the founder of <span className="font-display italic">AW3 Technology</span>, I&apos;m building ventures that explore decentralized systems, AI-native development, digital infrastructure, and new models for collaboration — work that spans software architecture, product design, venture strategy, and emerging technologies, with a particular focus on systems that empower creators, founders, and communities rather than extract from them.
+              I&apos;m a founder, writer, and systems thinker focused on the intersection of technology, storytelling, and human evolution. As Founder &amp; CEO of <span className="font-display italic">AW3 Technology</span>, I&apos;m building ventures that merge <span className="font-display italic">code, capital, and creativity</span> — exploring decentralized systems, AI-native development, digital infrastructure, and new models for collaboration. My work spans software architecture, product design, venture strategy, and emerging technologies, with a focus on systems that empower creators, founders, and communities rather than extract from them.
             </p>
             <p>
               I&apos;m currently developing projects across AI tooling, programming languages, decentralized consensus, publishing, and creative media. This includes <span className="font-display italic">SunScript</span>, an AI-native programming language and development ecosystem; experimental infrastructure around <span className="font-display italic">Proof of Love</span> consensus; and long-form literary projects exploring civilization, spirituality, empire, memory, and the future of humanity.
+            </p>
+            <p>
+              At AW3, I work alongside an extraordinary team of engineers, founders, and creators who believe technology should serve humanity, not the other way around. Our work blends deep expertise in AI, Web3, and venture building with creative instincts drawn from art, storytelling, and culture — supported by a world-class network of strategic advisors across finance, education, and technology, including leaders from <span className="font-display italic">Baird Augustine</span>, <span className="font-display italic">Bitwage</span>, and <span className="font-display italic">Blocksee</span>. Our mission is simple: build tools that empower people and systems that endure.
             </p>
             <p>
               Alongside technology, writing has always been central to my work. My novels blend philosophical inquiry, psychological realism, mythology, and speculative fiction, often exploring the tension between power and truth, ego and transcendence, collapse and renewal. Whether through software or storytelling, I&apos;m interested in the same underlying question: how human beings create meaning, systems, and futures.
@@ -397,18 +404,13 @@ export default function AboutPage() {
           <div className="h-px w-full bg-stroke/50 mb-6" />
           <div className="flex flex-wrap gap-4">
             {skills.map((skill) => (
-              <span
+              <GradientButton
+                as="span"
                 key={skill}
-                className="group relative inline-flex items-center px-5 py-3 text-xs md:text-sm text-muted bg-transparent border-2 border-stroke rounded-full overflow-visible transition-colors duration-300 hover:text-text"
+                className="inline-flex items-center px-5 py-3 text-xs md:text-sm text-muted hover:text-text"
               >
-                <span
-                  className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ margin: "-2px" }}
-                >
-                  <span className="flex w-full h-full rounded-full bg-bg" />
-                </span>
                 <span className="relative z-10">{skill}</span>
-              </span>
+              </GradientButton>
             ))}
           </div>
         </motion.div>
@@ -546,89 +548,33 @@ export default function AboutPage() {
           </div>
 
           {/* Center content */}
-          <motion.div
-            className="text-center mb-16 md:mb-20"
-            initial={fadeUp.hidden}
-            whileInView={fadeUp.visible}
-            viewport={viewportOnce}
-            transition={smoothTransition()}
-          >
+          <AnimatedSection className="text-center mb-16 md:mb-20">
             <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
               Have a project in mind? I&apos;m always open to new ideas and collaborations.
             </p>
 
-            <motion.a
+            <GradientButton
+              as={motion.a}
               whileTap={{ scale: 0.97 }}
               href="mailto:will.schulz@aw3.tech"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-bg border-2 border-stroke rounded-full transition-all focus-ring overflow-visible"
+              className="inline-flex items-center gap-3 px-8 py-4"
             >
-              <span
-                className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ margin: "-2px" }}
-              >
-                <span className="flex w-full h-full rounded-full bg-bg" />
-              </span>
               <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
               <ArrowDiagonal
                 width={18}
                 height={18}
                 className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10"
               />
-            </motion.a>
-          </motion.div>
+            </GradientButton>
+          </AnimatedSection>
 
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke">
-            {/* Socials */}
-            <div className="flex flex-wrap items-center gap-6 md:gap-8">
-              <Link
-                href="https://x.com/aw3_xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                X
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/will-schulz/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                LinkedIn
-              </Link>
-              <Link
-                href="https://github.com/aw3-technology"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                GitHub
-              </Link>
-              <Link
-                href="https://www.instagram.com/will_parkerr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Instagram
-              </Link>
-              <Link
-                href="https://calendly.com/will-schulz-aw3/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-text transition-colors hover:-translate-y-0.5 duration-200"
-              >
-                Calendly
-              </Link>
-            </div>
+            <SocialLinks />
 
             {/* Status */}
             <div className="flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
+              <StatusDot />
               <span className="text-sm text-muted">Available for projects</span>
             </div>
           </div>
