@@ -131,29 +131,30 @@ export const projects: Project[] = [
     year: "2026",
     tags: ["Open Source", "AI", "Computer Vision", "Robotics", "Python"],
     metrics: [
-      "Pull, run, and serve vision models from the terminal",
-      "Object detection, depth, segmentation, VLM reasoning",
-      "REST + WebSocket API with React dashboard",
+      "Safety-first: human detection with a sub-50ms robot halt",
+      "Model-agnostic: 8 vision models, one CLI",
+      "Self-hosted — all inference runs locally, data never leaves your network",
     ],
     image: "/projects/openeye.png",
     tagline: "Open-source eyes for the agent era",
     gradient: "from-rose-500 via-sky-400/60 to-bg",
     problem:
-      "Robots and autonomous agents need real-time perception — detection, depth, segmentation, scene understanding — but stitching together YOLO, SAM, Depth Anything, and VLMs into a production-grade pipeline is fragmented, brittle, and gated behind heavyweight ML tooling. There was no Ollama-style developer experience for vision AI.",
+      "Robots and autonomous agents need real-time perception — detection, depth, segmentation, scene understanding — but stitching together YOLO, SAM, Depth Anything, and VLMs into a production-grade pipeline is fragmented, brittle, and gated behind heavyweight ML tooling. And as robots enter homes and workplaces, there was no open visual safety layer watching the workspace. There was no Ollama-style developer experience for vision AI.",
     process:
-      "Designed OpenEye as a CLI-first perception engine with a single mental model: pull a model, run inference, serve it. Built the runtime in Python on FastAPI/Typer/Pydantic, integrated Ultralytics, Grounding DINO, SAM2, Depth Anything V2, and VLM providers, and shipped a React/TypeScript dashboard with live streams, fleet management, MLOps, and governance.",
+      "Designed OpenEye as a CLI-first perception engine with a single mental model: pull a model, run inference, serve it. Built the runtime in Python on FastAPI/Typer/Pydantic, made it model-agnostic across 8 integrated models — YOLOv8, YOLO26, RF-DETR, Grounding DINO, SAM 2, Depth Anything, SmolVLA, and Qwen2.5-VL — with ONNX/TensorRT runtimes, and shipped a React/TypeScript dashboard with live streams, fleet management, MLOps, and governance. Debuted at the Nebius.Build Hackathon in San Francisco, 2026.",
     solution:
-      "A unified open-source toolkit: `openeye pull`, `openeye run`, `openeye serve`, `openeye watch` — with safety monitoring, agentic perception loops, edge-device fleet management, model registry, policy enforcement, and audit logging. REST + WebSocket APIs, browser dashboard, and Unitree G1 robot integration all from one CLI.",
+      "A unified open-source toolkit: `openeye pull`, `run`, `serve`, `watch`, `agent`, `fleet`, `mlops`, and `govern` — built around a six-layer pipeline (camera feed → vision → scene understanding → LLM reasoning → action planning → robot execution). A Safety Guardian layer pairs a fast geometric layer (YOLO every frame) with a periodic VLM smart layer and a halt protocol that freezes the robot in under 50ms when a human enters the danger zone. REST + WebSocket APIs, agentic perception loops, browser dashboard, and Unitree G1 robot integration, all from one CLI.",
     outcome:
-      "Released publicly under aw3-technology on GitHub with an interactive demo, MkDocs documentation, and pipx-installable distribution. Positioned as the open-source perception layer for the agent era — designed to slot into any robotics or autonomous-agent stack with one command.",
+      "Released publicly under aw3-technology on GitHub (v0.2.0, Apache 2.0) with an interactive demo, MkDocs documentation, and pipx-installable distribution (`pipx install openeye-sh`). Fully self-hosted — every frame is processed locally, so camera data never leaves the network. Positioned as the open-source perception layer for the agent era — designed to slot into any robotics, desktop-agent, or autonomous-agent stack with one command.",
     meta: [
       { label: "Role", value: "Creator & Lead Engineer" },
       { label: "Stack", value: ["Python", "FastAPI", "Typer", "React", "TypeScript", "ONNX", "TensorRT"] },
       { label: "Year", value: "2026" },
       { label: "Scope", value: ["CLI", "Inference Server", "Web Dashboard", "Fleet & MLOps"] },
+      { label: "License", value: "Apache 2.0" },
       { label: "Repo", value: "github.com/aw3-technology/openeye.sh" },
     ],
-    emphasisKeywords: ["OpenEye", "open-source", "perception", "vision AI", "Ollama", "agentic", "robots"],
+    emphasisKeywords: ["OpenEye", "open-source", "perception", "vision AI", "Ollama", "agentic", "robots", "safety"],
   },
   {
     slug: "baird-augustine",
