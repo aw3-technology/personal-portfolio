@@ -55,12 +55,12 @@ const mdxComponents = {
     <blockquote className="border-l-2 border-stroke pl-6 my-8 italic text-text/90" {...props} />
   ),
   code: (props: React.HTMLAttributes<HTMLElement>) => (
-    <code className="px-1.5 py-0.5 rounded bg-stroke/50 text-text text-[0.9em] font-mono" {...props} />
+    <code className="px-1.5 py-0.5 rounded bg-white/10 text-text text-[0.9em] font-mono" {...props} />
   ),
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-    <pre className="my-8 p-5 rounded-xl bg-surface border border-stroke/60 overflow-x-auto text-sm font-mono leading-relaxed" {...props} />
+    <pre className="my-8 p-5 rounded-xl bg-surface border border-white/10 overflow-x-auto text-sm font-mono leading-relaxed" {...props} />
   ),
-  hr: () => <hr className="my-12 border-stroke/60" />,
+  hr: () => <hr className="my-12 border-white/10" />,
 };
 
 export default function BlogPostPage({ params }: { params: Params }) {
@@ -99,7 +99,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] uppercase tracking-[0.18em] text-muted border border-stroke/60 rounded-full px-2.5 py-1"
+                  className="text-[10px] uppercase tracking-[0.18em] text-muted border border-white/10 rounded-full px-2.5 py-1"
                 >
                   {tag}
                 </span>

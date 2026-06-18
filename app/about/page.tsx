@@ -71,6 +71,22 @@ export default function AboutPage() {
           <p className="text-base md:text-lg text-muted max-w-2xl mx-auto">
             Software developer, designer, creative, and founder based in San Francisco, building <span className="font-display italic">thoughtful</span> digital experiences.
           </p>
+          <div className="mt-8 flex justify-center">
+            <GradientButton
+              as={motion.a}
+              whileTap={{ scale: 0.97 }}
+              href="/will-schulz-cv.png"
+              download="Will Schulz CV.png"
+              className="inline-flex items-center gap-3 px-8 py-4"
+            >
+              <span className="text-base text-text relative z-10">Download CV</span>
+              <ArrowDiagonal
+                width={18}
+                height={18}
+                className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10"
+              />
+            </GradientButton>
+          </div>
         </motion.div>
       </section>
 

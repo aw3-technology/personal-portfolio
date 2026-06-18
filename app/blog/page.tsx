@@ -38,12 +38,12 @@ export default function BlogIndexPage() {
             <p>No posts yet — check back soon.</p>
           </div>
         ) : (
-          <ul className="grid gap-6 md:gap-8 md:grid-cols-2">
+          <ul className="grid gap-6 md:gap-8 max-w-2xl mx-auto">
             {posts.map((post) => (
               <li key={post.slug}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block rounded-2xl border border-stroke/50 bg-surface/60 hover:bg-surface transition-colors duration-300 overflow-hidden focus-ring"
+                  className="group block rounded-2xl border border-white/10 bg-surface hover:border-white/20 transition-colors duration-300 overflow-hidden focus-ring"
                 >
                   {post.cover && (
                     <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface">
@@ -76,7 +76,7 @@ export default function BlogIndexPage() {
                         {post.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[10px] uppercase tracking-[0.18em] text-muted border border-stroke/60 rounded-full px-2.5 py-1"
+                            className="text-[10px] uppercase tracking-[0.18em] text-muted border border-white/10 rounded-full px-2.5 py-1"
                           >
                             {tag}
                           </span>
