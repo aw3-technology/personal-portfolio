@@ -64,6 +64,10 @@ export type CaseStudyBlock =
       src?: string;
       alt?: string;
       aspect?: "video" | "4/3" | "3/2" | "square";
+      /** Corner radius. Defaults to "2xl" to match other case-study media. */
+      rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
+      /** Use object-contain instead of the default object-cover (avoids cropping UI screenshots). */
+      fit?: "cover" | "contain";
     };
 
 export type CaseStudyLayout =
@@ -373,6 +377,321 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "kavanah",
+    title: "Kavanah",
+    category: "AI Product",
+    summary:
+      "Designed and built Kavanah from scratch — an AI-native project management platform where agents plan sprints, draft PRs, triage incidents, and brief clients. One workspace for projects, delivery, and client work, with web, desktop, and mobile apps kept in sync. Now in private beta, onboarding its first users.",
+    role: "Founder & Lead Engineer",
+    year: "2026",
+    tags: ["AI", "Project Management", "SaaS", "Next.js", "TypeScript"],
+    metrics: [
+      "Built end-to-end — web, desktop & mobile, in sync",
+      "AI agents plan sprints, draft PRs, and triage incidents",
+      "Private beta — onboarding first users",
+    ],
+    image: "/projects/kavanah.png",
+    caseStudyImage: "/projects/kavanah-hero.png",
+    tagline: "AI-native project management — from idea to shipped",
+    gradient: "from-amber-500 via-stone-400/50 to-bg",
+    problem:
+      "AI gave every team member 10x delivery capacity — but project management tools never caught up. Individual contributors got dramatically faster while teams still ran projects through disconnected tools, status meetings, and spreadsheets that barely talk to each other. Only 31% of projects finish on time, on budget, and on scope. PMs lose hours to the gaps between five apps that almost — but don't quite — talk to each other. The work got faster; the way we manage it didn't.",
+    process:
+      "I designed and built Kavanah end-to-end — an AI-native project management platform with autonomous agents at the core, not bolted on. One workspace unifies boards, timelines, dev integrations, time tracking, and a branded client portal. I built the full stack across web, a desktop application, and an iOS app, all kept in sync, and wired AI agents through every surface — from sprint planning to PR drafting to client status updates.",
+    solution:
+      "Kavanah's agents plan sprints from the backlog, draft PRs from ai-eligible tasks, route Sentry and Datadog alerts to code owners, and brief clients automatically. Mark a task ai-eligible and the AI Engineer drafts the PR; drop in a markdown spec and Spec→Tasks turns it into a sequenced plan. Teams can hire scoped 'AI Employees' — named agents with their own permissions and integrations — and assign them work like real teammates. Every commit, PR, deploy, and incident threads back to the task it came from.",
+    outcome:
+      "Kavanah is built and live at kavanah.ai, now in private beta and onboarding its first users. The product spans six core surfaces — task management, dev integration, AI automations, AI Employees, time tracking, and a client portal — across web, desktop, and mobile, with flat per-seat pricing from $3/seat and AI metered as credits so teams only pay for the agent runs they actually use.",
+    meta: [
+      { label: "Role", value: "Founder & Lead Engineer" },
+      { label: "Year", value: "2026" },
+      { label: "Status", value: "Live · Private Beta" },
+      { label: "Platform", value: ["Web", "Desktop", "iOS"] },
+      { label: "Stack", value: ["Next.js", "TypeScript", "Node.js", "AI Agents"] },
+      { label: "Link", value: "kavanah.ai" },
+    ],
+    emphasisKeywords: [
+      "Kavanah",
+      "AI-native",
+      "AI Engineer",
+      "AI Employees",
+      "Cursor for project management",
+      "Spec → Tasks",
+      "agents",
+      "one workspace",
+    ],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "The operating system for AI-powered organizations",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Kavanah is an AI-native project management platform built from the ground up with agents at the core — not bolted on. It unifies projects, delivery, and client work in one workspace: agents plan sprints, draft PRs, triage incidents, and brief clients, taking a team from idea to shipped. I designed and built the entire product, across web, desktop, and mobile.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Projects · Delivery · Client Work — one workspace",
+              text: "AI-native project management, from idea to shipped",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "We need Cursor for project management. — the gap Kavanah was built to close",
+            },
+            {
+              type: "image",
+              label: "Kavanah — web, desktop & mobile, in sync",
+              src: "/projects/kavanah-hero.png",
+              alt: "Kavanah dashboard on desktop and mobile showing time tracker, productivity, completed tasks, and AI agent insights",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Why I built it",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "AI gave every team member 10x delivery capacity — but management tools never evolved to match. Individual contributors got dramatically faster while teams still ran projects through disconnected tools, status meetings, and spreadsheets. Only 31% of projects finish on time, on budget, and on scope. Kavanah closes that gap by making project management one AI-native workspace, not a stack of tools glued together.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "The problem, in one number",
+              text: "Only 31% of projects finish on time, on budget, and on scope",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "From idea to shipped",
+          steps: [
+            {
+              title: "Spin up your workspace",
+              body: "Create a project, invite your team, and link GitHub, Vercel, Sentry, and the tools you already use — Kavanah's agents start learning your workflow immediately.",
+            },
+            {
+              title: "AI plans your sprint",
+              body: "Agents analyze the backlog, break down epics, and draft a sprint plan for your review. Drop in a markdown spec and Spec→Tasks turns it into a sequenced plan.",
+            },
+            {
+              title: "Agents track & triage",
+              body: "AI monitors progress, threads PRs and deploys back to tasks, routes Sentry alerts to code owners, and keeps clients in the loop automatically.",
+            },
+            {
+              title: "Ship & reflect",
+              body: "Agents draft release notes, standups, and client status updates, surface what slipped, and carry the learnings into the next cycle.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Agents that draft the boring work",
+          content: [
+            {
+              type: "paragraph",
+              text: "Kavanah's AI isn't a chat box on the side — it's woven through the workflow. Mark a task ai-eligible and the AI Engineer drafts the PR. Turn a markdown spec into a sequenced plan with Spec→Tasks. Wire approval routes, watchers, and triage rules so routine work runs itself — with you in the loop wherever you want.",
+            },
+            {
+              type: "list",
+              items: [
+                "AI Engineer drafts PRs from ai-eligible tasks — tests passing, diff ready for review.",
+                "Spec → Tasks turns a markdown spec into a sequenced, assignable plan.",
+                "Approval routes, watchers, and triage rules you fully control.",
+                "Automations: triage Sentry alerts to tasks, auto-draft the weekly sprint plan, post standup digests to your team channel.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Hire AI teammates, scoped like real ones",
+            },
+            {
+              type: "list",
+              items: [
+                "Create named AI Employees for any role — a PM, an account exec, a research analyst.",
+                "You set each one's capability scopes, who can work with it, and which integrations it can use.",
+                "Grant per-agent access to email, calendar, GitHub, Slack, and more.",
+                "Any workspace member can assign it tasks — and it reports back like a teammate.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "split",
+          flip: true,
+          heading: "Tasks linked to the code that ships them",
+          content: [
+            {
+              type: "paragraph",
+              text: "Connect GitHub, GitLab, Vercel, Sentry, and Datadog. Kavanah threads commits, PRs, deploys, and incidents back to the task they came from — so anyone can answer \"what shipped, what broke, who owns it\" in one click.",
+            },
+            {
+              type: "list",
+              items: [
+                "Lineage: task ↔ commit ↔ PR ↔ deploy ↔ incident.",
+                "Sentry & Datadog alerts auto-routed to code owners.",
+                "Deploy timeline overlaid on your project Gantt.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Every minute accounted for",
+            },
+            {
+              type: "list",
+              items: [
+                "One-click timer attached to any task.",
+                "Automatic time logging and weekly reports.",
+                "Billable vs. non-billable hour breakdowns.",
+                "Branded client portal with AI-drafted weekly status updates and controlled per-member access.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "One workspace, every surface",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "From planning sprints to tracking hours, collaborating with your team, and keeping clients informed — every feature is built to move projects forward, and every surface is in sync across web, desktop, and mobile.",
+            },
+            {
+              type: "list",
+              items: [
+                "Task management — Kanban, timeline, and Gantt views; custom statuses, tags, priorities, saved filters; undo/redo and bulk edits.",
+                "Dev integration — GitHub, GitLab, Vercel, Sentry, and Datadog, with full task-to-incident lineage.",
+                "AI Engineer & automations — PR drafting, Spec→Tasks, approval routes, watchers, and triage rules.",
+                "AI Employees — scoped, named agents any member can assign work to.",
+                "Time tracking — one-click billable timers, weekly reports, billable/non-billable breakdowns.",
+                "Client portal — branded, controlled per-member access, milestone tracking, AI-drafted status updates.",
+              ],
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Built across the full stack",
+              text: "Web, desktop & mobile — in sync",
+            },
+            {
+              type: "image",
+              label: "Board view — Kanban across Open, In Progress, In Review, and Completed, with AI-eligible tasks threaded to commits",
+              src: "/projects/kavanah-board.png",
+              alt: "Kavanah board view showing a project's tasks across Open, In Progress, In Review, and Completed columns",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Pricing",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Flat per-seat pricing keeps the base platform cheaper than the big tools — pay only for the people you add. AI is metered separately as credits, so you only pay for the agent runs, chat, and automations you actually use. 30% off annual.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Basic — $3 / seat / month",
+            },
+            {
+              type: "list",
+              items: [
+                "Unlimited seats, billed per member · 100 AI credits per seat / month",
+                "Boards, tasks, and timelines",
+                "Time tracking, team chat, and email support",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Pro — $6 / seat / month",
+            },
+            {
+              type: "list",
+              items: [
+                "Everything in Basic · 250 AI credits per seat / month",
+                "AI planning and triage agents",
+                "Client portal · priority support",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Enterprise — Custom",
+            },
+            {
+              type: "list",
+              items: [
+                "Volume per-seat pricing · custom AI credit allowance",
+                "Everything in Pro · SSO and advanced permissions",
+                "Custom integrations · dedicated account manager",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "FAQs",
+          blocks: [
+            {
+              type: "heading",
+              level: 3,
+              text: "What makes Kavanah 'AI-native'?",
+            },
+            {
+              type: "paragraph",
+              text: "Kavanah was built from the ground up with AI agents at the core — not bolted on. Agents triage tasks, plan sprints, draft PRs from ai-eligible tickets, route approvals, and turn markdown specs into sequenced plans. Project management is one workspace, not a stack of tools glued together.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Can I control what the AI automates?",
+            },
+            {
+              type: "paragraph",
+              text: "Yes — you wire approval routes, watchers, and triage rules, and decide exactly where the AI acts on its own versus where it waits for a human. You stay in the loop wherever you want to be.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Can I create my own AI employees?",
+            },
+            {
+              type: "paragraph",
+              text: "Yes. Create named AI Employees for any role, define each one's capability scopes and integration access, and let any workspace member assign them tasks — they report back like a teammate.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Is there a desktop and mobile app?",
+            },
+            {
+              type: "paragraph",
+              text: "Yes — Kavanah ships as a web app, a desktop application, and an iOS app, all kept in sync, so your workspace travels with you.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: "aw3-host",
     title: "AW3 Host",
     category: "Cloud Infrastructure",
@@ -386,6 +705,7 @@ export const projects: Project[] = [
       "AI-powered cost optimization (Claude)",
       "99.99% uptime SLA",
     ],
+    image: "/projects/aw3-host.png",
     tagline: "One platform. Every cloud provider.",
     gradient: "from-sky-500 via-cyan-400/60 to-bg",
     problem:
@@ -420,6 +740,15 @@ export const projects: Project[] = [
               tone: "metric",
               label: "AI-native hosting orchestration",
               text: "One platform. Every cloud provider.",
+            },
+            {
+              type: "image",
+              label: "AW3 Host console — multi-cloud deployment at a glance",
+              src: "/projects/aw3-host-dashboard.png",
+              alt: "AW3 Host dashboard showing platform health, organizations, projects, and services",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
             },
           ],
         },
@@ -465,6 +794,15 @@ export const projects: Project[] = [
                 "Policy engine — region-lock, provider-whitelist, budget-cap, deploy-window, approval-required, test-coverage, and vulnerability-scan policies.",
               ],
             },
+            {
+              type: "image",
+              label: "AI Deployment Agent — suggested actions across security, reliability, and cost",
+              src: "/projects/aw3-host-agent.png",
+              alt: "AW3 Host AI Deployment Agent surfacing suggested actions",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
           ],
           media: [
             {
@@ -479,6 +817,15 @@ export const projects: Project[] = [
                 "Lifecycle — exponential-backoff retry, live SSE log streaming, secret diff before deploy, approval gates with comments.",
                 "Routing modes — Weighted, Blue/Green, Canary ramp, Geo, Failover, and Smart Resolve.",
               ],
+            },
+            {
+              type: "image",
+              label: "AW3 Assistant — natural-language infrastructure co-pilot",
+              src: "/projects/aw3-host-assistant.png",
+              alt: "AW3 Assistant chat co-pilot for deploying and investigating services",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
             },
           ],
         },
@@ -506,6 +853,15 @@ export const projects: Project[] = [
               tone: "metric",
               label: "Built for multi-cloud reality",
               text: "20+ platforms · 4 deploy strategies · 6 routing modes",
+            },
+            {
+              type: "image",
+              label: "Service Dependencies — visualize and manage service relationships across the fleet",
+              src: "/projects/aw3-host-dependencies.png",
+              alt: "AW3 Host service dependency graph across services",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
             },
           ],
         },
@@ -724,8 +1080,10 @@ export const projects: Project[] = [
             },
             {
               type: "image",
-              label: "Live safety monitor — danger & caution zones",
-              aspect: "4/3",
+              label: "Safety Guardian dashboard — live status, scene graph, and VLM reasoning",
+              src: "/projects/openeye-dashboard.png",
+              alt: "OpenEye Safety Guardian dashboard showing safety status, live log, scene graph, and action plan",
+              aspect: "3/2",
             },
           ],
         },
@@ -749,6 +1107,13 @@ export const projects: Project[] = [
                 "Qwen2.5-VL — multimodal reasoning with native visual grounding (Alibaba Qwen).",
               ],
             },
+            {
+              type: "image",
+              label: "Model Registry — browse, benchmark, and manage adapters",
+              src: "/projects/openeye-registry.png",
+              alt: "OpenEye model registry listing integrated and planned vision models with creators, categories, and adapters",
+              aspect: "3/2",
+            },
           ],
         },
         {
@@ -769,6 +1134,13 @@ export const projects: Project[] = [
                 "openeye fleet — register, monitor, and deploy to edge devices with canary rollouts and OTA updates.",
                 "openeye mlops & govern — A/B testing, automated retraining, audit trails, and policy enforcement.",
               ],
+            },
+            {
+              type: "image",
+              label: "Agentic Loop — YOLO every frame (<100ms), VLM reasoning every 3s, synthesized into a plan",
+              src: "/projects/openeye-agentic-loop.png",
+              alt: "OpenEye agentic loop view describing the continuous perception, reasoning, and action cycle",
+              aspect: "3/2",
             },
           ],
         },
@@ -832,7 +1204,7 @@ export const projects: Project[] = [
     summary:
       "Fractional CTO and venture partner to Baird Augustine, a Silicon Valley neo-investment bank — building the brand, website, and investor materials from day one, and architecting Direct Credit, its custom lending platform.",
     role: "Fractional CTO & Venture Partner",
-    year: "2023",
+    year: "2024",
     tags: ["Fintech", "Investment Banking", "Lending", "Branding", "Fundraising"],
     metrics: [
       "$700B+ capital network across the platform",
@@ -852,7 +1224,7 @@ export const projects: Project[] = [
       "Baird Augustine is live and operating, recognized by the State of California for investment banking decorum in an award presented by the Honorable Fiona Ma, State Treasurer. Direct Credit is deployed at directcredit.net. Ryan Baird, CEO: \"AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology.\"",
     meta: [
       { label: "Role", value: "Fractional CTO & Venture Partner" },
-      { label: "Engaged", value: "2023–present" },
+      { label: "Engaged", value: "2024–present" },
       { label: "Location", value: "Silicon Valley, CA" },
       { label: "Scope", value: ["Brand", "Website", "Investor Materials", "Lending Platform"] },
     ],
@@ -861,6 +1233,8 @@ export const projects: Project[] = [
       "neo-investment bank",
       "fractional CTO",
       "Finance Inc.",
+      "Asymmetrical Alpha",
+      "CAGR Club",
       "lending",
       "AI",
     ],
@@ -885,6 +1259,30 @@ export const projects: Project[] = [
               type: "callout",
               tone: "quote",
               text: "AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology. — Ryan Baird, CEO & Co-Founder",
+            },
+            {
+              type: "image",
+              label: "Baird Augustine — the brand and website I designed and built",
+              src: "/projects/baird-augustine-hero.png",
+              alt: "Baird Augustine homepage hero — \"Neo-Investment Bank\" with the Baird Augustine wordmark",
+              aspect: "video",
+              rounded: "lg",
+            },
+            {
+              type: "image",
+              label: "\"Welcome to the Future of Finance\" — mission and shared values",
+              src: "/projects/baird-augustine-mission.png",
+              alt: "Baird Augustine mission section with Pursuing Excellence and Shared Values",
+              aspect: "video",
+              rounded: "lg",
+            },
+            {
+              type: "image",
+              label: "The Baird Augustine wordmark and identity across the site",
+              src: "/projects/baird-augustine-brand.png",
+              alt: "Baird Augustine footer with the Baird Augustine serif wordmark",
+              aspect: "video",
+              rounded: "lg",
             },
           ],
         },
@@ -956,16 +1354,25 @@ export const projects: Project[] = [
           blocks: [
             {
               type: "paragraph",
-              text: "Finance Inc., the top-co, houses a set of business units that integrate under one umbrella — so the brand and platform work I built sit inside a broader institutional machine spanning investing, media, and community.",
+              text: "Finance Inc., the top-co, houses a set of business units that integrate under one umbrella — and I led brand identity across them, not just the parent firm. The brand and platform work I built sits inside a broader institutional machine spanning investing, media, and community.",
             },
             {
               type: "list",
               items: [
-                "Asymmetrical Alpha — hedge fund and institutional investing arm.",
+                "Asymmetrical Alpha — the firm's hedge fund and institutional investing arm; I designed its brand identity (bairdaugustine.com/services/asymmetrical-alpha).",
+                "CAGR Club — a private investment club, \"Community Advancing Growth & Returns\"; I designed its crest and full brand identity.",
                 "Silicon Valley Economic Forum — flagship institutional investor forum.",
                 "Focus on Risk — the firm's podcast.",
-                "CAGR Club — a private investment club.",
               ],
+            },
+            {
+              type: "image",
+              label: "CAGR Club — crest and brand identity I designed for the firm's private investment club",
+              src: "/projects/cagr-club-brand.png",
+              alt: "CAGR Club crest logo with two rearing horses and the tagline Community Advancing Growth & Returns",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
             },
           ],
         },

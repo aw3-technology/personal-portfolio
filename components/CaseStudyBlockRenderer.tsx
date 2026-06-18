@@ -24,10 +24,25 @@ export function renderImageBlock(
           ? "aspect-square"
           : "aspect-video";
 
+  const roundedClass =
+    block.rounded === "none"
+      ? "rounded-none"
+      : block.rounded === "sm"
+        ? "rounded-sm"
+        : block.rounded === "md"
+          ? "rounded-md"
+          : block.rounded === "lg"
+            ? "rounded-lg"
+            : block.rounded === "xl"
+              ? "rounded-xl"
+              : "rounded-2xl";
+
+  const fitClass = block.fit === "contain" ? "object-contain" : "object-cover";
+
   return (
     <div key={`block-${index}`} className="h-full">
       <div
-        className={`w-full h-full ${aspectClass} bg-surface rounded-2xl border border-stroke overflow-hidden relative group`}
+        className={`w-full h-full ${aspectClass} bg-surface ${roundedClass} border border-stroke overflow-hidden relative group`}
       >
         {block.src ? (
           <ImageWithSkeleton
@@ -35,7 +50,7 @@ export function renderImageBlock(
             alt={block.alt ?? block.label}
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
-            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            className={`${fitClass} group-hover:scale-105 transition-transform duration-500 ease-out`}
           />
         ) : (
           <div className="flex items-center justify-center px-6 h-full">
