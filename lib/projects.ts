@@ -109,6 +109,7 @@ export const projects: Project[] = [
       { label: "Founded", value: "2022" },
       { label: "Location", value: "San Francisco, CA" },
       { label: "Scope", value: ["Venture Studio", "Web3", "AI", "Fundraising"] },
+      { label: "Links", value: ["aw3.tech — studio", "aw3.xyz — portfolio", "aw3.host — hosting"] },
     ],
     emphasisKeywords: ["AW3", "Web3", "AI", "venture studio", "Proof of Love", "SunScript", "Fiona Ma"],
     award: {
@@ -119,6 +120,498 @@ export const projects: Project[] = [
       citation:
         "On Behalf of the State of California, I Hereby Award this Certificate of Recognition in Honor of Your Innovative Approach to Supporting and Investing in Early Stage Entrepreneurs.",
       body: "AW3 Technology and founder Will Schulz were formally recognized by California State Treasurer Fiona Ma and the 1000X Silicon Valley Summit for driving cutting-edge innovation and economic activity within the state — specifically for AW3's work supporting and investing in early-stage entrepreneurs.",
+    },
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "An award-winning venture studio",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "AW3 (Andromeda Web3) is a San Francisco–based venture studio with a proven track record building, scaling, and financing technology solutions in emerging markets. We didn't re-invent the wheel, we re-imagined it — combining world-class software development, venture consulting, and internal innovation to 3x early-stage Web3 and AI startups' chances of success. Our mission is to help innovative executives build and run great companies, with end-to-end support under one roof.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "The studio advantage",
+              text: "3x your startup's chances of success",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "Without AW3, my startup would have failed months ago. — Andrew Hannebrink, Founder, Deelz",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "How it works",
+          steps: [
+            {
+              title: "Illuminate",
+              body: "We define your vision and uncover the market truth that will drive your success — systematic opportunity identification and validation before a line of code is written.",
+            },
+            {
+              title: "Architect",
+              body: "We design the roadmap and technology foundation for sustainable growth — scalable architecture, branding, and a fundable narrative from day one.",
+            },
+            {
+              title: "Forge",
+              body: "Our in-house team builds and iterates with precision, shipping production-ready MVPs in 1–30 days across AI, Web3, and mobile.",
+            },
+            {
+              title: "Ascend",
+              body: "We launch you to market and support your evolution as you scale — go-to-market execution, fundraising support, and capital for select companies.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Features",
+          content: [
+            {
+              type: "paragraph",
+              text: "Once you start working with AW3, your journey to Andromeda begins. Every engagement runs on the same in-house stack — design, engineering, capital, and growth — so you're never stitching together vendors.",
+            },
+            {
+              type: "list",
+              items: [
+                "Lightning-fast execution — speed through early-stage deliverables, with MVPs shipped in 1–30 days.",
+                "High-quality software — from AI to Web3 to mobile apps, every build meets the highest engineering and design standards.",
+                "Flexible pricing — packages and equity arrangements that flex with your stage.",
+                "High-converting designs — premium interfaces built with conversion in mind.",
+                "Fundraising support — we help clients secure funding and invest in select startups.",
+                "Focused on success — your success is our success; we're here to win big together.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Services include",
+            },
+            {
+              type: "list",
+              items: [
+                "Software design & development",
+                "Generative AI",
+                "Web3 & blockchain",
+                "Mobile apps",
+                "Branding & design",
+                "Digital marketing",
+                "Managed hosting (aw3.host)",
+                "Fundraising support",
+                "Startup education",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Benefits",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Say goodbye to the startup world as you know it. The venture studio model consistently delivers above-market outcomes — and the data backs it up. Venture studios have a 62% higher exit rate than accelerators.",
+            },
+            {
+              type: "list",
+              items: [
+                "Higher success rates — studio-backed companies succeed at 30%+ versus ~10% for traditional startups.",
+                "2.5x better returns — average internal rate of return of 53.3% versus 21.3% for traditional venture-backed startups.",
+                "3.4x faster to seed — studios reach seed in 10.7 months versus 36 months for traditional startups.",
+                "3.6x total value to paid in — venture studios boast a 5.8x TVPI ratio versus 1.6x for traditional venture-backed startups.",
+                "De-risked innovation — ideas validated and operational expertise applied before committing major resources.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Recent work",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "From blockchain protocols and AI-powered platforms to fintech applications, event branding, and full-scale digital marketplaces, AW3 delivers end-to-end across industries — strategy, design, development, marketing, and fundraising.",
+            },
+            {
+              type: "list",
+              items: [
+                "Baird Augustine — fractional CTO and venture partner to a Silicon Valley neo-investment bank; brand, website, investor campaigns, and the Direct Credit lending platform.",
+                "Bitwage — $4MM equity crowdfund, marketing, and 30x ARR growth for a global crypto-payroll platform (acquired by Paystand).",
+                "Carnomaly — rebuilt mobile + web for a blockchain automotive marketplace now selling to dealerships.",
+                "Blocksee — full React/Node frontend and fundraising support for a Web3 CRM.",
+                "JustiGuide — branding and fundraising for an AI immigration platform; Time Best Inventions 2025.",
+                "Wryter — end-to-end AI screenwriting platform plus two generative-AI apps on Vue/Python/Node/AWS.",
+                "Nivana — patent-pending Proof of Love blockchain consensus (Rust/React/Node).",
+              ],
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "100% in-house · 100% still running",
+              text: "54 clients + 30 internal projects",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Pricing",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Our plans vary based on stage. Pause or cancel anytime.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Inception to pre-seed — Sweat equity",
+            },
+            {
+              type: "paragraph",
+              text: "One request at a time. We offer equity compensation and payment plans.",
+            },
+            {
+              type: "list",
+              items: [
+                "Mentorship & coaching",
+                "Product strategy",
+                "Branding & design",
+                "Industry connections & access to social clubs",
+                "Startup education",
+                "MVP development",
+                "Funding for select companies",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Seed to Series A — from $999/mo",
+            },
+            {
+              type: "paragraph",
+              text: "Double the requests. Pause or cancel anytime.",
+            },
+            {
+              type: "list",
+              items: [
+                "Software engineering resources",
+                "AI & blockchain development",
+                "Fundraising & equity-crowdfunding support",
+                "Digital marketing",
+                "Data warehousing",
+                "Advanced design resources",
+                "Funding for select companies",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Enterprise Consulting — Custom",
+            },
+            {
+              type: "paragraph",
+              text: "We help established businesses realize their software and digital-transformation goals. Refer a friend and earn 5% monthly recurring commissions for each referral.",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "FAQs",
+          blocks: [
+            {
+              type: "heading",
+              level: 3,
+              text: "What is a venture studio?",
+            },
+            {
+              type: "paragraph",
+              text: "A venture studio systematically builds multiple startups in rapid succession using a repeatable process and shared resources — ideating, validating, and building companies from scratch rather than only investing in existing ones.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "How is AW3 different from an agency or a VC?",
+            },
+            {
+              type: "paragraph",
+              text: "Agencies hand back a deck or a Figma file and dev shops can't help you raise. AW3 does both and more — design, engineering, branding, capital, and go-to-market under one roof, with the team building alongside you from concept to scale.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "How fast can you ship an MVP?",
+            },
+            {
+              type: "paragraph",
+              text: "Most MVPs ship in 1–30 days, with production-ready code from day one and no technical debt accumulation.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "What stages and industries do you work with?",
+            },
+            {
+              type: "paragraph",
+              text: "Primarily inception through Series A, across Web3, AI, fintech, and SaaS.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Do you invest?",
+            },
+            {
+              type: "paragraph",
+              text: "Yes — AW3 provides funding for select companies and angel-invests alongside its build work, aligning our incentives with your long-term success.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    slug: "aw3-host",
+    title: "AW3 Host",
+    category: "Cloud Infrastructure",
+    summary:
+      "Designed and built the entire AW3 Host platform — an AI-native, multi-cloud deployment control plane that deploys, monitors, and optimizes services across 20+ cloud providers from a single dashboard, with no vendor lock-in.",
+    role: "Founder & Lead Engineer",
+    year: "2026",
+    tags: ["Cloud Infrastructure", "DevOps", "AI", "Multi-Cloud", "TypeScript"],
+    metrics: [
+      "20+ cloud platforms, one dashboard",
+      "AI-powered cost optimization (Claude)",
+      "99.99% uptime SLA",
+    ],
+    tagline: "One platform. Every cloud provider.",
+    gradient: "from-sky-500 via-cyan-400/60 to-bg",
+    problem:
+      "Modern teams run across a sprawl of cloud providers — AWS, GCP, Azure, Vercel, Cloudflare, Fly.io, Kubernetes, GPU clouds — each with its own dashboard, billing, secrets, and deploy mechanics. The result is vendor lock-in, runaway spend, no unified view of health or cost, and no easy way to route each workload to the platform that actually fits it.",
+    process:
+      "I built AW3 Host end-to-end as a multi-cloud control plane: a unified deployment, routing, secrets, monitoring, and cost layer over 20+ providers, with a Claude-powered assistant for diagnosis and natural-language deploys. The stack spans a TypeScript SDK, full CLI, and REST API, with SSE log streaming, policy gates, and GitOps reconciliation.",
+    solution:
+      "A single dashboard to deploy anywhere and optimize everything — AI cost optimization, performance-based traffic orchestration, automatic failover, encrypted secrets, geo-routing, and a policy engine — plus deep capabilities for FinOps, compliance, runtime security, and LLM/GPU hosting.",
+    outcome:
+      "AW3 Host is live in public beta as the hosting arm of AW3 Technology (aw3.host). It integrates 20+ platforms, offers four deploy strategies and six routing modes, and ships a free Starter tier, a $29/mo Pro plan, and custom Enterprise contracts with a 99.99% uptime SLA and SOC 2 readiness.",
+    meta: [
+      { label: "Role", value: "Founder & Lead Engineer" },
+      { label: "Year", value: "2026" },
+      { label: "Status", value: "Live · Public Beta" },
+      { label: "Stack", value: ["TypeScript", "Next.js", "Node.js", "CLI", "REST API", "Claude"] },
+      { label: "Link", value: "aw3.host" },
+    ],
+    emphasisKeywords: ["AW3 Host", "AW3", "multi-cloud", "AI-native", "Claude", "control plane", "cloud"],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "Deploy anywhere. Optimize everything.",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "AW3 Host is a multi-cloud deployment control plane. Deploy, monitor, and manage services across 20+ cloud platforms from a single dashboard — without vendor lock-in. Tell AW3 what matters most (speed, cost, or specific capabilities) and its AI automatically deploys and routes your apps to the optimal platforms.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "AI-native hosting orchestration",
+              text: "One platform. Every cloud provider.",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "How it works",
+          steps: [
+            {
+              title: "Connect",
+              body: "Link all your hosting platforms — AWS, GCP, Azure, Vercel, Cloudflare, Fly.io, Kubernetes, GPU clouds and more — into one control plane.",
+            },
+            {
+              title: "Set what matters",
+              body: "Tell AW3 whether to optimize for performance, cost, or capability. Define policies: region-lock, budget caps, deploy windows, approval gates.",
+            },
+            {
+              title: "Deploy & route",
+              body: "Ship with Standard, Blue/Green, or Canary strategies — or just say 'deploy my API to production on AWS.' Traffic is routed to the best target in real time.",
+            },
+            {
+              title: "Monitor & optimize",
+              body: "Watch real-time health maps and p50/p95/p99 latency, sync daily cost from every provider, and apply Claude's savings recommendations with one click.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Features",
+          content: [
+            {
+              type: "paragraph",
+              text: "A unified layer over the entire cloud landscape — built so each workload runs on the platform that fits it best, with security and observability that span every provider.",
+            },
+            {
+              type: "list",
+              items: [
+                "AI-powered cost optimization — Claude analyzes cross-provider cost and performance to surface cheaper alternatives and idle resources; apply or dismiss each in one click.",
+                "Performance orchestration — auto-route traffic to the fastest platform by location, latency, and load, with p50/p95/p99 monitoring per service.",
+                "Automatic failover — health checks every 60s; traffic reroutes to healthy alternatives when a platform degrades.",
+                "Smart geo-routing — send users to the nearest, fastest platform with real-time best-target resolution.",
+                "Unified security — AES-256-GCM encrypted secrets, environment-scoped stores, MFA, SSO/SAML 2.0, and SCIM provisioning.",
+                "CLI, SDK & API — full CLI, TypeScript SDK, and REST API, including natural-language deploys via 'aw3 intent'.",
+                "Policy engine — region-lock, provider-whitelist, budget-cap, deploy-window, approval-required, test-coverage, and vulnerability-scan policies.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Deployment & traffic",
+            },
+            {
+              type: "list",
+              items: [
+                "Strategies — Standard, Blue/Green with promote, Canary (5%→100% ramp), instant rollback.",
+                "Lifecycle — exponential-backoff retry, live SSE log streaming, secret diff before deploy, approval gates with comments.",
+                "Routing modes — Weighted, Blue/Green, Canary ramp, Geo, Failover, and Smart Resolve.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Everything you need to run at scale",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "Cost management — daily cost sync from all providers, drill-down by provider/service/environment/region, multi-threshold budget alerts via Slack and PagerDuty.",
+                "Health checks & monitoring — HTTP, TCP, and synthetic probes; real-time health maps, uptime history, and latency metrics.",
+                "AI assistant & NLP deploys — in-dashboard Claude chat to diagnose deployments, explore the platform, or deploy in natural language.",
+                "Access control & teams — Owner/Admin/Member/Viewer roles, MFA, SSO/SAML/OIDC, SCIM, permission matrix, and break-glass access with full audit trail.",
+                "Compliance & audit — full audit logging with CSV export, SOC 2 readiness, CIS benchmarks, per-deployment SBOM with vulnerability scanning, data residency, and GDPR support.",
+                "Secrets management — environment-scoped stores with AES-256-GCM at rest, in-memory decryption at deploy time, and keys diffed before deployment.",
+                "LLM & AI hosting — GPU-backed inference on CoreWeave, RunPod, and Modal with VRAM estimation, A/B endpoints, batch inference, and a HuggingFace model registry.",
+                "DORA metrics & GitOps — deployment frequency, lead time, change-failure rate, MTTR; commit-driven reconciliation, drift detection, and Terraform export.",
+                "FinOps & spot fleets — spot/preemptible fleet management with interruption handling, egress-aware cost arbitrage, and carbon-aware scheduling.",
+                "Runtime security — eBPF runtime protection with Falco-compatible rules, ML anomaly detection, FIPS 140-2 mode, BYOK/KMS, and SigStore/Cosign signing.",
+              ],
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Built for multi-cloud reality",
+              text: "20+ platforms · 4 deploy strategies · 6 routing modes",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "20+ cloud platforms",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Connect all your hosting platforms and let AW3 choose the best one for each workload based on performance, pricing, and capabilities.",
+            },
+            {
+              type: "list",
+              items: [
+                "Cloud — AWS, Google Cloud, Azure, DigitalOcean, Kubernetes, Hetzner, Linode.",
+                "Frontend & edge — Vercel, Netlify, Cloudflare, Fly.io.",
+                "Full stack & backend — Railway, Render, Supabase.",
+                "GPU — CoreWeave (A100/H100), RunPod, Modal.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Pricing",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Start free and scale as you grow — no hidden fees. 1 credit = 1 compute action; credit packs never expire and Pro credits roll over.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Starter — Free forever",
+            },
+            {
+              type: "list",
+              items: [
+                "500 credits included",
+                "3 connected platforms · 5 projects",
+                "Community support · basic analytics · 7-day log retention",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Pro — $29/mo",
+            },
+            {
+              type: "list",
+              items: [
+                "10,000 credits/month, unused credits roll over",
+                "Unlimited platforms & projects",
+                "Priority support · advanced analytics · 30-day log retention",
+                "Custom domains · team collaboration (5 seats)",
+              ],
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Enterprise — Custom",
+            },
+            {
+              type: "list",
+              items: [
+                "Unlimited credits & team seats",
+                "99.99% uptime SLA · dedicated support · 90-day log retention",
+                "SSO / SAML · custom contracts · SOC 2 compliant",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "FAQs",
+          blocks: [
+            {
+              type: "heading",
+              level: 3,
+              text: "What are credits used for?",
+            },
+            {
+              type: "paragraph",
+              text: "Credits are consumed based on hosting usage — deployments, bandwidth, and compute time. Different actions consume different amounts; 1 credit equals 1 compute action.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Do unused credits expire?",
+            },
+            {
+              type: "paragraph",
+              text: "On Pro, unused credits roll over to the next month. Free-tier credits reset monthly. Purchased credit packs never expire.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "What happens if I run out of credits?",
+            },
+            {
+              type: "paragraph",
+              text: "We notify you when you're running low, and you can buy a credit pack or upgrade anytime. Live deployments are never terminated for a low balance.",
+            },
+          ],
+        },
+      ],
     },
   },
   {
@@ -136,12 +629,13 @@ export const projects: Project[] = [
       "Self-hosted — all inference runs locally, data never leaves your network",
     ],
     image: "/projects/openeye.png",
+    caseStudyImage: "/projects/openeye-hero.png",
     tagline: "Open-source eyes for the agent era",
     gradient: "from-rose-500 via-sky-400/60 to-bg",
     problem:
       "Robots and autonomous agents need real-time perception — detection, depth, segmentation, scene understanding — but stitching together YOLO, SAM, Depth Anything, and VLMs into a production-grade pipeline is fragmented, brittle, and gated behind heavyweight ML tooling. And as robots enter homes and workplaces, there was no open visual safety layer watching the workspace. There was no Ollama-style developer experience for vision AI.",
     process:
-      "Designed OpenEye as a CLI-first perception engine with a single mental model: pull a model, run inference, serve it. Built the runtime in Python on FastAPI/Typer/Pydantic, made it model-agnostic across 8 integrated models — YOLOv8, YOLO26, RF-DETR, Grounding DINO, SAM 2, Depth Anything, SmolVLA, and Qwen2.5-VL — with ONNX/TensorRT runtimes, and shipped a React/TypeScript dashboard with live streams, fleet management, MLOps, and governance. Debuted at the Nebius.Build Hackathon in San Francisco, 2026.",
+      "Designed OpenEye as a CLI-first perception engine with a single mental model: pull a model, run inference, serve it. Built the runtime in Python on FastAPI/Typer/Pydantic, made it model-agnostic across 8 integrated models — YOLOv8, YOLO26, RF-DETR, Grounding DINO, SAM 2, Depth Anything, SmolVLA, and Qwen2.5-VL — with ONNX/TensorRT runtimes, and shipped a React/TypeScript dashboard with live streams, fleet management, MLOps, and governance. Built at the Nebius.Build SF: OpenClaw + Robotics Hackathon in 2026.",
     solution:
       "A unified open-source toolkit: `openeye pull`, `run`, `serve`, `watch`, `agent`, `fleet`, `mlops`, and `govern` — built around a six-layer pipeline (camera feed → vision → scene understanding → LLM reasoning → action planning → robot execution). A Safety Guardian layer pairs a fast geometric layer (YOLO every frame) with a periodic VLM smart layer and a halt protocol that freezes the robot in under 50ms when a human enters the danger zone. REST + WebSocket APIs, agentic perception loops, browser dashboard, and Unitree G1 robot integration, all from one CLI.",
     outcome:
@@ -155,64 +649,512 @@ export const projects: Project[] = [
       { label: "Repo", value: "github.com/aw3-technology/openeye.sh" },
     ],
     emphasisKeywords: ["OpenEye", "open-source", "perception", "vision AI", "Ollama", "agentic", "robots", "safety"],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "An open-source perception engine",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "OpenEye turns raw video into structured world models — the perception layer robots and autonomous agents need to see, understand, and act. It's model-agnostic, self-hosted, and driven entirely from the command line: pull a model, run inference, serve it. Think Ollama, but for vision AI.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Safety-first",
+              text: "Human detection with a sub-50ms robot halt",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "Six layers, one pipeline",
+          steps: [
+            {
+              title: "Camera Feed",
+              body: "Hardware-agnostic ingestion from USB cameras, RTSP streams, video files, or simulated feeds.",
+            },
+            {
+              title: "Vision Engine",
+              body: "YOLO26, Grounding DINO, SAM 2, and RF-DETR detect, segment, and localize every object in frame.",
+            },
+            {
+              title: "Scene Understanding",
+              body: "Objects, a spatial map, and flagged hazards assembled into a structured scene graph.",
+            },
+            {
+              title: "LLM Reasoning",
+              body: "A VLM — Qwen2.5-VL via OpenRouter or the Nebius Token Factory — interprets context: what changed, what's unsafe, what to do.",
+            },
+            {
+              title: "Action Planner",
+              body: "Structured task decomposition turns intent into executable robot actions.",
+            },
+            {
+              title: "Robot Adapter",
+              body: "Plans dispatched to the connected controller — Unitree G1, SmolVLA, or simulation.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "The safety guardian",
+          content: [
+            {
+              type: "paragraph",
+              text: "As robots enter homes and workplaces, OpenEye acts as a visual safety layer — monitoring any robot's workspace in real time and intervening before accidents happen.",
+            },
+            {
+              type: "list",
+              items: [
+                "Fast layer — YOLO runs every frame for pure-geometry checks: is a hand inside the danger zone? A low-latency halt with no LLM overhead.",
+                "Smart layer — a VLM analyzes periodically to catch what geometry can't: a knife that wasn't there before, an unstable stack, context-dependent risk.",
+                "Halt protocol — on danger, OpenEye freezes the connected robot and resumes only once the workspace is confirmed clear.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Detect → halt",
+              text: "Under 100ms, end to end",
+            },
+            {
+              type: "image",
+              label: "Live safety monitor — danger & caution zones",
+              aspect: "4/3",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Model-agnostic by design",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Swap models, combine pipelines, and extend with custom adapters. Eight models ship integrated out of the box — spanning real-time detection, segmentation, depth, and vision-language reasoning — all behind one unified API with ONNX and TensorRT runtimes.",
+            },
+            {
+              type: "list",
+              items: [
+                "YOLOv8 & YOLO26 — real-time object detection across 80 COCO classes (Ultralytics).",
+                "RF-DETR — an end-to-end detection transformer with no NMS (Roboflow).",
+                "Grounding DINO — open-set detection driven by text prompts (IDEA Research).",
+                "SAM 2 — zero-shot segment-anything for any object in any image (Meta AI).",
+                "Depth Anything — monocular depth estimation at any resolution.",
+                "SmolVLA — a compact vision-language-action model for robot control.",
+                "Qwen2.5-VL — multimodal reasoning with native visual grounding (Alibaba Qwen).",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "A plug-and-play CLI",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Every capability is one command away — like ffmpeg for machine perception.",
+            },
+            {
+              type: "list",
+              items: [
+                "openeye run — inference on any image with any model, unified JSON out.",
+                "openeye watch — a live feed with real-time detection, safety zones, and hazard alerts.",
+                "openeye serve — a FastAPI server with REST endpoints, WebSocket streams, and a browser dashboard.",
+                "openeye agent — an agentic perceive-reason-act loop with observation memory and VLM reasoning.",
+                "openeye fleet — register, monitor, and deploy to edge devices with canary rollouts and OTA updates.",
+                "openeye mlops & govern — A/B testing, automated retraining, audit trails, and policy enforcement.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "split",
+          flip: true,
+          heading: "Built for the physical world",
+          content: [
+            {
+              type: "paragraph",
+              text: "From robot safety to desktop automation, OpenEye gives machines structured visual understanding of the world in front of them.",
+            },
+            {
+              type: "list",
+              items: [
+                "Robotics — safety-zone enforcement, human-robot coexistence, hazard identification, and scene graphs for planning.",
+                "Application debugging — visual regression detection, layout validation, and VLM-powered UI analysis in CI/CD.",
+                "Desktop agents — UI element detection and multi-window screen understanding as the eyes of computer-use agents.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "image",
+              label: "OpenEye",
+              src: "/projects/openeye.png",
+              alt: "OpenEye logo",
+              aspect: "4/3",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Self-hosted",
+              text: "All inference runs locally",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Open infrastructure, open models",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Your cameras, your hardware, your data. Every frame is processed on-device or on-prem, so camera feeds never leave the network — deploy on laptops, edge devices, or air-gapped servers. Released publicly under aw3-technology on GitHub (v0.2.0, Apache 2.0), pipx-installable, with an interactive demo and MkDocs documentation. Built at the Nebius.Build SF: OpenClaw + Robotics Hackathon in 2026.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Get started",
+              text: "pipx install openeye-sh",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "baird-augustine",
     title: "Baird Augustine",
     category: "Fintech",
     summary:
-      "Architected and built Lendya, an AI-powered lending MVP for a neo-investment bank serving 33 family offices deploying over $20BN in 2025.",
-    role: "Technology Partner & Advisor",
-    year: "2024",
-    tags: ["Fintech", "AI", "Lending", "TypeScript", "Supabase"],
-    metrics: ["Full MVP shipped from scratch", "33 family offices in network", "$20BN+ deployment scope"],
+      "Fractional CTO and venture partner to Baird Augustine, a Silicon Valley neo-investment bank — building the brand, website, and investor materials from day one, and architecting Direct Credit, its custom lending platform.",
+    role: "Fractional CTO & Venture Partner",
+    year: "2023",
+    tags: ["Fintech", "Investment Banking", "Lending", "Branding", "Fundraising"],
+    metrics: [
+      "$700B+ capital network across the platform",
+      "$20B+ dry powder being deployed",
+      "Direct Credit lending platform: $100K–$10M+ loans",
+    ],
     image: "/projects/baird-augustine.png",
-    tagline: "AI-powered lending for Silicon Valley's neo-investment bank",
+    tagline: "Building the future of finance — from brand to lending platform",
     gradient: "from-emerald-500 via-teal-400/60 to-bg",
     problem:
-      "Baird Augustine, an award-winning neo-investment bank specializing in equity fundraising, M&A, and private market lending, needed an AI-powered lending platform — Lendya — to bridge institutional capital with private market borrowers. It had to be fast enough to capture the 2025 deployment cycle and trustworthy enough for family-office scrutiny.",
+      "Ryan Baird and Henry Augustine set out to build Baird Augustine as a cross-border neo-investment bank in Silicon Valley — alternative asset management, venture capital, and institutional advisory under the Finance Inc. umbrella. They had the network, the track record, and the mandate; what they didn't have was the technology, brand, and digital infrastructure to present a credible institution to global investors and to actually deploy capital into private markets.",
     process:
-      "As Baird Augustine's technology partner since the holding company was formed, I led architecture and full-cycle MVP development on Lendya — branding, UI design, backend, AI integration. Built on TypeScript, Supabase, and Plaid, with modules for borrower evaluation, risk scoring, and secure loan approvals.",
+      "I joined as fractional CTO and venture partner from the beginning — helping structure the company alongside the founders. I owned the technology and brand surface end to end: defining the Baird Augustine identity, designing and building the website, producing sales and presentation materials, standing up and running email campaigns to prospective investors, and co-hosting institutional roadshow events. In parallel, I architected and built Direct Credit, the firm's custom lending platform.",
     solution:
-      "Shipped an AI-powered lending dashboard with lender and borrower roles, multi-user access, smart credit insights, and rapid iteration cycles. AI assistants are integrated directly into the lending workflow rather than bolted on after the fact.",
+      "A complete institutional presence and a working lending engine. The brand and website position Baird Augustine as a premiere investment bank; the investor campaigns and events feed a capital network representing over $700B in AUM. Direct Credit is a premium business-lending platform — $100K to $10M+ in term loans, lines of credit, equipment, and real estate financing — with 24-hour preliminary decisions, bank-level encryption, and an integrated AI support assistant.",
     outcome:
-      "Lendya is live and supporting Baird Augustine's lending operations. Ryan Baird, CEO: \"AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology.\"",
+      "Baird Augustine is live and operating, recognized by the State of California for investment banking decorum in an award presented by the Honorable Fiona Ma, State Treasurer. Direct Credit is deployed at directcredit.net. Ryan Baird, CEO: \"AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology.\"",
     meta: [
-      { label: "Role", value: "Technology Partner & Advisor" },
-      { label: "Stack", value: ["TypeScript", "Supabase", "Plaid"] },
-      { label: "Year", value: "2024" },
-      { label: "Scope", value: ["AI Lending", "MVP", "Branding", "UI"] },
+      { label: "Role", value: "Fractional CTO & Venture Partner" },
+      { label: "Engaged", value: "2023–present" },
+      { label: "Location", value: "Silicon Valley, CA" },
+      { label: "Scope", value: ["Brand", "Website", "Investor Materials", "Lending Platform"] },
     ],
-    emphasisKeywords: ["AI", "Lendya", "TypeScript", "Supabase", "Plaid"],
+    emphasisKeywords: [
+      "Direct Credit",
+      "neo-investment bank",
+      "fractional CTO",
+      "Finance Inc.",
+      "lending",
+      "AI",
+    ],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "Silicon Valley's neo-investment bank",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Baird Augustine is a cross-border neo-investment bank based in Silicon Valley, specializing in alternative asset management, venture capital, and institutional advisory — connecting global investors to high-growth opportunities in technology and innovation. The firm is on a mission to transform the world into a radically abundant global society through world-class integrity, investor obsession, and a reverence for innovation. I came on as fractional CTO and venture partner at the founding to build the technology and brand that mission required.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Capital network",
+              text: "$700B+ in AUM · $20B+ dry powder deploying",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "AW3 has helped us structure Baird Augustine and the holding company Finance Inc. from the beginning. He provides invaluable insight and expertise in technology. — Ryan Baird, CEO & Co-Founder",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "From day one, end to end",
+          steps: [
+            {
+              title: "Brand & identity",
+              body: "Defined the Baird Augustine brand from scratch — the name, visual language, and the \"Welcome to the Future of Finance\" positioning that frames the firm as the world's most exceptional financial institution, built on partnership, client service, integrity, and quality.",
+            },
+            {
+              title: "Website & digital presence",
+              body: "Designed and built the public website and digital surface across Home, About, Services, Portfolio, and Press — a premium institutional presence credible enough to put in front of family offices and global allocators.",
+            },
+            {
+              title: "Sales & presentation materials",
+              body: "Produced the sales and presentation collateral the team takes into the room — pitch decks, one-pagers, and roadshow materials that translate the firm's track record into a fundable narrative.",
+            },
+            {
+              title: "Investor campaigns & events",
+              body: "Stood up and ran email campaigns to prospective investors, and co-hosted institutional roadshow events — feeding a capital network that now represents over $700B in AUM.",
+            },
+            {
+              title: "Direct Credit lending platform",
+              body: "Architected and built Direct Credit, the firm's custom software platform for private-market lending — moving Baird Augustine from advisory into actually deploying capital to borrowers.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Direct Credit — the lending platform",
+          content: [
+            {
+              type: "paragraph",
+              text: "Direct Credit is a premium business-lending platform built for ambitious, high-growth companies — exclusive financing with competitive rates, flexible terms, and dedicated advisors. I designed and built it as the engine that lets Baird Augustine bridge institutional capital to private-market borrowers, live at directcredit.net.",
+            },
+            {
+              type: "list",
+              items: [
+                "Loan amounts from $100K to $10M+, sized to the business.",
+                "Preliminary decision within 24 hours — speed that matches the deployment cycle.",
+                "Bank-level encryption and a streamlined digital application.",
+                "Dedicated lending specialists with customizable, cash-flow-aligned repayment.",
+                "Integrated AI support assistant in the chat interface.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Built for",
+            },
+            {
+              type: "list",
+              items: [
+                "Business lines of credit",
+                "Term loans",
+                "Equipment financing",
+                "Real estate loans",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "An integrated ecosystem",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Finance Inc., the top-co, houses a set of business units that integrate under one umbrella — so the brand and platform work I built sit inside a broader institutional machine spanning investing, media, and community.",
+            },
+            {
+              type: "list",
+              items: [
+                "Asymmetrical Alpha — hedge fund and institutional investing arm.",
+                "Silicon Valley Economic Forum — flagship institutional investor forum.",
+                "Focus on Risk — the firm's podcast.",
+                "CAGR Club — a private investment club.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "split",
+          flip: true,
+          heading: "Services across the capital stack",
+          content: [
+            {
+              type: "paragraph",
+              text: "Baird Augustine commits people, capital, and ideas to help clients grow. The service offering spans the full capital stack — from structuring through fundraising to deployment.",
+            },
+            {
+              type: "list",
+              items: [
+                "Corporate-Development-as-a-Service™ — vision, structure, and strategic planning.",
+                "Due Diligence Certification — institutional-grade diligence for capital partners.",
+                "Roadshow Membership — access to the firm's investor events and network.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Premium services",
+            },
+            {
+              type: "list",
+              items: [
+                "Asset management & custodial",
+                "Cross-border banking & international finance",
+                "Institutional fundraising & capital solutions",
+                "Mergers & acquisitions / corporate finance",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Recognition",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Baird Augustine was recognized by the State of California for investment banking decorum and its innovative approach to driving liquidity into private opportunities — an award presented by the Honorable Fiona Ma, State Treasurer, in 2024. The firm carries 100+ years of collective experience and a 95% net promoter score, and continues to operate with securities offered through Umergence LLC, member FINRA/SIPC.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Award · State of California",
+              text: "Recognized for investment banking decorum — presented by Treasurer Fiona Ma",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "bitwage",
     title: "Bitwage",
     category: "Fintech",
     summary:
-      "Supported a $4MM equity crowdfunding round and ongoing fundraising for a pioneering global crypto-payroll platform processing $400M+ for 90,000 workers across 200 countries.",
+      "Led branding, landing pages, and sales & marketing for a pioneering global crypto-payroll platform — and co-produced the equity crowdfund campaign that brought in $3MM. Engaged from 2022 through Bitwage's acquisition by Paystand in 2025.",
     role: "Advisor & Angel Investor",
-    year: "2021",
+    year: "2022",
     tags: ["Fintech", "Crypto", "Payroll", "Fundraising", "Marketing"],
-    metrics: ["$4MM equity crowdfund raised", "30X ARR since 2021", "$400M+ payroll processed", "Acquired by Paystand"],
+    metrics: [
+      "$3MM equity crowdfund co-produced",
+      "30X ARR growth across the engagement",
+      "$400M+ payroll processed · 90,000+ workers",
+      "Acquired by Paystand (2025)",
+    ],
     image: "/projects/bitwage.png",
-    tagline: "Global payroll, paid in crypto",
+    tagline: "Pay the world — global payroll, paid in crypto",
     gradient: "from-orange-500 via-amber-400/60 to-bg",
     problem:
-      "Bitwage had a working product paying out global teams in cryptocurrencies and stablecoins since 2014, but needed help unlocking institutional and retail capital, modernizing its public-facing surface, and accelerating ARR growth.",
+      "Bitwage had paid out global teams in cryptocurrency and stablecoins since 2014, with a real product and real traction — but needed help unlocking retail and institutional capital, modernizing its public-facing brand and landing pages, and turning a complex multi-product offering into a story investors and customers could grasp quickly.",
     process:
-      "Since 2021 I've worked alongside Jonathan Chester as an advisor, angel investor, and execution partner — running the equity crowdfund mechanics, rebuilding landing pages, producing sales and marketing collateral, and supporting fundraising strategy.",
+      "From 2022 I worked alongside Jonathan Chester as an advisor and angel investor, owning the brand and growth surface end to end — refreshing the Bitwage brand, rebuilding landing pages, and producing sales and marketing collateral. I also co-produced the company's equity crowdfund campaign, running the creative and mechanics that brought in $3MM.",
     solution:
-      "Supported a successful $4MM equity crowdfunding seed round, modernized the marketing surface, and stayed continuously involved in fundraising and growth strategy.",
+      "A modernized brand and marketing surface that frames Bitwage's full stack — Global Payroll, W2 Crypto Benefits, and Crypto-Funded Payroll — as one clear offering, paired with a co-produced equity crowdfund campaign that raised $3MM from the community and continued fundraising and growth support.",
     outcome:
-      "ARR climbed over 30X across the engagement, and Bitwage was ultimately acquired by Paystand. Jonathan Chester, CEO: \"AW3 has played a critical role in our fundraising, website development and sales/marketing execution.\"",
+      "ARR climbed over 30X across the engagement, the $3MM crowdfund closed successfully, and Bitwage was ultimately acquired by Paystand in 2025. Jonathan Chester, CEO: \"AW3 has played a critical role in our fundraising, website development and sales/marketing execution.\"",
     meta: [
       { label: "Role", value: "Advisor & Angel Investor" },
-      { label: "Engaged", value: "2021–present" },
-      { label: "Outcome", value: "Acquired by Paystand" },
-      { label: "Scope", value: ["Fundraising", "Marketing", "Web"] },
+      { label: "Engaged", value: "2022–2025" },
+      { label: "Outcome", value: "Acquired by Paystand (2025)" },
+      { label: "Scope", value: ["Branding", "Landing Pages", "Sales & Marketing", "Equity Crowdfund"] },
     ],
-    emphasisKeywords: ["Bitwage", "crypto", "ARR", "equity crowdfunding", "Paystand", "acquired"],
+    emphasisKeywords: ["Bitwage", "crypto", "stablecoins", "ARR", "equity crowdfund", "Paystand", "acquired"],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "Pay the world",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Bitwage makes global payroll easy for teams and freelancers, offering flexible payments in cryptocurrency, stablecoins, or local currency. Founded in 2014, it lets companies pay workers across nearly 200 countries with same-day options — and lets workers choose how they get paid. I came on in 2022 as an advisor and angel investor to lead the brand, landing pages, and sales & marketing, and to co-produce the equity crowdfund campaign that brought in $3MM.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Trusted by thousands of freelancers & businesses",
+              text: "$400M+ payroll processed · 90,000+ registered workers · 4,500+ registered companies",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "AW3 has played a critical role in our fundraising, website development and sales/marketing execution. — Jonathan Chester, CEO & Co-Founder",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "What I did",
+          steps: [
+            {
+              title: "Branding",
+              body: "Refreshed the Bitwage brand and visual language so a complex, multi-product crypto-payroll platform reads as one confident, institutional offering — credible to both retail backers and enterprise buyers.",
+            },
+            {
+              title: "Landing page development",
+              body: "Rebuilt the public-facing landing pages around the \"Pay the World\" positioning, structuring the product lineup — Global Payroll, W2 Crypto Benefits, and Crypto-Funded Payroll — into a clear, conversion-focused narrative.",
+            },
+            {
+              title: "Sales & marketing materials",
+              body: "Produced the sales and marketing collateral the team takes to market — decks, one-pagers, and campaign creative that translate the platform's reach and track record into a fundable, sellable story.",
+            },
+            {
+              title: "Equity crowdfund — co-produced",
+              body: "Co-produced the equity crowdfund campaign end to end, running the creative and mechanics that brought $3MM in from the community to fuel the company's next stage of growth.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "A full payroll stack",
+          content: [
+            {
+              type: "paragraph",
+              text: "Bitwage is more than just payments. The brand and marketing work positions the full platform — flexible global payroll, compliant W2 crypto benefits, and crypto-funded payroll — alongside the invoicing, expense, and accounting automation that make it a complete workforce-management solution.",
+            },
+            {
+              type: "list",
+              items: [
+                "Global Payroll — timely payments to teams across nearly 200 countries, with same-day options in crypto, stablecoins, or local currency.",
+                "W2 Crypto Benefits — easy, compliant W2 that lets employees receive part or all of their wages in cryptocurrency alongside traditional pay.",
+                "Crypto-Funded Payroll — fund payroll with crypto while teams receive local currency or crypto, plugged into existing financial tools.",
+                "Payroll & Beyond — invoices, expenses, and automated accounting for fully streamlined workforce management.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Pay how you want",
+            },
+            {
+              type: "list",
+              items: [
+                "Cryptocurrency",
+                "Stablecoins",
+                "Local currency",
+                "Same-day options",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "10 years, zero breaches",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "For over ten years, Bitwage has maintained a spotless security record — zero breaches since its inception in 2014 — backed by SOC compliance. That trust is the foundation the brand and crowdfund campaign were built on: a platform safe enough to put a global workforce's pay on top of.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Security record · since 2014",
+              text: "Zero breaches in 10+ years · SOC compliant",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "blocksee",

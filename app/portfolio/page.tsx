@@ -21,7 +21,7 @@ const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObject
   ssr: false,
 });
 
-const categories = ["All", "Venture Studio", "Open Source", "Web3", "AI", "Fintech", "Legal Tech"];
+const categories = ["All", "Venture Studio", "Cloud Infrastructure", "Open Source", "Web3", "AI", "Fintech", "Legal Tech"];
 
 const sortOptions = [
   { value: "newest", label: "Newest First" },
