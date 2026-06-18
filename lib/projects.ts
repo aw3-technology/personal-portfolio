@@ -107,7 +107,7 @@ export const projects: Project[] = [
       "AW3 operates as a venture studio: a curated set of pre-seed and seed founders each cycle, MVPs shipped in 1–30 days, and continued involvement through capital formation. The studio also incubates internal ventures — Proof of Love (patent-pending consensus), SunScript, and others — so the team is building, not just consulting.",
     outcome:
       "Built and scaled 10+ startups across Web3, AI, and fintech. AW3 and founder Will Schulz were formally recognized by the Honorable Fiona Ma, California State Treasurer, and the 1000X Silicon Valley Summit for an innovative approach to supporting and investing in early-stage entrepreneurs. Portfolio includes Baird Augustine, Bitwage, Blocksee, Carnomaly, JustiGuide, Wryter, and Nivana — all still operating.",
-    image: "/projects/aw3-technology.png",
+    image: "/projects/aw3-banner.png",
     meta: [
       { label: "Role", value: "Founder & CEO" },
       { label: "Founded", value: "2022" },
@@ -1211,7 +1211,7 @@ export const projects: Project[] = [
       "Web + iOS (TestFlight) concierge demo",
       "$500K raise · $6M cap SAFE",
     ],
-    image: "/projects/intown.png",
+    image: "/projects/intown-card.webp",
     tagline: "Introducing your new concierge",
     gradient: "from-zinc-400 via-stone-500/60 to-bg",
     problem:

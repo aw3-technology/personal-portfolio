@@ -63,4 +63,13 @@ export const explorations: Exploration[] = [
     mockup: "dashboard",
     image: "/projects/kavanah-board.png",
   },
+  {
+    id: 7,
+    title: "InTown — AI Concierge",
+    category: "AI Product",
+    gradient: "from-zinc-400/30 via-stone-500/20 to-transparent",
+    span: "md:col-span-2 md:row-span-2",
+    mockup: "mobile",
+    image: "/projects/intown-product.png",
+  },
 ];

@@ -468,12 +468,12 @@ export default function AboutPage() {
             <span className="font-display italic">Recognition</span>
           </h2>
           <div className="space-y-4">
-            <Link 
-              href="#" 
+            <Link
+              href="/work/aw3-technology#recognition"
               className="group flex items-center justify-between py-3 border-b border-stroke hover:border-text/30 transition-colors"
             >
               <span className="text-base text-muted group-hover:text-text transition-colors">
-                Featured on Awwwards
+                Certificate of Recognition — Fiona Ma, California State Treasurer
               </span>
               <ArrowDiagonal
                 width={16}
@@ -481,12 +481,12 @@ export default function AboutPage() {
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
               />
             </Link>
-            <Link 
-              href="#" 
+            <Link
+              href="/work/justiguide"
               className="group flex items-center justify-between py-3 border-b border-stroke hover:border-text/30 transition-colors"
             >
               <span className="text-base text-muted group-hover:text-text transition-colors">
-                Design work featured on Behance
+                TIME&apos;s Best Inventions of 2025 — JustiGuide
               </span>
               <ArrowDiagonal
                 width={16}
@@ -494,12 +494,12 @@ export default function AboutPage() {
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
               />
             </Link>
-            <Link 
-              href="#" 
+            <Link
+              href="/work/justiguide"
               className="group flex items-center justify-between py-3 border-b border-stroke hover:border-text/30 transition-colors"
             >
               <span className="text-base text-muted group-hover:text-text transition-colors">
-                Speaker at Design Matters Conference
+                TechCrunch Startup Battlefield 200 — JustiGuide
               </span>
               <ArrowDiagonal
                 width={16}
@@ -507,25 +507,12 @@ export default function AboutPage() {
                 className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
               />
             </Link>
-            <Link 
-              href="#" 
+            <Link
+              href="/work/baird-augustine#recognition"
               className="group flex items-center justify-between py-3 border-b border-stroke hover:border-text/30 transition-colors"
             >
               <span className="text-base text-muted group-hover:text-text transition-colors">
-                Article published on Smashing Magazine
-              </span>
-              <ArrowDiagonal
-                width={16}
-                height={16}
-                className="text-muted group-hover:text-text group-hover:translate-x-1 transition-all"
-              />
-            </Link>
-            <Link 
-              href="#" 
-              className="group flex items-center justify-between py-3 border-b border-stroke hover:border-text/30 transition-colors"
-            >
-              <span className="text-base text-muted group-hover:text-text transition-colors">
-                10x featured on Dribbble
+                Recognized by the State of California — Baird Augustine
               </span>
               <ArrowDiagonal
                 width={16}
