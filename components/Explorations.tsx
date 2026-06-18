@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ImageWithSkeleton from "./ImageWithSkeleton";
 import { useCursor } from "./CursorContext";
@@ -243,23 +242,33 @@ export default function Explorations() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+              onClick={() => {
+                setLightboxImage(null);
+                setLightboxTitle("");
+              }}
             >
               <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
+                initial={{ scale: 0.97, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                transition={{ duration: 0.3, ease: easing.expo }}
+                exit={{ scale: 0.97, opacity: 0 }}
+                transition={{ duration: 0.25, ease: easing.expo }}
                 className="relative max-w-5xl max-h-[90vh] w-full"
                 onClick={(event) => event.stopPropagation()}
               >
-                <Image
+                {/*
+                  Native <img> on the raw source URL — this matches the URL the
+                  hover handler prefetches (new window.Image().src = item.image),
+                  so an already-hovered image opens instantly from cache instead
+                  of waiting on a cold next/image optimizer pass for a new URL.
+                */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={lightboxImage}
                   alt={lightboxTitle}
-                  width={1920}
-                  height={1080}
-                  loading="eager"
-                  className="w-full h-auto object-contain"
+                  decoding="async"
+                  className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
                 />
                 <button
                   type="button"

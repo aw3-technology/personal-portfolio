@@ -1879,7 +1879,7 @@ export const projects: Project[] = [
       "Wallet-level analytics across smart contracts & NFTs",
       "Ongoing fundraising support",
     ],
-    image: "/projects/blocksee.webp",
+    image: "/projects/blocksee-card.png",
     caseStudyImage: "/projects/blocksee.webp",
     tagline: "See more with Blocksee",
     gradient: "from-purple-500 via-pink-400/60 to-bg",
