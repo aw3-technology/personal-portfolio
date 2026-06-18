@@ -67,7 +67,11 @@ export default function BentoCard({
                   className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               ) : (
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} flex items-center justify-center p-6`}>
+                  <span className="font-display italic text-text text-2xl md:text-4xl text-center leading-tight">
+                    {project.title}
+                  </span>
+                </div>
               )}
             </div>
 

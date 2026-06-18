@@ -20,7 +20,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const title = `${project.title} — Case Study`;
   const description = project.summary;
   const path = `/work/${project.slug}`;
-  const ogImage = project.caseStudyImage ?? project.image ?? "/og-image.png";
+  // Fall back to the site-wide generated OG image (app/opengraph-image.tsx)
+  // when a project has no image of its own.
+  const ogImage = project.caseStudyImage ?? project.image;
 
   return {
     title,
@@ -31,13 +33,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       description,
       url: path,
       type: "article",
-      images: [{ url: ogImage, alt: project.title }],
+      ...(ogImage ? { images: [{ url: ogImage, alt: project.title }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }

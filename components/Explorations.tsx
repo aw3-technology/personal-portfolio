@@ -5,10 +5,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ImageWithSkeleton from "./ImageWithSkeleton";
 import { useCursor } from "./CursorContext";
-import { ArrowDiagonal, Dribbble } from "./Icons";
+import { ArrowDiagonal } from "./Icons";
 import { explorations } from "@/lib/explorations";
 import { easing, fadeUp, smoothTransition, viewportOnce } from "@/lib/animations";
-import GradientButton from "./ui/GradientButton";
 import SectionHeader from "./ui/SectionHeader";
 
 // Different mockup variations
@@ -152,20 +151,8 @@ export default function Explorations() {
         
         {/* Header */}
         <SectionHeader
-          label="Explorations"
-          title={<>Visual <span className="font-display italic">playground</span></>}
-          cta={
-            <GradientButton
-              href="https://dribbble.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-3 px-5 py-2.5 text-sm text-muted"
-            >
-              <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
-              <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
-              <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-            </GradientButton>
-          }
+          label="Selected work"
+          title={<span className="font-display italic">Gallery</span>}
         />
 
         {/* Bento Grid */}
@@ -247,18 +234,6 @@ export default function Explorations() {
               )}
             </motion.button>
           ))}
-        </div>
-        <div className="mt-12 px-2 md:hidden flex justify-center">
-          <GradientButton
-            href="https://dribbble.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-fit items-center gap-3 px-5 py-2.5 text-sm text-muted"
-          >
-            <Dribbble width={16} height={16} className="text-dribbble group-hover:scale-110 transition-transform relative z-10" />
-            <span className="relative z-10 group-hover:text-text transition-colors duration-300">View on Dribbble</span>
-            <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-          </GradientButton>
         </div>
 
         {/* Lightbox Modal */}

@@ -1198,6 +1198,308 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "intown",
+    title: "InTown",
+    category: "AI",
+    summary:
+      "Branded, prototyped, and produced the investor and marketing materials for InTown — an AI-native concierge that unlocks exclusive tables, events, and experiences through a natural voice and chat interface. Founded by Sean Stewart, son of Rod Stewart.",
+    role: "Technology Lead & Designer",
+    year: "2026",
+    tags: ["AI", "Branding", "Prototype", "Pitch Deck", "Voice AI"],
+    metrics: [
+      "Brand, prototype & investor deck delivered",
+      "Web + iOS (TestFlight) concierge demo",
+      "$500K raise · $6M cap SAFE",
+    ],
+    image: "/projects/intown.png",
+    tagline: "Introducing your new concierge",
+    gradient: "from-zinc-400 via-stone-500/60 to-bg",
+    problem:
+      "Sean Stewart had a sharp vision — an AI concierge that gives everyone VIP-level access to a city — and the relationships across luxury, hospitality, and entertainment to back it. What he needed was the rest of the package an investor expects: a brand worthy of the positioning, a working product to demo, and an investor narrative that frames InTown as a new category rather than another booking app.",
+    process:
+      "I came on as technology lead and designer to build everything around the idea. I shaped the InTown brand — the winged-key mark, the black-and-serif luxury identity, the \"Introducing your new concierge\" positioning — designed and built the working prototype (web demo plus an iOS app in TestFlight), and produced the sales, marketing, and investor materials, co-presenting the 2026 investor deck alongside Sean.",
+    solution:
+      "A complete, fundable presentation of InTown: a conversational concierge — \"Cierra\" — that plans, books, and personalizes outings through natural voice and chat; an all-in-one app for discovery, booking, and saved venues; and a brand and pitch that position InTown at the intersection of technology, luxury, and culture, with a clear LA-first go-to-market and multi-stream revenue model.",
+    outcome:
+      "InTown is live in demo at app.intown.guide with an iOS build in TestFlight, raising a $500K friends-and-family round on a SAFE ($6M cap, targeting Q4 2026) ahead of a $3.5M seed. Sean Stewart, Founder: \"Great platforms don't just aggregate choice. They unlock access.\"",
+    meta: [
+      { label: "Role", value: "Technology Lead & Designer" },
+      { label: "Year", value: "2026" },
+      { label: "Founder", value: "Sean Stewart" },
+      { label: "Scope", value: ["Branding", "Prototype", "Marketing", "Investor Deck"] },
+      { label: "Link", value: "intown.guide" },
+    ],
+    emphasisKeywords: ["InTown", "AI", "concierge", "Cierra", "voice", "luxury", "access"],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "Introducing your new concierge",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "InTown is an AI-powered concierge that unlocks exclusive tables, events, and experiences through a natural conversational interface — revolutionizing how people connect with the best of a city through voice and text AI. By combining advanced personalization with insider access, it makes VIP treatment seamless and scalable for every user. I led the brand, prototype, and investor materials end to end.",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "Great platforms don't just aggregate choice. They unlock access. — Sean Stewart, Founder",
+            },
+            {
+              type: "image",
+              label: "InTown web demo — \"Ready to explore Los Angeles?\"",
+              src: "/projects/intown-product.png",
+              alt: "InTown app showing a conversational LA trip-planning interface with curated itineraries",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "What I did",
+          steps: [
+            {
+              title: "Branding",
+              body: "Built the InTown identity — the winged-key mark, the black-and-serif luxury aesthetic, and the \"Introducing your new concierge\" positioning that frames InTown at the intersection of technology, luxury, and culture.",
+            },
+            {
+              title: "Prototype",
+              body: "Designed and built the working product — a web demo at app.intown.guide and an iOS app in TestFlight — where users chat naturally to plan outings, get inspired by curated itineraries, book reservations, and save favorite venues.",
+            },
+            {
+              title: "Marketing materials",
+              body: "Produced the sales and marketing surface that carries the brand into market, translating an ambitious lifestyle vision into clear, confident creative.",
+            },
+            {
+              title: "Pitch materials",
+              body: "Produced the 2026 investor deck — problem, solution, market, business model, GTM, and the ask — and co-presented it alongside founder Sean Stewart as the company's technology lead.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "The product",
+          content: [
+            {
+              type: "paragraph",
+              text: "Through a sleek mobile app, users chat naturally to plan outings, get inspired by curated itineraries, book exclusive reservations, and save favorite venues — all in one place. From discovering hidden gems to securing VIP access, InTown turns city exploration into a seamless, personalized experience.",
+            },
+            {
+              type: "list",
+              items: [
+                "Conversational concierge — a natural chat and voice interface that plans, books, and personalizes every outing.",
+                "All-in-one platform — discover, book, and manage experiences, hotels, and events seamlessly.",
+                "Exclusive access — unlock hidden gems, VIP reservations, and curated itineraries you can't find elsewhere.",
+                "Personalized experiences — AI + insider curation, transparent \"why we picked this\" explanations, and smart alternates when plans fall through.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Meet Cierra",
+            },
+            {
+              type: "list",
+              items: [
+                "Natural conversation — voice + chat interface for planning and booking.",
+                "Personalized insight — learns preferences and adapts over time.",
+                "Exclusive access — connects to insider venues, events, and perks.",
+                "Seamless booking — one command secures reservations, tickets, or curated itineraries.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "A new category of lifestyle platform",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The local discovery and booking space is fragmented — review platforms, booking apps, and social tools each solve only part of the problem. InTown is positioned as the first AI-native concierge that unifies discovery, booking, and social coordination into a single personalized experience, defensible through an AI personalization engine, local + social network effects, a vendor-integration moat, and a multi-stream revenue model.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "LA-first go-to-market · $120B+ TAM",
+              text: "Affiliate + subscriptions + vendor SaaS — not just ads",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    slug: "andromeda-project",
+    title: "The Andromeda Project",
+    category: "Writing & Research",
+    summary:
+      "Founded and authored The Andromeda Project — a long-running body of essays and research proposing new organizations that operate peacefully and in parallel with the existing world order. 90+ essays across six collections, spanning global governance, relational economics, blockchain consensus, and formal mathematical frameworks. The intellectual origin of AW3 — Andromeda Web3.",
+    role: "Founder & Author",
+    year: "2021",
+    tags: ["Philosophy", "Governance", "Economics", "Research", "Writing"],
+    metrics: [
+      "90+ essays across six collections",
+      "A parallel-society framework for global governance",
+      "The origin of AW3 — Andromeda Web3",
+    ],
+    image: "/projects/andromeda-hero.png",
+    caseStudyImage: "/projects/andromeda-hero.png",
+    tagline: "A parallel society for a colliding world",
+    gradient: "from-fuchsia-600 via-violet-500/60 to-bg",
+    problem:
+      "The major crises facing our species and our planet — governance, economics, coordination — are usually met with either incremental reform that's too timid to matter or revolutionary rupture that's too destabilizing to survive. There was no rigorous, peaceful framework for building genuinely new institutions without triggering the resistance that destroys them before they take hold.",
+    process:
+      "I founded The Andromeda Project as a long-running body of writing and research — 90+ essays across six collections proposing the creation of new organizations that operate peacefully and in parallel with the existing world organizational structure. The work spans philosophy and global governance, a relational theory of economics, generational universe theory, blockchain consensus, and, in 2026, research-grade mathematical frameworks rooted in ZFC set theory, measure theory, and information theory.",
+    solution:
+      "The Andromeda Project proposes a parallel society: new organizations that coexist with — rather than overthrow — existing structures, engineered methodically to create minimal resistance to the status quo. Named for the Andromeda galaxy's projected collision with the Milky Way, it frames a new form of global governance that gradually collides with and assimilates the old — incrementally and evolutionarily, never radically.",
+    outcome:
+      "The Andromeda Project is live at andromedaproject.com with 90+ published essays across six collections, and is the intellectual origin of AW3 — Andromeda Web3 — the venture studio it gave its name to. The 2026 \"Revelations\" collection extends the original October 2021 essays with formal frameworks, including a boundary-stability theory that unifies physics, cryptography, AI, and Web3 under a single principle.",
+    meta: [
+      { label: "Role", value: "Founder & Author" },
+      { label: "Started", value: "October 2021" },
+      { label: "Format", value: "Essays & Research" },
+      { label: "Collections", value: "6" },
+      { label: "Themes", value: ["Governance", "Economics", "Physics", "Cryptography"] },
+      { label: "Link", value: "andromedaproject.com" },
+    ],
+    emphasisKeywords: [
+      "The Andromeda Project",
+      "parallel society",
+      "Andromeda",
+      "global governance",
+      "Relational Economics",
+      "Proof of Love",
+      "boundary stability",
+      "AW3",
+    ],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "A parallel society for a colliding world",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The Andromeda Project is here to propose a solution to the major crises we face as a species and as a planet: the creation of new organizations that operate peacefully and in parallel with the existing world organizational structure. It is a body of essays and research I've written and developed since October 2021 — a single, evolving argument for how genuinely new institutions can be built without tearing down the ones we already have.",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "Andromeda is the closest galaxy to the Milky Way, and is projected to one day collide with it — a metaphor for a new form of global governance and its eventual collision and assimilation with the old.",
+            },
+            {
+              type: "image",
+              label: "andromedaproject.com — the project's home",
+              src: "/projects/andromeda-hero.png",
+              alt: "The Andromeda Project homepage — \"Solving global crises through new organizations\"",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "The thesis",
+          steps: [
+            {
+              title: "Parallel, not opposed",
+              body: "The proposed organizations operate peacefully and in parallel with the existing world structure — coexisting with it rather than fighting it, so they can grow without being crushed.",
+            },
+            {
+              title: "Reengineer the primitives",
+              body: "The solution is more complex than the general populace understands. It requires a reengineering of the primary components of society — not a slogan, but a methodical redesign of how we coordinate.",
+            },
+            {
+              title: "Minimal resistance",
+              body: "These disruptive organizations must be executed methodically and with precision, deliberately engineered to create minimal resistance to the status quo they are meant to eventually replace.",
+            },
+            {
+              title: "Incremental and evolutionary",
+              body: "The world organization this produces will not be radically different from the existing state. The outcome is incremental and evolutionary — there is no simple or complete solution, only better ones.",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Six collections",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The writing is organized into curated collections — each a cohesive journey through related concepts, together moving from political and economic philosophy toward formal, mathematical foundations.",
+            },
+            {
+              type: "list",
+              items: [
+                "The Andromeda Essays (21) — the founding essays on creating new organizations that operate peacefully and in parallel with the existing world order.",
+                "Relational Economics (11) — a framework placing relationships, networks, and relative power at the center of economic analysis, beyond the atomistic individual.",
+                "Generational Universe Theory (20) — how the universe was generated and continues to generate itself, examining the creative processes underlying cosmic existence.",
+                "Nivana Blockchain (3) — whitepapers on the Nivana blockchain and Proof of Love (PoL) consensus, integrating staking with community-driven contribution for fairer governance.",
+                "Randomness as the Ultimate Anti-Pattern (16) — an information-theoretic study of the opposition between cryptography and machine learning, where randomness defines the boundary between security and intelligence.",
+                "Revelations for 2026 (21) — formal mathematical frameworks that ground the original 2021 essays in ZFC set theory, measure theory, and information theory.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Revelations for 2026 — the formal turn",
+          content: [
+            {
+              type: "paragraph",
+              text: "In 2026 the project turned rigorous. The Revelations collection refines, expands, and formalizes the foundational concepts of the original October 2021 essays — grounding their spiritual and philosophical claims in formal structures. Its centerpiece is boundary stability: the idea that trust is not declared but emerges when boundaries survive contact with the world, unifying physics, cryptography, AI, and Web3 under one principle.",
+            },
+            {
+              type: "list",
+              items: [
+                "Boundary Stability — a unifying framework treating trust as boundary stability over time, applied from quantum measurement to world governance.",
+                "Measurement as boundary formation — a research-grade treatment of the quantum measurement problem, with closed-form toy models and an arrow-of-time theorem.",
+                "World governance as a boundary problem — the hardest possible boundary problem: planet-scale, strategic actors, contested information, no final arbiter.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Selected essays",
+            },
+            {
+              type: "list",
+              items: [
+                "What is a Parallel Society? — a definitive explanation of the concept underpinning the whole project (Chapter 226).",
+                "Relational Economics as Boundary Economics — value as relationship; trust as boundary stability over time.",
+                "Equilibrium Attention — optimal resource allocation across transformer heads, where every active head returns equal marginal value per unit of compute.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Where AW3 came from",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "The Andromeda Project is the intellectual origin of my venture studio: AW3 stands for Andromeda Web3. The studio is where the project's ideas about new, parallel organizations meet execution — building and financing the technology that a more relational, more decentralized world order would actually run on.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "One evolving argument, since October 2021",
+              text: "90+ essays · 6 collections · andromedaproject.com",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: "baird-augustine",
     title: "Baird Augustine",
     category: "Fintech",
@@ -1568,28 +1870,185 @@ export const projects: Project[] = [
     title: "Blocksee",
     category: "Web3",
     summary:
-      "Built the full frontend and landing page for a Web3 CRM platform helping blockchain projects manage relationships, track engagement, and grow on-chain communities.",
+      "Designed and built the landing page and the React-based blockchain CRM for Blocksee — a Web3 commerce and analytics platform that pairs the accessibility of Shopify with the transparency of Etherscan. Integrated the frontend directly with Blocksee's on-chain backend, and supported the team through fundraising.",
     role: "Frontend Lead & Fundraising Advisor",
     year: "2024",
-    tags: ["Web3", "CRM", "React", "Node.js", "Frontend"],
-    metrics: ["Full frontend shipped in React/Node", "Web3 CRM live in market", "Ongoing fundraising support"],
-    tagline: "CRM for the decentralized economy",
-    gradient: "from-indigo-500 via-blue-400/60 to-bg",
+    tags: ["Web3", "CRM", "React", "Analytics", "Frontend"],
+    metrics: [
+      "Landing page + blockchain CRM built in React",
+      "Wallet-level analytics across smart contracts & NFTs",
+      "Ongoing fundraising support",
+    ],
+    image: "/projects/blocksee.webp",
+    caseStudyImage: "/projects/blocksee.webp",
+    tagline: "See more with Blocksee",
+    gradient: "from-purple-500 via-pink-400/60 to-bg",
     problem:
-      "Blocksee had a strong product hypothesis — a CRM tuned for blockchain projects to manage relationships, track on-chain engagement, and grow communities — but no frontend, no landing page, and a tight investor timeline.",
+      "The explosion of decentralized technology brought extraordinary potential — and immense complexity. On-chain data is rich but fragmented and unstructured; wallets, smart contracts, and communities live across networks with different standards; and Web3 brands lacked Shopify-grade infrastructure to run commerce, track analytics, and understand customer behavior. Blocksee had a strong thesis to close that gap, but needed a polished public face and a working CRM — on a tight investor timeline.",
     process:
-      "I built the complete frontend user interface and landing page from scratch in React and Node.js, designed for blockchain workflows and the visual cues Web3 users expect. In parallel, I supported the team through fundraising and investor readiness.",
+      "I designed and built Blocksee's landing page, then built out the blockchain CRM in React — integrating the interface directly with Blocksee's on-chain backend so brands could organize wallets, track activity, and engage their communities. The work spanned both the marketing surface investors see and the product itself, on a visual language tuned for Web3 users. In parallel, I supported the team through fundraising and investor readiness.",
     solution:
-      "Shipped a responsive, scalable frontend optimized for Web3 workflows, with a marketing surface ready for investor demos. Established a high-performance interface architecture capable of evolving with the product.",
+      "A polished, conversion-focused landing page paired with a responsive React blockchain CRM — a wallet-level command center that turns raw on-chain activity into organized contacts, segments, and analytics. The CRM plugs into Blocksee's broader platform: Shopify-style Web3 storefronts, transactional data intelligence, and AI-driven insights, unifying commerce, analytics, and artificial intelligence in one toolkit.",
     outcome:
-      "Blocksee is operating in market as a Web3 CRM. Eric Forst, CEO: \"AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time.\"",
+      "Blocksee is operating in market as a Web3 commerce and analytics platform. Eric Forst, CEO: \"AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time.\"",
     meta: [
       { label: "Role", value: "Frontend Lead & Fundraising Advisor" },
-      { label: "Stack", value: ["React", "Node.js"] },
+      { label: "Stack", value: ["React", "Node.js", "Web3 APIs"] },
       { label: "Year", value: "2024" },
-      { label: "Scope", value: ["Frontend", "Landing Page", "Fundraising"] },
+      { label: "Scope", value: ["Landing Page", "Blockchain CRM", "Fundraising"] },
+      { label: "Founder", value: "Eric Forst" },
+      { label: "Link", value: "blocksee.com" },
     ],
-    emphasisKeywords: ["Web3", "CRM", "React", "Node.js"],
+    emphasisKeywords: [
+      "Blocksee",
+      "blockchain CRM",
+      "Web3",
+      "React",
+      "wallet",
+      "on-chain",
+      "Shopify",
+      "Etherscan",
+    ],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "Shopify + Etherscan = Blocksee",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Blocksee, founded by Eric Forst, is the Web3 commerce and analytics stack for the decentralized economy. It bridges Web3 data intelligence and AI-powered commerce — letting brands, developers, and enterprises sell digital assets, track wallets and smart contracts, and manage AI-driven transactions through one platform. By combining the accessibility of Shopify with the transparency of Etherscan, it gives businesses a new standard in Web3 data infrastructure, analytics, and engagement.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Web3 commerce, data intelligence & AI — unified",
+              text: "See more with Blocksee",
+            },
+            {
+              type: "image",
+              label: "The Blocksee dashboard — wallet-level revenue, tokens, and customer analytics",
+              src: "/projects/blocksee.webp",
+              alt: "Blocksee dashboard showing total revenue, transaction volume, tokens claimed, transaction count, a revenue chart, and a customers breakdown",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "What I built",
+          content: [
+            {
+              type: "paragraph",
+              text: "I owned Blocksee's front-of-house and its CRM. First the landing page — the conversion-focused marketing surface that introduces the platform and carries it into investor demos. Then the blockchain CRM itself, built in React and wired directly into Blocksee's on-chain backend, so the wallet, contract, and community data the platform ingests becomes something a brand can actually browse, segment, and act on.",
+            },
+            {
+              type: "list",
+              items: [
+                "Landing page — a polished, responsive marketing site tuned to the visual cues Web3 users expect.",
+                "Blockchain CRM in React — a wallet-level command center for organizing contacts, tagging communities, and tracking activity.",
+                "Backend integration — the React frontend connected directly to Blocksee's on-chain data backend and Web3 APIs.",
+                "Fundraising support — investor-ready surfaces and ongoing support through the raise.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Stack & scope",
+            },
+            {
+              type: "list",
+              items: [
+                "React frontend",
+                "Web3 / on-chain data APIs",
+                "Wallet & smart-contract analytics",
+                "Landing page + product UI",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Web3 without the blindfold",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "For most businesses, Web3 remains an opaque space full of technical barriers and operational uncertainty. Blocksee was built to eliminate those gaps — and the CRM I built is where much of that clarity surfaces.",
+            },
+            {
+              type: "list",
+              items: [
+                "Fragmented data — on-chain transactions are rich but unstructured, making actionable insight hard to derive.",
+                "No unified view — wallets, smart contracts, and community interactions span multiple networks with different standards.",
+                "Limited commerce infrastructure — Web3 brands lack Shopify-like tools for payments, analytics, and customer behavior.",
+                "AI agents without oversight — as AI-driven transactions grow, businesses need to monitor, verify, and audit agent behavior in real time.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "split",
+          flip: true,
+          heading: "One platform, four offerings",
+          content: [
+            {
+              type: "paragraph",
+              text: "Blocksee combines intuitive front-end tools with powerful on-chain data pipelines, so businesses can manage transactions, analyze wallet behavior, and integrate with AI systems from a single toolkit.",
+            },
+            {
+              type: "list",
+              items: [
+                "Web3 shopping portals — Shopify-style storefronts that accept fiat or crypto for NFT drops, token sales, and digital memberships.",
+                "Transactional data intelligence — smart-contract data turned into behavioral insight: wallet activity, power users, loyalty and retention models.",
+                "Community data management — a wallet CRM to organize, tag, and engage members, with NFT minting APIs for personalized rewards.",
+                "Data ingestion & integration — stream on-chain data into CRMs, ERPs, and dashboards, and link analytics to AI agents and MCP servers.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "heading",
+              level: 3,
+              text: "Where AI meets Web3",
+            },
+            {
+              type: "list",
+              items: [
+                "Automate agent transactions — monitor, verify, and record AI activity on-chain.",
+                "Adaptive pricing — adjust digital-asset pricing dynamically to real-time wallet demand.",
+                "Predict consumer actions — forecast engagement or churn from on-chain patterns.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Impact",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Since launch, Blocksee has helped projects across multiple networks streamline analytics, expand revenue, and understand their user base in unprecedented depth.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Reported by Blocksee clients",
+              text: "Up to 40% more community engagement · 30% faster reporting · 100% wallet-level visibility",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time. — Eric Forst, CEO & Founder",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "carnomaly",
@@ -1628,31 +2087,133 @@ export const projects: Project[] = [
     title: "JustiGuide",
     category: "Legal Tech",
     summary:
-      "Branded, built, and angel-invested in an AI immigration platform that won Time's Best Inventions of 2025 and took the top spot at TechCrunch SF's Policy + Protection pitch stage.",
-    role: "Brand Lead, Advisor & Angel Investor",
+      "Helped shape an AI immigration platform from day one — branding, pitch materials, investor and attorney introductions, and the initial prototype. JustiGuide was named one of TIME's Best Inventions of 2025 and selected for TechCrunch Startup Battlefield 200.",
+    role: "Founding Advisor, Brand Lead & Builder",
     year: "2024",
     tags: ["Legal Tech", "AI", "Branding", "Fundraising", "Advisory"],
     metrics: [
-      "Time Best Inventions 2025 (Legal Tech)",
-      "TechCrunch SF Policy + Protection — top spot",
-      "Marl5G accelerator participant",
+      "TIME Best Inventions 2025",
+      "TechCrunch Startup Battlefield 200",
+      "29,895+ immigrants helped",
     ],
-    tagline: "Immigration, made simple — powered by AI",
+    image: "/projects/justiguide.webp",
+    caseStudyImage: "/projects/justiguide.webp",
+    tagline: "Your immigration journey, simplified",
     gradient: "from-violet-500 via-purple-400/60 to-bg",
     problem:
-      "Bisi Obateru had a strong product instinct around AI-powered immigration support but needed a brand identity, a credible web presence, and a fundraising path that would let JustiGuide hold its own in front of investors in a complex regulatory domain.",
+      "For decades, immigration has been one of the most stressful, time-consuming legal experiences in the world — hundreds of pages of paperwork, unclear requirements, and months or years of waiting, where a minor error can derail even a qualified applicant. Lawyers face the same inefficiency: each case can consume 40+ hours of repetitive forms and research. Bisi Obateru had a strong product instinct for fixing this with AI, but needed a brand, a credible presence, a working prototype, and a path to investors and legal partners to hold its own in a complex regulatory domain.",
     process:
-      "I worked closely with Bisi from the earliest days as advisor and angel investor — leading branding, website development, pitch deck creation, and fundraising strategy. The goal was a design language confident enough to carry the mission and clear enough to win demos.",
+      "I worked closely with Bisi from the very beginning — leading the branding and design language, building the pitch materials, making introductions to investors and immigration attorneys, and building the initial prototype of the platform. The goal was a brand confident enough to carry the mission and a product real enough to prove it. I continue to support JustiGuide with introductions and ongoing development.",
     solution:
-      "Built the brand and web presence around \"Immigration Made Simple. Powered by AI.\" Supported the team through fundraising, accelerator participation, and customer acquisition.",
+      "JustiGuide pairs proprietary AI with a curated network of 500+ vetted immigration lawyers to deliver a guided, end-to-end experience: Dolores AI™ for legal research, VetMatch™ for intelligent lawyer pairing, and FastTrack Processing™ to compress a 40-hour case into roughly three hours. AI-assisted form filling, real-time compliance checks, multilingual support, and a case-management dashboard turn an overwhelming process into an empowering one — fast answers with full accountability.",
     outcome:
-      "JustiGuide won Time magazine's Best Inventions of 2025 in Legal Technology and took the top spot at TechCrunch SF's Policy + Protection pitch stage (Oct 27–29, 2025). They've raised funding, joined the Marl5G accelerator, and secured paying clients. Bisi Obateru, CEO: \"Will believed in my idea before anyone else was and helped me build a strong brand which gave the vision and idea more confidence and design language we still use today.\"",
+      "JustiGuide was recognized as one of TIME's Best Inventions of 2025 and selected for TechCrunch Startup Battlefield 200. The platform has helped 29,895+ users complete immigration cases, onboarded 500+ vetted lawyers, and maintains a 95% application success rate. Bisi Obateru, CEO: \"Will believed in my idea before anyone else did and helped me build a strong brand which gave the vision and idea more confidence and a design language we still use today.\"",
     meta: [
-      { label: "Role", value: "Brand Lead, Advisor & Angel Investor" },
-      { label: "Scope", value: ["Branding", "Web", "Pitch Deck", "Fundraising"] },
+      { label: "Role", value: "Founding Advisor, Brand Lead & Builder" },
+      { label: "Scope", value: ["Branding", "Pitch Materials", "Prototype", "Intros", "Development"] },
       { label: "Year", value: "2024" },
+      { label: "Recognition", value: ["TIME Best Inventions 2025", "TechCrunch Battlefield 200"] },
+      { label: "Site", value: "JustiGuide.com" },
     ],
-    emphasisKeywords: ["AI", "Time", "TechCrunch", "JustiGuide"],
+    emphasisKeywords: ["AI", "TIME", "TechCrunch", "JustiGuide", "Dolores AI", "immigration"],
+    caseStudy: {
+      blocks: [],
+      layout: [
+        {
+          type: "stack",
+          heading: "From months to hours",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "JustiGuide is transforming immigration law with AI. It connects immigrants with vetted lawyers and AI-powered legal tools that simplify every step of the journey — eliminating the stress, confusion, and long wait times traditionally associated with the process. It's not just a legal platform; it's a human-centered innovation built to turn an overwhelming process into an empowering one.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Recognition",
+              text: "TIME Best Inventions of 2025",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Built from the first sketch",
+          content: [
+            {
+              type: "paragraph",
+              text: "I helped JustiGuide from the very beginning, wearing several hats as the idea became a recognized company.",
+            },
+            {
+              type: "list",
+              items: [
+                "Brand & design language — the identity and visual system the team still uses today.",
+                "Pitch materials — decks and narrative built to win demos and investor meetings.",
+                "Introductions — connecting Bisi with investors and immigration attorneys.",
+                "Initial prototype — building the first working version of the platform.",
+                "Ongoing support — continued introductions and development as JustiGuide scales.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "image",
+              label: "JustiGuide",
+              src: "/projects/justiguide.webp",
+              alt: "JustiGuide logo",
+              aspect: "3/2",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "Will believed in my idea before anyone else did and helped me build a strong brand which gave the vision and idea more confidence and a design language we still use today. — Bisi Obateru, CEO",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "AI precision, human expertise",
+          steps: [
+            {
+              title: "Dolores AI™",
+              body: "A legal research assistant trained on 1M+ immigration cases in 12 languages — reasoning through case law and regulations with a 99.7% accuracy rate and a 3-second average response, available 24/7.",
+            },
+            {
+              title: "VetMatch™",
+              body: "Intelligent lawyer pairing that matches each applicant to the right attorney in minutes via AI compatibility scoring across 500+ verified lawyers — a 95% overall success rate.",
+            },
+            {
+              title: "FastTrack Processing™",
+              body: "AI-assisted form filling, real-time compliance checks, and document verification compress a 40-hour case into roughly three hours, with a 100% RFE prevention rate.",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Measurable impact",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "By blending artificial intelligence with human compassion, JustiGuide is rewriting immigration from a bureaucratic obstacle into a clear, guided journey of possibility — for immigrants and the firms that serve them.",
+            },
+            {
+              type: "list",
+              items: [
+                "29,895+ users helped complete immigration cases successfully.",
+                "500+ vetted lawyers onboarded across North America and beyond.",
+                "95% success rate on applications processed through the platform.",
+                "93% time reduction per case, with ~50% more case volume per attorney.",
+              ],
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "Also recognized",
+              text: "TechCrunch Startup Battlefield 200",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "zero-to-three",

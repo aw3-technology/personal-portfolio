@@ -51,20 +51,11 @@ export const metadata: Metadata = {
     siteName: "William Schulz",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "William Schulz — Developer, Designer, Creative, Founder",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "William Schulz — Developer, Designer, Creative, Founder",
     description: "Software developer, designer, creative, and founder building modern digital experiences.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
