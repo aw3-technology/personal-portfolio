@@ -63,11 +63,11 @@ const words = ["Design", "Create", "Inspire"];
       </motion.div>
 
       {/* Center - Animated words */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
+      <div className="absolute inset-0 flex items-center justify-center px-10 text-center">
         <AnimatePresence mode="wait">
           <motion.span
             key={wordIndex}
-            className="inline-block max-w-full whitespace-nowrap text-[clamp(2.25rem,10vw,4.5rem)] leading-none font-display italic text-text/80"
+            className="inline-block max-w-full whitespace-nowrap px-[0.2em] text-[clamp(2.25rem,9vw,4rem)] leading-[1.15] font-display italic text-text/80"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
