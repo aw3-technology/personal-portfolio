@@ -12,6 +12,7 @@ import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
 import { useCursor } from "./CursorContext";
 import Navbar from "./Navbar";
+import OwnershipBadge from "./ui/OwnershipBadge";
 import { ArrowRight } from "./Icons";
 import { createTextProcessor } from "./TextProcessor";
 import SocialLinks from "./ui/SocialLinks";
@@ -77,15 +78,18 @@ export default function CaseStudyPage({ project }: { project: Project }) {
       <section ref={heroRef} className="pt-36 pb-20 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
         <div className="max-w-4xl">
             {/* Category Badge */}
-            <motion.span
+            <motion.div
               initial={fadeUpSm.hidden}
               animate={fadeUpSm.visible}
               transition={smoothTransition(0.1, 0.8)}
-              className="section-eyebrow text-caption text-muted/80 tracking-[0.32em] mb-7"
+              className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-7"
             >
-              <span className="section-divider" />
-              {project.category}
-            </motion.span>
+              <span className="section-eyebrow text-caption text-muted/80 tracking-[0.32em]">
+                <span className="section-divider" />
+                {project.category}
+              </span>
+              <OwnershipBadge ownership={project.ownership} />
+            </motion.div>
             
             <motion.h1
               initial={fadeUpLg.hidden}

@@ -1,7 +1,20 @@
+export type Ownership = "own" | "client";
+
+export const ownershipLabels: Record<Ownership, string> = {
+  own: "Own venture",
+  client: "Client work",
+};
+
 export type Project = {
   slug: string;
   title: string;
   category: string;
+  /**
+   * Whether this is a venture Will founded and built himself ("own") or an
+   * engagement delivered for an outside company ("client"). Surfaced as a
+   * badge on project cards and in the case-study hero.
+   */
+  ownership: Ownership;
   summary: string;
   role: string;
   year: string;
@@ -85,6 +98,7 @@ export type CaseStudyLayout =
 export const projects: Project[] = [
   {
     slug: "aw3-technology",
+    ownership: "own",
     title: "AW3 Technology",
     category: "Venture Studio",
     summary:
@@ -378,6 +392,7 @@ export const projects: Project[] = [
   },
   {
     slug: "kavanah",
+    ownership: "own",
     title: "Kavanah",
     category: "AI Product",
     summary:
@@ -748,6 +763,7 @@ export const projects: Project[] = [
   },
   {
     slug: "aw3-host",
+    ownership: "own",
     title: "AW3 Host",
     category: "Cloud Infrastructure",
     summary:
@@ -1027,6 +1043,7 @@ export const projects: Project[] = [
   },
   {
     slug: "openeye",
+    ownership: "own",
     title: "OpenEye",
     category: "Open Source",
     summary:
@@ -1254,6 +1271,7 @@ export const projects: Project[] = [
   },
   {
     slug: "intown",
+    ownership: "own",
     title: "InTown",
     category: "AI",
     summary:
@@ -1390,6 +1408,7 @@ export const projects: Project[] = [
   },
   {
     slug: "andromeda-project",
+    ownership: "own",
     title: "The Andromeda Project",
     category: "Writing & Research",
     summary:
@@ -1556,6 +1575,7 @@ export const projects: Project[] = [
   },
   {
     slug: "baird-augustine",
+    ownership: "client",
     title: "Baird Augustine",
     category: "Fintech",
     summary:
@@ -1789,6 +1809,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bitwage",
+    ownership: "client",
     title: "Bitwage",
     category: "Fintech",
     summary:
@@ -1922,6 +1943,7 @@ export const projects: Project[] = [
   },
   {
     slug: "blocksee",
+    ownership: "client",
     title: "Blocksee",
     category: "Web3",
     summary:
@@ -2107,6 +2129,7 @@ export const projects: Project[] = [
   },
   {
     slug: "carnomaly",
+    ownership: "own",
     title: "Carnomaly",
     category: "Web3",
     summary:
@@ -2359,6 +2382,7 @@ export const projects: Project[] = [
   },
   {
     slug: "justiguide",
+    ownership: "client",
     title: "JustiGuide",
     category: "Legal Tech",
     summary:
@@ -2530,6 +2554,7 @@ export const projects: Project[] = [
   },
   {
     slug: "zero-to-three",
+    ownership: "own",
     title: "Zero to Three",
     category: "Open Source",
     summary:
@@ -2560,6 +2585,7 @@ export const projects: Project[] = [
   },
   {
     slug: "wryter-ai-screenwriter",
+    ownership: "own",
     title: "Wryter / AI Screenwriter",
     category: "AI",
     summary:

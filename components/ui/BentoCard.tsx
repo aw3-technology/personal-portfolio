@@ -4,6 +4,7 @@ import { motion, type MotionProps } from "framer-motion";
 import Link from "next/link";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import { useCursor } from "@/components/CursorContext";
+import OwnershipBadge from "@/components/ui/OwnershipBadge";
 import type { Project } from "@/lib/projects";
 
 export type BentoCardConfig = {
@@ -74,6 +75,12 @@ export default function BentoCard({
                 </div>
               )}
             </div>
+
+            <OwnershipBadge
+              ownership={project.ownership}
+              variant="overlay"
+              className="absolute top-4 left-4 z-20"
+            />
 
             <div className="absolute inset-0 bg-bg/70 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-500 ease-out" />
 
