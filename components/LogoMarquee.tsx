@@ -10,6 +10,7 @@ const logos: Logo[] = [
   { name: "Gap", src: "/logos/gap.png" },
   { name: "Cisco", src: "/logos/cisco.png" },
   { name: "Genentech", src: "/logos/genentech.png" },
+  { name: "Saama Technologies", src: "/logos/saama.png" },
 ];
 
 // Duplicated so the marquee can loop seamlessly at translateX(-50%).
