@@ -6,9 +6,9 @@ export const bitwage: Project = {
     title: "Bitwage",
     category: "Fintech",
     summary:
-      "Led branding, landing pages, and sales & marketing for a pioneering global crypto-payroll platform — and co-produced the equity crowdfund campaign that brought in $3MM. Engaged from 2022 through Bitwage's acquisition by Paystand in 2025.",
+      "Led branding, landing pages, and sales & marketing for a pioneering global crypto-payroll platform — and co-produced the equity crowdfund campaign that brought in $3MM. Engaged from 2021 through Bitwage's acquisition by Paystand in 2025.",
     role: "Advisor & Angel Investor",
-    year: "2022",
+    year: "2021",
     tags: ["Fintech", "Crypto", "Payroll", "Fundraising", "Marketing"],
     metrics: [
       "$3MM equity crowdfund co-produced",
@@ -22,14 +22,14 @@ export const bitwage: Project = {
     problem:
       "Bitwage had paid out global teams in cryptocurrency and stablecoins since 2014, with a real product and real traction — but needed help unlocking retail and institutional capital, modernizing its public-facing brand and landing pages, and turning a complex multi-product offering into a story investors and customers could grasp quickly.",
     process:
-      "From 2022 I worked alongside Jonathan Chester as an advisor and angel investor, owning the brand and growth surface end to end — refreshing the Bitwage brand, rebuilding landing pages, and producing sales and marketing collateral. I also co-produced the company's equity crowdfund campaign, running the creative and mechanics that brought in $3MM.",
+      "From 2021 I worked alongside Jonathan Chester as an advisor and angel investor, owning the brand and growth surface end to end — refreshing the Bitwage brand, rebuilding landing pages, and producing sales and marketing collateral. I also co-produced the company's equity crowdfund campaign, running the creative and mechanics that brought in $3MM.",
     solution:
       "A modernized brand and marketing surface that frames Bitwage's full stack — Global Payroll, W2 Crypto Benefits, and Crypto-Funded Payroll — as one clear offering, paired with a co-produced equity crowdfund campaign that raised $3MM from the community and continued fundraising and growth support.",
     outcome:
       "ARR climbed over 30X across the engagement, the $3MM crowdfund closed successfully, and Bitwage was ultimately acquired by Paystand in 2025. Jonathan Chester, CEO: \"AW3 has played a critical role in our fundraising, website development and sales/marketing execution.\"",
     meta: [
       { label: "Role", value: "Advisor & Angel Investor" },
-      { label: "Engaged", value: "2022–2025" },
+      { label: "Engaged", value: "2021–2025" },
       { label: "Outcome", value: "Acquired by Paystand (2025)" },
       { label: "Scope", value: ["Branding", "Landing Pages", "Sales & Marketing", "Equity Crowdfund"] },
     ],
@@ -43,7 +43,7 @@ export const bitwage: Project = {
           blocks: [
             {
               type: "paragraph",
-              text: "Bitwage makes global payroll easy for teams and freelancers, offering flexible payments in cryptocurrency, stablecoins, or local currency. Founded in 2014, it lets companies pay workers across nearly 200 countries with same-day options — and lets workers choose how they get paid. I came on in 2022 as an advisor and angel investor to lead the brand, landing pages, and sales & marketing, and to co-produce the equity crowdfund campaign that brought in $3MM.",
+              text: "Bitwage makes global payroll easy for teams and freelancers, offering flexible payments in cryptocurrency, stablecoins, or local currency. Founded in 2014, it lets companies pay workers across nearly 200 countries with same-day options — and lets workers choose how they get paid. I came on in 2021 as an advisor and angel investor to lead the brand, landing pages, and sales & marketing, and to co-produce the equity crowdfund campaign that brought in $3MM.",
             },
             {
               type: "image",

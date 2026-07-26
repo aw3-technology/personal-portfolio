@@ -8,7 +8,7 @@ export const wryterAiScreenwriter: Project = {
     summary:
       "Developed Wryter Inc.'s AI screenwriting application and enhanced its frontend experience — a full buildout in Vue, Python, and NodeJS with AI woven through the writing flow, plus two additional generative-AI apps that expanded the product suite. Demos landed both paying clients and investors.",
     role: "Lead Engineer & Architect",
-    year: "2024",
+    year: "2024–Present",
     tags: ["AI", "Generative AI", "Vue", "Python", "AWS"],
     metrics: [
       "3 production apps shipped — prototype to scale",
@@ -32,7 +32,7 @@ export const wryterAiScreenwriter: Project = {
       { label: "Type", value: "Develop AI screenwriting application and enhance frontend experience, plus additional apps" },
       { label: "Scope", value: ["Web Application Development", "Full buildout in Vue, Python & NodeJS", "AI Integration"] },
       { label: "Stack", value: ["Vue", "Python", "Node.js", "AWS", "MongoDB"] },
-      { label: "Year", value: "2024" },
+      { label: "Year", value: "2024–Present" },
       { label: "Site", value: "AIScreenwriter.io" },
     ],
     emphasisKeywords: ["AI", "Wryter", "AI Screenwriter", "Vue", "Python", "Node", "AWS", "generative AI"],
@@ -114,32 +114,71 @@ export const wryterAiScreenwriter: Project = {
           ],
         },
         {
-          type: "split",
+          type: "stack",
           heading: "About Wryter Inc.",
-          content: [
+          blocks: [
             {
               type: "paragraph",
-              text: "Wryter Inc. is on a mission to revolutionize creative writing and content generation through AI — building technologies that enhance, not replace, the creative process. Its founding belief is that artificial intelligence should amplify the creative voice, empowering storytellers, brands, and thinkers to bring ideas to life with greater speed, depth, and originality.",
+              text: "Wryter Inc. believes words are more than tools — they are the building blocks of imagination, emotion, and human connection. Its mission is to redefine creative writing and content generation through artificial intelligence, empowering individuals and organizations to create with greater speed, depth, and originality than ever before. Standing at the intersection of art and algorithm, Wryter develops technologies that enhance — not replace — the creative process.",
+            },
+            {
+              type: "callout",
+              tone: "quote",
+              text: "AI should amplify the creative voice, not dilute it. — the belief Wryter Inc. was founded on",
             },
             {
               type: "paragraph",
-              text: "Its flagship suite, Wryter Studio, is a full environment for novelists, screenwriters, journalists, marketers, and educators — intelligent drafting, editing, and brainstorming with story arcs, tone modulation, metaphor generation, and narrative-rhythm analysis. The proprietary models are built to grasp tone, pacing, and voice, generating original, emotionally resonant work while keeping the writer in full creative control.",
+              text: "The vision is a future where creativity and technology coexist harmoniously — where human inspiration and machine intelligence collaborate to expand the boundaries of storytelling. The mission is to push the limits of language technology and deliver best-in-class solutions for modern creators: whether drafting a novel, generating brand copy, or building immersive narratives, the goal is to make the creative process faster, smarter, and more inspiring.",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Innovation at the core",
+          content: [
+            {
+              type: "paragraph",
+              text: "Innovation drives everything Wryter does. Its R&D team works at the frontier of natural language processing, generative AI, and deep-learning models, crafting systems that understand context, emotion, tone, and narrative intent. The algorithms don't just predict the next word — they anticipate human meaning, from character development to emotional resonance, stylistic variation, and thematic cohesion, trained to think like a writer and assist like a creative partner.",
+            },
+            {
+              type: "paragraph",
+              text: "Where many AI tools mimic language, Wryter's proprietary models are designed to understand narrative intention — the subtleties of tone, pacing, and voice that make human writing timeless. Continuous training on diverse literary and linguistic data gives them a deep contextual intelligence, serving both artistic creators and corporate innovators and bridging creativity and computation.",
             },
           ],
           media: [
             {
               type: "heading",
               level: 3,
-              text: "Where creativity meets intelligence",
+              text: "Why Wryter Inc.",
             },
             {
               type: "list",
               items: [
-                "Innovation — leading with imagination at the frontier of NLP and generative AI.",
-                "Technology — proprietary language models that understand context, emotion, and narrative intent.",
-                "Writing — every product honors the craft, so technology serves creativity rather than the reverse.",
-                "A creative partner — tools designed to think with you, learn from you, and grow with your work.",
+                "Innovation — leading with imagination, continually exploring new frontiers in AI and creativity.",
+                "Technology — proprietary language models that redefine what's possible in natural language generation.",
+                "Writing — every product honors the craft, ensuring technology serves creativity, not the other way around.",
+                "A creative companion — tools designed to think with you, learn from you, and grow alongside your journey.",
               ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Wryter Studio — the flagship suite",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Wryter Studio is a comprehensive environment for writers of all kinds — novelists, screenwriters, journalists, marketers, educators, and creators — integrating intelligent drafting, editing, and brainstorming powered by cutting-edge generative models. With story arcs, tone modulation, metaphor generation, and narrative-rhythm analysis, it works like an AI co-author that understands your style, adapts to your voice, and enhances your originality while leaving you in full creative control.",
+            },
+            {
+              type: "paragraph",
+              text: "Creativity should be accessible to all, so the platforms are intuitive and inclusive — welcoming beginners and professionals alike, guiding users with real-time feedback on clarity, coherence, and style while preserving each writer's unique voice. From an aspiring author drafting a first novel to a marketing team running multi-channel content pipelines, Wryter offers scalable solutions for every creative journey.",
+            },
+            {
+              type: "callout",
+              tone: "metric",
+              label: "The future of words",
+              text: "Where imagination meets intelligence — writing smarter, faster, and more beautifully",
             },
           ],
         },
