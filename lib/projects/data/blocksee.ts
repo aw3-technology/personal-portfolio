@@ -8,7 +8,7 @@ export const blocksee: Project = {
     summary:
       "Designed and built the landing page and the React-based blockchain CRM for Blocksee — a Web3 commerce and analytics platform that pairs the accessibility of Shopify with the transparency of Etherscan. Integrated the frontend directly with Blocksee's on-chain backend, and supported the team through fundraising.",
     role: "Frontend Lead & Fundraising Advisor",
-    year: "2024",
+    year: "2023",
     tags: ["Web3", "CRM", "React", "Analytics", "Frontend"],
     metrics: [
       "Landing page + blockchain CRM built in React",
@@ -30,7 +30,7 @@ export const blocksee: Project = {
     meta: [
       { label: "Role", value: "Frontend Lead & Fundraising Advisor" },
       { label: "Stack", value: ["React", "Node.js", "Web3 APIs"] },
-      { label: "Year", value: "2024" },
+      { label: "Year", value: "2023" },
       { label: "Scope", value: ["Landing Page", "Blockchain CRM", "Fundraising"] },
       { label: "Founder", value: "Eric Forst" },
       { label: "Link", value: "blocksee.com" },
