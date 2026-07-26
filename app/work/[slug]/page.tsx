@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseStudyPage from "@/components/CaseStudyPage";
 import { getProject, projects } from "@/lib/projects";
+import { buildArticleMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -17,31 +18,16 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     };
   }
 
-  const title = `${project.title} — Case Study`;
-  const description = project.summary;
-  const path = `/work/${project.slug}`;
-  // Fall back to the site-wide generated OG image (app/opengraph-image.tsx)
+  // Fall back to the site-wide generated OG image (app/opengraph-image.png)
   // when a project has no image of its own.
   const ogImage = project.caseStudyImage ?? project.image;
 
-  return {
-    title,
-    description,
-    alternates: { canonical: path },
-    openGraph: {
-      title,
-      description,
-      url: path,
-      type: "article",
-      ...(ogImage ? { images: [{ url: ogImage, alt: project.title }] } : {}),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      ...(ogImage ? { images: [ogImage] } : {}),
-    },
-  };
+  return buildArticleMetadata({
+    title: `${project.title} — Case Study`,
+    description: project.summary,
+    path: `/work/${project.slug}`,
+    image: ogImage,
+  });
 }
 
 export default function WorkCaseStudy({ params }: { params: { slug: string } }) {

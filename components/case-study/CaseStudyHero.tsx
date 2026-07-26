@@ -8,7 +8,7 @@ import { fadeUpSm, fadeUpLg, smoothTransition } from "@/lib/animations";
 /** Case-study hero: category badge, title, summary, and the meta info row. */
 export default function CaseStudyHero({ project }: { project: Project }) {
   return (
-    <section className="pt-36 pb-20 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+    <section className="pt-36 pb-20 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
       <div className="max-w-4xl">
         {/* Category Badge */}
         <motion.div

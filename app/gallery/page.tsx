@@ -13,7 +13,7 @@ export default function GalleryPage() {
     <main className="bg-bg min-h-screen relative z-10">
       <Navbar />
 
-      <section className="pt-36 pb-20 md:pb-28 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-36 pb-20 md:pb-28 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
             <span className="w-8 h-px bg-stroke" />

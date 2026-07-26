@@ -1,10 +1,12 @@
+export type MockupType = "dashboard" | "landing" | "brand" | "mobile";
+
 export type Exploration = {
   id: number;
   title: string;
   category: string;
   gradient: string;
   span: string;
-  mockup: string;
+  mockup: MockupType;
   image?: string;
 };
 

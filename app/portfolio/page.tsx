@@ -71,7 +71,7 @@ export default function PortfolioPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-36 pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <PageHero
           eyebrow="Portfolio"
           title={<>All <span className="font-display italic">Work</span></>}

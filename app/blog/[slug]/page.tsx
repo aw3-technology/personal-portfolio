@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import { getAllPosts, getPostBySlug, formatPostDate } from "@/lib/posts";
+import { buildArticleMetadata } from "@/lib/metadata";
+import { SITE_NAME } from "@/lib/site";
 
 type Params = { slug: string };
 
@@ -16,17 +18,14 @@ export function generateStaticParams(): Params[] {
 export function generateMetadata({ params }: { params: Params }): Metadata {
   const post = getPostBySlug(params.slug);
   if (!post) return { title: "Not found" };
-  return {
-    title: `${post.title} — Will Schulz`,
+  return buildArticleMetadata({
+    title: `${post.title} — ${SITE_NAME}`,
+    ogTitle: post.title,
     description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: "article",
-      publishedTime: post.date,
-      images: post.cover ? [{ url: post.cover }] : undefined,
-    },
-  };
+    path: `/blog/${post.slug}`,
+    image: post.cover,
+    publishedTime: post.date,
+  });
 }
 
 const mdxComponents = {

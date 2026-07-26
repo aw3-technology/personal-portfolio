@@ -76,7 +76,7 @@ export default function BioPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <PageHero
           eyebrow="Biography"
           title={<>The long <span className="font-display italic">story</span></>}
@@ -85,7 +85,7 @@ export default function BioPage() {
       </section>
 
       {/* Portrait */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

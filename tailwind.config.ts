@@ -29,6 +29,9 @@ const config: Config = {
         "hero-md": "12vw",
         "hero-lg": "10vw"
       },
+      maxWidth: {
+        content: "1200px"
+      },
       animation: {
         marquee: "marquee 60s linear infinite"
       },

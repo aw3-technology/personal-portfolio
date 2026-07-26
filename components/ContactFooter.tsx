@@ -58,7 +58,7 @@ export default function ContactFooter({
       {/* 3D Background */}
       <FloatingObjectsContact />
 
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-content mx-auto px-6 md:px-10 lg:px-16">
         {/* Marquee */}
         <div ref={marqueeRef} className="overflow-hidden mb-12 md:mb-16 -mx-[100vw]">
           <div

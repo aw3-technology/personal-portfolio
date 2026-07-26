@@ -28,7 +28,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <PageHero
           eyebrow="Resume"
           title={<>William <span className="font-display italic">Schulz</span></>}
@@ -59,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Image Section */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Description Section */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Work Experience Timeline */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* Tools Section */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function AboutPage() {
       </section>
 
       {/* Education Section */}
-      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Recognition / Features */}
-      <section className="pb-24 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pb-24 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

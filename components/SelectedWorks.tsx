@@ -11,7 +11,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 export default function SelectedWorks() {
   return (
     <section id="work" className="bg-bg relative z-10 py-16 md:py-24 overflow-hidden">
-      <div className="w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="w-full max-w-content mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
         <SectionHeader
           label="Selected Work"

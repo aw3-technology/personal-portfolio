@@ -66,7 +66,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
       <CaseStudyHero project={project} />
 
       {/* Main Image Mockup */}
-      <section ref={heroImageRef} className="px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto mb-24 md:mb-32">
+      <section ref={heroImageRef} className="px-6 md:px-10 lg:px-16 max-w-content mx-auto mb-24 md:mb-32">
          <motion.div
             initial={fadeUp.hidden}
             animate={fadeUp.visible}
@@ -89,7 +89,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
       </section>
 
       {/* Content Grid */}
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
           {/* Main Content */}
           <div className="flex flex-col gap-20 md:gap-28">
             {caseStudyLayout.length > 0 ? (
@@ -121,7 +121,7 @@ export default function CaseStudyPage({ project }: { project: Project }) {
 
       {/* Footer */}
       <footer className="bg-bg pb-8 md:pb-12">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
           <div className="pt-8 border-t border-stroke">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Socials */}

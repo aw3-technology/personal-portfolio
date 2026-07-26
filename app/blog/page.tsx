@@ -5,9 +5,10 @@ import Contact from "@/components/Contact";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import PageHero from "@/components/ui/PageHero";
 import { getAllPosts, formatPostDate } from "@/lib/posts";
+import { SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog — Will Schulz",
+  title: `Blog — ${SITE_NAME}`,
   description: "Essays and notes on building companies, software, and ideas at the edge of Web3 and AI.",
 };
 
@@ -18,7 +19,7 @@ export default function BlogIndexPage() {
     <main className="bg-bg min-h-screen relative z-10">
       <Navbar />
 
-      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
+      <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
         <PageHero
           eyebrow="Writing"
           title={<>The <span className="font-display italic">blog</span></>}
