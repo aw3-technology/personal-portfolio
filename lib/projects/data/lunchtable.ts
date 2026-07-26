@@ -8,7 +8,7 @@ export const lunchtable: Project = {
     summary:
       "Built LunchTable's AI-powered ambassador platform from the ground up — a unified web application that lets brands recruit, onboard, activate, and manage ambassador communities, with AI-driven onboarding, predictive scoring, campaign management, and performance analytics, integrated with TikTok, Instagram, and Facebook.",
     role: "Product & AI Platform Lead",
-    year: "2026",
+    year: "2025–2026",
     tags: ["AI", "SaaS", "Product Development", "Analytics", "Web Application"],
     metrics: [
       "AI-powered ambassador platform built concept to production",
@@ -32,7 +32,7 @@ export const lunchtable: Project = {
       { label: "Type", value: "Product Development & AI Platform Development" },
       { label: "Scope", value: ["AI Platform Development", "Web Application Development", "Product Architecture", "Dashboard & Analytics"] },
       { label: "Integrations", value: ["TikTok", "Instagram", "Facebook"] },
-      { label: "Year", value: "2026" },
+      { label: "Year", value: "2025–2026" },
       { label: "Site", value: "lunchtable.ai" },
     ],
     emphasisKeywords: ["LunchTable", "AI", "ambassador", "predictive", "brand advocates", "TikTok", "Meta", "SaaS"],
