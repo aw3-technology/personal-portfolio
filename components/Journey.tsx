@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { experiences } from "@/lib/experience";
 import { fadeUpSm, smoothTransition, viewportOnce } from "@/lib/animations";
 import { ArrowDiagonal } from "./Icons";
@@ -24,8 +25,8 @@ export default function Journey() {
           cta={
             <div className="flex flex-wrap items-center gap-4 md:gap-8">
               <div className="text-center">
-                <span className="block text-2xl md:text-3xl font-display italic text-text">4+</span>
-                <span className="text-2xs text-muted uppercase tracking-wider">Years</span>
+                <span className="block text-lg md:text-xl font-display italic text-text whitespace-nowrap">2020&ndash;Present</span>
+                <span className="text-2xs text-muted uppercase tracking-wider">Building</span>
               </div>
               <div className="hidden sm:block w-px h-8 bg-stroke" />
               <div className="text-center">
@@ -90,14 +91,23 @@ export default function Journey() {
             <span className="text-sm text-muted">Based in San Francisco</span>
           </div>
 
-          {/* CTA */}
-          <GradientButton
-            href="#contact"
-            className="inline-flex w-fit items-center gap-3 px-5 py-3 text-sm text-muted self-center mt-2 md:mt-0 md:self-auto md:ml-auto"
-          >
-            <span className="relative z-10 group-hover:text-text transition-colors duration-300">Get in touch</span>
-            <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 relative z-10" />
-          </GradientButton>
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center justify-center gap-3 self-center mt-2 md:mt-0 md:self-auto md:ml-auto md:justify-end">
+            <Link
+              href="/about"
+              className="group inline-flex w-fit items-center gap-2 px-4 py-3 text-sm text-muted hover:text-text transition-colors duration-300"
+            >
+              <span>View full resume</span>
+              <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </Link>
+            <GradientButton
+              href="#contact"
+              className="inline-flex w-fit items-center gap-3 px-5 py-3 text-sm text-muted"
+            >
+              <span className="relative z-10 group-hover:text-text transition-colors duration-300">Get in touch</span>
+              <ArrowDiagonal width={12} height={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 relative z-10" />
+            </GradientButton>
+          </div>
         </AnimatedSection>
       </div>
     </section>
