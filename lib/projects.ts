@@ -2525,6 +2525,21 @@ export const projects: Project[] = [
         },
         {
           type: "stack",
+          heading: "The brand system",
+          blocks: [
+            {
+              type: "image",
+              label: "JustiGuide brand identity — logo, mark, app icon, and color palette",
+              src: "/projects/justiguide-branding.png",
+              alt: "JustiGuide brand guidelines board — logo construction and clear space, primary logo, logo variations, app icon, brand mark, logo on light and dark backgrounds, mobile splash, and the violet color palette",
+              aspect: "3/2",
+              rounded: "lg",
+              fit: "cover",
+            },
+          ],
+        },
+        {
+          type: "stack",
           heading: "From concept to traction",
           blocks: [
             {
