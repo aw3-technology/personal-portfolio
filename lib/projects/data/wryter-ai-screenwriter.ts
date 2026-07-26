@@ -2,7 +2,7 @@ import type { Project } from "../types";
 
 export const wryterAiScreenwriter: Project = {
     slug: "wryter-ai-screenwriter",
-    ownership: "own",
+    ownership: "client",
     title: "Wryter / AI Screenwriter",
     category: "AI",
     summary:
