@@ -99,6 +99,25 @@ export const wryterAiScreenwriter: Project = {
         },
         {
           type: "stack",
+          heading: "The investment presentation",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "I also produced the AI Screenwriter investment presentation — the story that carries the product into rooms with investors: the \"Your Story Begins Now\" positioning, the screenwriting challenges it solves, the voice-first assistant \"Imogen,\" the product and technology, and the business model.",
+            },
+            {
+              type: "image",
+              label: "AI Screenwriter investment presentation — introduction, problem, solution, product, and business model",
+              src: "/projects/wryter-presentation.png",
+              alt: "Spread of the AIScreenwriter.io investment-presentation slides — \"Your Story Begins Now\" intro, an executive summary on empowering screenwriters with AI, screenplay-writing challenges, the Imogen AI assistant, product and technology, and the subscription business model",
+              aspect: "3/2",
+              rounded: "lg",
+              fit: "cover",
+            },
+          ],
+        },
+        {
+          type: "stack",
           heading: "Why it matters",
           blocks: [
             {
