@@ -3,6 +3,7 @@ import { aw3Technology } from "./data/aw3-technology";
 import { kavanah } from "./data/kavanah";
 import { aw3Host } from "./data/aw3-host";
 import { openeye } from "./data/openeye";
+import { lunchtable } from "./data/lunchtable";
 import { intown } from "./data/intown";
 import { andromedaProject } from "./data/andromeda-project";
 import { bairdAugustine } from "./data/baird-augustine";
@@ -21,6 +22,7 @@ export const projects: Project[] = [
   kavanah,
   aw3Host,
   openeye,
+  lunchtable,
   intown,
   andromedaProject,
   bairdAugustine,
