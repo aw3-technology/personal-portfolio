@@ -1,11 +1,16 @@
  "use client";
  
  import { useState, useEffect } from "react";
+ import { usePathname } from "next/navigation";
  import { AnimatePresence } from "framer-motion";
  import LoadingScreen from "./LoadingScreen";
- 
+
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  // The intro loading screen is only for the landing page; every other route
+  // renders its content immediately.
+  const [isLoading, setIsLoading] = useState(isHome);
   const [mounted, setMounted] = useState(false);
   const [skipChecked, setSkipChecked] = useState(false);
 
