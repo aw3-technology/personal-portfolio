@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "var(--bg)",
-        surface: "var(--surface)",
-        text: "var(--text)",
-        muted: "var(--muted)",
-        accent: "var(--accent)",
-        stroke: "var(--stroke)"
+        // Wrapped in color-mix so Tailwind's `<alpha-value>` substitution works
+        // on these CSS-variable colors — enabling opacity modifiers like
+        // `bg-surface/95` or `bg-stroke/50`. At full opacity color-mix returns
+        // the variable's color unchanged, so solid usages are unaffected.
+        bg: "color-mix(in srgb, var(--bg) calc(<alpha-value> * 100%), transparent)",
+        surface: "color-mix(in srgb, var(--surface) calc(<alpha-value> * 100%), transparent)",
+        text: "color-mix(in srgb, var(--text) calc(<alpha-value> * 100%), transparent)",
+        muted: "color-mix(in srgb, var(--muted) calc(<alpha-value> * 100%), transparent)",
+        accent: "color-mix(in srgb, var(--accent) calc(<alpha-value> * 100%), transparent)",
+        stroke: "color-mix(in srgb, var(--stroke) calc(<alpha-value> * 100%), transparent)"
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
