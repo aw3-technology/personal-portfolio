@@ -15,7 +15,6 @@ import GradientButton from "@/components/ui/GradientButton";
 import SocialLinks from "@/components/ui/SocialLinks";
 import StatusDot from "@/components/ui/StatusDot";
 import { easing, fadeUp, fadeUpSm, smoothTransition } from "@/lib/animations";
-import "./portfolio.css";
 
 const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
   ssr: false,
@@ -403,11 +402,11 @@ export default function PortfolioPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15, ease: "easeInOut" }}
             >
-              {filteredProjects.slice(0, 8).map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <BentoCard
                   key={project.slug}
                   project={project}
-                  config={portfolioBentoConfigs[index]}
+                  config={portfolioBentoConfigs[index % portfolioBentoConfigs.length]}
                   motionProps={{
                     initial: { opacity: 0, y: 15 },
                     animate: { opacity: 1, y: 0 },
