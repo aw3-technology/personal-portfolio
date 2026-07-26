@@ -1736,6 +1736,21 @@ export const projects: Project[] = [
           ],
         },
         {
+          type: "stack",
+          heading: "The brand system",
+          blocks: [
+            {
+              type: "image",
+              label: "Baird Augustine brand identity — logo construction, primary lockup, app icon, applications, and color palette",
+              src: "/projects/baird-augustine-brand-system.png",
+              alt: "Baird Augustine brand guidelines board — logo construction and clear space, primary BA monogram and wordmark, app icon, logo variations, alternate lockup, brand applications on business cards, a website header, a presentation cover, and the deep-navy color palette",
+              aspect: "3/2",
+              rounded: "lg",
+              fit: "cover",
+            },
+          ],
+        },
+        {
           type: "timeline",
           heading: "From day one, end to end",
           steps: [
