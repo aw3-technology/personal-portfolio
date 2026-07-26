@@ -196,13 +196,13 @@ export const blocksee: Project = {
           blocks: [
             {
               type: "paragraph",
-              text: "Since launch, Blocksee has helped projects across multiple networks streamline analytics, expand revenue, and understand their user base in unprecedented depth.",
+              text: "With the landing page and blockchain CRM in hand, Blocksee onboarded its first customers and raised a pre-seed round — the frontend and investor-ready surfaces carried the platform from a thesis into a fundable, in-market product.",
             },
             {
               type: "callout",
               tone: "metric",
-              label: "Reported by Blocksee clients",
-              text: "Up to 40% more community engagement · 30% faster reporting · 100% wallet-level visibility",
+              label: "Outcome",
+              text: "First customers onboarded · Pre-seed round raised",
             },
             {
               type: "callout",
