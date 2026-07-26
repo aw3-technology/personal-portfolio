@@ -186,10 +186,32 @@ export default function AboutPage() {
               <p className="text-base text-muted leading-[1.7]">
                 B.A. in Computer Science with an emphasis in Computational Economics.
               </p>
-              <p className="text-base text-muted leading-[1.7] mt-3">
-                <span className="text-text">Notable coursework:</span> Machine Learning,
-                Human&#8209;Computer Interaction, and Cryptography.
-              </p>
+              <div className="mt-4">
+                <p className="text-sm text-muted uppercase tracking-wider mb-3">Notable coursework</p>
+                <ul className="flex flex-wrap gap-2">
+                  {[
+                    "Machine Learning",
+                    "Human‑Computer Interaction",
+                    "Cryptography",
+                    "Object‑Oriented Programming",
+                    "Discrete Mathematics",
+                    "Multivariable Calculus",
+                    "Differential Equations",
+                    "Statistics",
+                    "Econometrics",
+                    "Game Theory",
+                    "Micro / Macroeconomics",
+                    "Technology Management Program — New Venture Competition",
+                  ].map((course) => (
+                    <li
+                      key={course}
+                      className="rounded-full border border-stroke px-3 py-1.5 text-sm text-muted"
+                    >
+                      {course}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </motion.div>
