@@ -1429,6 +1429,15 @@ export const projects: Project[] = [
               text: "The local discovery and booking space is fragmented — review platforms, booking apps, and social tools each solve only part of the problem. InTown is positioned as the first AI-native concierge that unifies discovery, booking, and social coordination into a single personalized experience, defensible through an AI personalization engine, local + social network effects, a vendor-integration moat, and a multi-stream revenue model.",
             },
             {
+              type: "image",
+              label: "2026 investor deck — brand, problem, solution, market, and vision",
+              src: "/projects/intown-deck.png",
+              alt: "Spread of InTown investor-presentation slides — the \"Introducing your new concierge\" title, The Product, The Problem, The Market, The Solution, Meet Cierra, and The Vision",
+              aspect: "video",
+              rounded: "lg",
+              fit: "cover",
+            },
+            {
               type: "callout",
               tone: "metric",
               label: "LA-first go-to-market · $120B+ TAM",
