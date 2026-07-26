@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { easing } from "@/lib/animations";
 
-const words = ["Design", "Create", "Inspire"];
+const words = ["Design", "Develop", "Inspire"];
 
  export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
    const [progress, setProgress] = useState(0);
