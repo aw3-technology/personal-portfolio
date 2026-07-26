@@ -52,15 +52,6 @@ export const lunchtable: Project = {
               tone: "quote",
               text: "Without AW3 Technology's expertise in building projects from the ground up, we would have never made our critical first major client deadline. Will brings unparalleled swiftness and knowhow to the table. — Daniel Imberman, CTO of LunchTable",
             },
-            {
-              type: "image",
-              label: "The Ambassador Dashboard — brand partnerships, submissions, points, and performance",
-              src: "/projects/lunchtable-dashboard.png",
-              alt: "The LunchTable ambassador dashboard on a laptop — an \"Unleash Your Fan Power\" banner, brand partnership and submission stats, and quick actions for submitting content, points and rewards, performance, and connecting socials",
-              aspect: "video",
-              rounded: "lg",
-              fit: "cover",
-            },
           ],
         },
         {
@@ -95,6 +86,84 @@ export const lunchtable: Project = {
                 "Campaign management — brief, activate, and review content at scale.",
                 "Performance analytics — engagement and impact, in real time.",
                 "Social integrations — TikTok, Instagram, and Facebook.",
+              ],
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "How LunchTable works",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "Three powerful modules that turn community engagement into predictable growth.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "GuestPass — AI ambassador onboarding",
+            },
+            {
+              type: "paragraph",
+              text: "AI screens, segments, and predicts ambassador performance. Automatically score applicants, assign tiers, and fast-track your highest-value advocates.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "PlayMaker — AI campaign intelligence",
+            },
+            {
+              type: "paragraph",
+              text: "AI-generated campaign strategies with real-time optimization. Launch, monitor, and adjust campaigns with predictive performance insights.",
+            },
+            {
+              type: "heading",
+              level: 3,
+              text: "Predictive Engine — predictive analytics",
+            },
+            {
+              type: "paragraph",
+              text: "Forecast engagement, track earned media value, and measure ROI across every activation. Turn data into decisions before campaigns even launch.",
+            },
+          ],
+        },
+        {
+          type: "timeline",
+          heading: "Complete ambassador infrastructure",
+          steps: [
+            {
+              title: "Recruit",
+              body: "Source high-potential ambassadors from your existing audience.",
+            },
+            {
+              title: "Onboard",
+              body: "AI-driven screening, scoring, and segmentation.",
+            },
+            {
+              title: "Activate",
+              body: "Launch intelligent campaigns tailored to each cohort.",
+            },
+            {
+              title: "Measure",
+              body: "Track EMV, engagement, and conversion in real time.",
+            },
+            {
+              title: "Optimize",
+              body: "AI recommendations to improve campaign performance.",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "Built for brands powered by passion",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "Sports teams & leagues — activate passionate fanbases into ambassador networks that drive ticket sales, merch revenue, and brand partnerships.",
+                "Restaurants & QSR — turn loyal diners into local advocates who amplify promotions and drive foot traffic across locations.",
+                "Consumer packaged goods — build product trial programs powered by authentic advocates who influence purchase decisions at scale.",
+                "Lifestyle & experiential — create immersive brand experiences amplified by community-driven ambassadors who live your brand story.",
               ],
             },
           ],
