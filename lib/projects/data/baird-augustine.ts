@@ -66,6 +66,15 @@ export const bairdAugustine: Project = {
             },
             {
               type: "image",
+              label: "The live Baird Augustine site — the SF-skyline homepage, awarded by the State of California for investment-banking decorum",
+              src: "/projects/baird-augustine-website.png",
+              alt: "The Baird Augustine website open on a laptop: a deep-navy homepage over a San Francisco skyline with the serif \"Baird Augustine\" wordmark, a top navigation, and a State of California award seal",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+            {
+              type: "image",
               label: "Baird Augustine — the brand and website I designed and built",
               src: "/projects/baird-augustine-hero.png",
               alt: "Baird Augustine homepage hero — \"Neo-Investment Bank\" with the Baird Augustine wordmark",

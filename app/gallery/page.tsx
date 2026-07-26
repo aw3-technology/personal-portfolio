@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import GalleryGrid from "@/components/GalleryGrid";
-import { explorations } from "@/lib/explorations";
+import { galleryItems } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -25,7 +25,7 @@ export default function GalleryPage() {
           </h1>
         </div>
 
-        <GalleryGrid items={explorations} />
+        <GalleryGrid items={galleryItems} />
       </section>
     </main>
   );

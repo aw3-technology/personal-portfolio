@@ -217,6 +217,15 @@ export const carnomaly: Project = {
           items: [
             {
               type: "image",
+              label: "Carrlot — the dealer's web inventory and auction desk, with the AI agent placing bids and pulling network inventory alongside",
+              src: "/projects/carnomaly-carrlot.png",
+              alt: "The Carnomaly Carrlot dealer dashboard: a list of vehicles with prices, reserves, and live auction timers, next to an AI agent panel searching inventory and listing active auctions",
+              aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+            {
+              type: "image",
               label: "CarrDealer home — service opportunities at a glance: scans, offers, pending, and not requested",
               src: "/projects/carnomaly-carrdealer-hero.png",
               alt: "CarrDealer by Carnomaly mobile home screen showing service opportunity counts and an Add Service Vehicle button",
