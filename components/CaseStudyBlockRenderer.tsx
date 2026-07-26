@@ -22,7 +22,9 @@ export function renderImageBlock(
         ? "aspect-[3/2]"
         : aspectKey === "square"
           ? "aspect-square"
-          : "aspect-video";
+          : aspectKey === "3/4"
+            ? "aspect-[3/4]"
+            : "aspect-video";
 
   const roundedClass =
     block.rounded === "none"

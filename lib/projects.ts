@@ -76,7 +76,7 @@ export type CaseStudyBlock =
       label: string;
       src?: string;
       alt?: string;
-      aspect?: "video" | "4/3" | "3/2" | "square";
+      aspect?: "video" | "4/3" | "3/2" | "square" | "3/4";
       /** Corner radius. Defaults to "2xl" to match other case-study media. */
       rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
       /** Use object-contain instead of the default object-cover (avoids cropping UI screenshots). */
@@ -463,6 +463,36 @@ export const projects: Project[] = [
               src: "/projects/kavanah-hero.png",
               alt: "Kavanah dashboard on desktop and mobile showing time tracker, productivity, completed tasks, and AI agent insights",
               aspect: "video",
+              rounded: "lg",
+              fit: "contain",
+            },
+          ],
+        },
+        {
+          type: "split",
+          heading: "Kavanah at a glance",
+          content: [
+            {
+              type: "paragraph",
+              text: "The one-pager — the whole story on a single page: the problem, the AI-native workspace that closes it, the six core surfaces, and how it's priced. It's the fastest way to see what Kavanah is and who it's for.",
+            },
+            {
+              type: "list",
+              items: [
+                "The gap: AI 10x'd delivery, but management tools never caught up.",
+                "The product: one AI-native workspace for projects, delivery, and client work.",
+                "Six surfaces: tasks, dev integration, AI automations, AI Employees, time tracking, and a client portal.",
+                "Pricing: flat per-seat from $3, with AI metered as credits.",
+              ],
+            },
+          ],
+          media: [
+            {
+              type: "image",
+              label: "Kavanah one-pager",
+              src: "/projects/kavanah-onepager.png",
+              alt: "Kavanah one-page overview covering the problem, the AI-native workspace, core surfaces, and pricing",
+              aspect: "3/4",
               rounded: "lg",
               fit: "contain",
             },
@@ -2532,6 +2562,25 @@ export const projects: Project[] = [
               label: "JustiGuide brand identity — logo, mark, app icon, and color palette",
               src: "/projects/justiguide-branding.png",
               alt: "JustiGuide brand guidelines board — logo construction and clear space, primary logo, logo variations, app icon, brand mark, logo on light and dark backgrounds, mobile splash, and the violet color palette",
+              aspect: "3/2",
+              rounded: "lg",
+              fit: "cover",
+            },
+          ],
+        },
+        {
+          type: "stack",
+          heading: "The pitch deck",
+          blocks: [
+            {
+              type: "paragraph",
+              text: "I built the investor deck and narrative that carried JustiGuide into fundraising conversations — problem, solution, business model, market, competitive landscape, and the ask, in one coherent story.",
+            },
+            {
+              type: "image",
+              label: "JustiGuide investor deck — problem, solution, business model, market, and the ask",
+              src: "/projects/justiguide-deck.png",
+              alt: "Spread of JustiGuide investor-presentation slides — The Problem, The Solution, Business Model pricing tiers, The Market sizing, competitive landscape quadrant, and The Ask for a $500K pre-seed round",
               aspect: "3/2",
               rounded: "lg",
               fit: "cover",
