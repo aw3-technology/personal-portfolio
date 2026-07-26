@@ -89,7 +89,9 @@ export default function Hero() {
 
         {/* Bio */}
         <p className="blur-in text-sm md:text-base text-muted leading-relaxed max-w-md mb-12">
-          Crafting thoughtful digital experiences with attention to the details that make interfaces feel alive.
+          Crafting thoughtful digital experiences with{" "}
+          <span className="text-text">15+ years in software development</span>{" "}
+          and an eye for the details that make interfaces feel alive.
         </p>
 
         {/* CTA */}

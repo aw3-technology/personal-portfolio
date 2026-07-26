@@ -186,6 +186,10 @@ export default function AboutPage() {
               <p className="text-base text-muted leading-[1.7]">
                 B.A. in Computer Science with an emphasis in Computational Economics.
               </p>
+              <p className="text-base text-muted leading-[1.7] mt-3">
+                <span className="text-text">Notable coursework:</span> Machine Learning,
+                Human&#8209;Computer Interaction, and Cryptography.
+              </p>
             </div>
           </div>
         </motion.div>
