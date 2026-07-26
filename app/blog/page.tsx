@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
+import PageHero from "@/components/ui/PageHero";
 import { getAllPosts, formatPostDate } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -18,18 +19,11 @@ export default function BlogIndexPage() {
       <Navbar />
 
       <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
-            <span className="w-8 h-px bg-stroke" />
-            Writing
-          </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-text leading-[1.03] mb-6">
-            The <span className="font-display italic">blog</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted max-w-2xl mx-auto">
-            Notes on building companies, software, and ideas at the intersection of Web3 and AI.
-          </p>
-        </div>
+        <PageHero
+          eyebrow="Writing"
+          title={<>The <span className="font-display italic">blog</span></>}
+          subtitle="Notes on building companies, software, and ideas at the intersection of Web3 and AI."
+        />
       </section>
 
       <section className="pb-32 px-6 md:px-10 lg:px-16 max-w-[1100px] mx-auto">

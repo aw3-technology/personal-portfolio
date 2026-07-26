@@ -12,6 +12,7 @@ type OwnershipBadgeProps = {
 
 const toneStyles: Record<Ownership, string> = {
   own: "text-emerald-300 border-emerald-400/30 bg-emerald-500/10",
+  partner: "text-violet-300 border-violet-400/30 bg-violet-500/10",
   client: "text-sky-300 border-sky-400/30 bg-sky-500/10",
 };
 

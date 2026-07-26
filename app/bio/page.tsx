@@ -1,21 +1,10 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import Navbar from "@/components/Navbar";
-import { ArrowDiagonal } from "@/components/Icons";
-import AnimatedSection from "@/components/ui/AnimatedSection";
-import GradientButton from "@/components/ui/GradientButton";
-import SocialLinks from "@/components/ui/SocialLinks";
-import StatusDot from "@/components/ui/StatusDot";
-import { fadeUp, smoothTransition } from "@/lib/animations";
-import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
-
-const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
-  ssr: false,
-});
+import ContactFooter from "@/components/ContactFooter";
+import PageHero from "@/components/ui/PageHero";
 
 const chapters = [
   {
@@ -81,8 +70,6 @@ const chapters = [
 ];
 
 export default function BioPage() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  useMarqueeAnimation(marqueeRef);
 
   return (
     <main className="bg-bg min-h-screen relative z-10">
@@ -90,23 +77,11 @@ export default function BioPage() {
 
       {/* Hero */}
       <section className="pt-36 pb-8 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
-        <motion.div
-          initial={fadeUp.hidden}
-          animate={fadeUp.visible}
-          transition={smoothTransition(0, 0.8)}
-          className="text-center mb-8 md:mb-12"
-        >
-          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
-            <span className="w-8 h-px bg-stroke" />
-            Biography
-          </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-text leading-[1.03] mb-6">
-            The long <span className="font-display italic">story</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted max-w-2xl mx-auto">
-            A fuller account of how I got here — the people, places, and ideas that shape the work I&apos;m doing now.
-          </p>
-        </motion.div>
+        <PageHero
+          eyebrow="Biography"
+          title={<>The long <span className="font-display italic">story</span></>}
+          subtitle="A fuller account of how I got here — the people, places, and ideas that shape the work I'm doing now."
+        />
       </section>
 
       {/* Portrait */}
@@ -176,60 +151,7 @@ export default function BioPage() {
       </section>
 
       {/* Contact footer */}
-      <section
-        id="contact"
-        className="relative bg-bg pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden"
-      >
-        <FloatingObjectsContact />
-
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-          <div
-            ref={marqueeRef}
-            className="overflow-hidden mb-12 md:mb-16 -mx-[100vw]"
-          >
-            <div className="marquee-inner flex whitespace-nowrap" style={{ willChange: "transform" }}>
-              {[...Array(10)].map((_, i) => (
-                <span
-                  key={i}
-                  className="text-hero md:text-hero-md lg:text-hero-lg font-display italic text-text leading-none"
-                >
-                  LET&apos;S WORK TOGETHER
-                  <span className="text-muted mx-6 md:mx-10">•</span>
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <AnimatedSection className="text-center mb-16 md:mb-20">
-            <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
-              Have a project in mind? I&apos;m always open to new ideas and collaborations.
-            </p>
-
-            <GradientButton
-              as={motion.a}
-              whileTap={{ scale: 0.97 }}
-              href="mailto:will.schulz@aw3.tech"
-              className="inline-flex items-center gap-3 px-8 py-4"
-            >
-              <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
-              <ArrowDiagonal
-                width={18}
-                height={18}
-                className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10"
-              />
-            </GradientButton>
-          </AnimatedSection>
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke">
-            <SocialLinks />
-
-            <div className="flex items-center gap-3">
-              <StatusDot />
-              <span className="text-sm text-muted">Available for projects</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactFooter />
     </main>
   );
 }

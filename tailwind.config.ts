@@ -14,8 +14,7 @@ const config: Config = {
         text: "var(--text)",
         muted: "var(--muted)",
         accent: "var(--accent)",
-        stroke: "var(--stroke)",
-        dribbble: "#ea4c89"
+        stroke: "var(--stroke)"
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
@@ -30,23 +29,10 @@ const config: Config = {
         "hero-md": "12vw",
         "hero-lg": "10vw"
       },
-      boxShadow: {
-        glow: "0 0 80px rgba(118, 228, 247, 0.2)"
-      },
       animation: {
-        "fade-in-down": "fadeInDown 0.8s ease-out forwards",
-        "fade-in": "fadeIn 1s ease-out forwards",
         marquee: "marquee 60s linear infinite"
       },
       keyframes: {
-        fadeInDown: {
-          "0%": { opacity: "0", transform: "translateY(-10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" }
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" }
-        },
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" }

@@ -6,6 +6,8 @@ import CustomCursor from "@/components/CustomCursor";
 import BackToTop from "@/components/BackToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import AppWrapper from "@/components/AppWrapper";
+import { socialLinks } from "@/lib/social";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
 
 const bodyFont = Inter({
   subsets: ["latin"],
@@ -20,42 +22,33 @@ const displayFont = Instrument_Serif({
   weight: "400",
 });
 
-const siteUrl = "https://willschulz.me";
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "William Schulz",
-  url: siteUrl,
+  name: SITE_NAME,
+  url: SITE_URL,
   jobTitle: "Software Developer, Designer, Creative & Founder",
-  description: "Software developer, designer, creative, and founder building modern digital experiences.",
-  sameAs: [
-    "https://github.com/aw3-technology",
-    "https://www.linkedin.com/in/will-schulz/",
-    "https://x.com/aw3_xyz",
-    "https://www.instagram.com/will_parkerr/",
-    "https://www.facebook.com/will.schulz/",
-    "https://calendly.com/will-schulz-aw3/30min",
-  ],
+  description: SITE_DESCRIPTION,
+  sameAs: socialLinks.map((social) => social.href),
   knowsAbout: ["Software Development", "Product Design", "UI Design", "UX Design", "Web Development", "Founder"],
 };
 
 export const metadata: Metadata = {
-  title: "William Schulz — Developer, Designer, Creative, Founder",
-  description: "Software developer, designer, creative, and founder building modern digital experiences.",
-  metadataBase: new URL(siteUrl),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: "William Schulz — Developer, Designer, Creative, Founder",
-    description: "Software developer, designer, creative, and founder building modern digital experiences.",
-    url: siteUrl,
-    siteName: "William Schulz",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "William Schulz — Developer, Designer, Creative, Founder",
-    description: "Software developer, designer, creative, and founder building modern digital experiences.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,

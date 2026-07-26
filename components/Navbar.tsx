@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import VinylLogo from "./VinylLogo";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
 import { useScrolled } from "@/lib/hooks/useScrolled";
+import { useDismissable } from "@/lib/hooks/useDismissable";
 import { ChevronDown, Check } from "./Icons";
-import { easing } from "@/lib/animations";
+import GlassMenu from "./ui/GlassMenu";
+import GradientBorderRing from "./ui/GradientBorderRing";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -17,6 +19,7 @@ const navLinks = [
 ];
 
 const moreLinks = [
+  { label: "Gallery", href: "/gallery" },
   { label: "Resume", href: "/about" },
   { label: "Bio", href: "/bio" },
   { label: "Blog", href: "/blog" },
@@ -32,24 +35,7 @@ export default function Navbar() {
 
   const isMoreActive = moreLinks.some((link) => link.href === pathname);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Node)) return;
-      if (moreRef.current && !moreRef.current.contains(target)) {
-        setIsMoreOpen(false);
-      }
-    };
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMoreOpen(false);
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  useDismissable(moreRef, () => setIsMoreOpen(false));
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -129,24 +115,8 @@ export default function Navbar() {
 
           <AnimatePresence>
             {isMoreOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                transition={{ duration: 0.2, ease: easing.expo }}
-                className={`absolute right-0 mt-3 w-44 rounded-2xl border backdrop-blur-xl shadow-2xl shadow-black/30 overflow-hidden z-20 ${
-                  theme === "dark"
-                    ? "border-white/15 bg-[#0e0e12]/95"
-                    : "border-stroke/70 bg-surface/95"
-                }`}
-                role="menu"
-              >
-                <div className={`absolute inset-0 pointer-events-none ${
-                  theme === "dark"
-                    ? "bg-gradient-to-b from-white/8 via-white/2 to-transparent"
-                    : "bg-gradient-to-b from-black/[0.03] to-transparent"
-                }`} />
-                <ul className="relative z-10 p-2">
+              <GlassMenu align="right" width="w-44" isDark={theme === "dark"}>
+                <ul className="relative z-10 p-2" role="menu">
                   {moreLinks.map((link) => {
                     const isActive = pathname === link.href;
                     return (
@@ -170,7 +140,7 @@ export default function Navbar() {
                     );
                   })}
                 </ul>
-              </motion.div>
+              </GlassMenu>
             )}
           </AnimatePresence>
         </div>
@@ -182,9 +152,7 @@ export default function Navbar() {
           className="group relative px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full transition-all duration-500 text-text focus-ring overflow-visible hover:bg-stroke/30"
         >
           {/* Gradient border ring on hover */}
-          <span className="absolute inset-0 -m-[2px] rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <span className="flex w-full h-full rounded-full bg-surface backdrop-blur-md" />
-          </span>
+          <GradientBorderRing fill="bg-surface backdrop-blur-md" />
           <span className="relative z-10">Say hi ↗</span>
         </a>
         <div className="hidden sm:block w-px h-5 bg-stroke mx-1" />

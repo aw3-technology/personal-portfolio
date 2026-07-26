@@ -1,24 +1,20 @@
 "use client";
 
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import dynamic from "next/dynamic";
 import { projects } from "@/lib/projects";
-import { useMarqueeAnimation } from "@/lib/hooks/useMarqueeAnimation";
 import BackToTop from "@/components/BackToTop";
 import Navbar from "@/components/Navbar";
-import { ArrowDiagonal, Check, ChevronDown } from "@/components/Icons";
-import AnimatedSection from "@/components/ui/AnimatedSection";
+import ContactFooter from "@/components/ContactFooter";
+import { ChevronDown } from "@/components/Icons";
 import BentoCard, { portfolioBentoConfigs } from "@/components/ui/BentoCard";
 import GradientButton from "@/components/ui/GradientButton";
-import SocialLinks from "@/components/ui/SocialLinks";
-import StatusDot from "@/components/ui/StatusDot";
-import { easing, fadeUp, fadeUpSm, smoothTransition } from "@/lib/animations";
-
-const FloatingObjectsContact = dynamic(() => import("@/components/FloatingObjectsContact"), {
-  ssr: false,
-});
+import GradientBorderRing from "@/components/ui/GradientBorderRing";
+import GlassMenu, { GlassMenuOption } from "@/components/ui/GlassMenu";
+import PageHero from "@/components/ui/PageHero";
+import SortDropdown from "@/components/ui/SortDropdown";
+import { useDismissable } from "@/lib/hooks/useDismissable";
+import { easing, fadeUpSm, smoothTransition } from "@/lib/animations";
 
 const categories = ["All", "Venture Studio", "Cloud Infrastructure", "Open Source", "Web3", "AI", "Fintech", "Legal Tech"];
 
@@ -34,42 +30,12 @@ export default function PortfolioPage() {
   const [sortBy, setSortBy] = useState("newest");
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const marqueeRef = useRef<HTMLDivElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
 
-  useMarqueeAnimation(marqueeRef);
-
-  // Close sort dropdown on outside click or escape
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Node)) {
-        return;
-      }
-      if (sortRef.current && !sortRef.current.contains(target)) {
-        setIsSortOpen(false);
-      }
-      if (categoryRef.current && !categoryRef.current.contains(target)) {
-        setIsCategoryOpen(false);
-      }
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsSortOpen(false);
-        setIsCategoryOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  // Close the sort/category dropdowns on outside click or escape
+  useDismissable(sortRef, () => setIsSortOpen(false));
+  useDismissable(categoryRef, () => setIsCategoryOpen(false));
 
   // Filter and sort projects
   const filteredProjects = useMemo(() => {
@@ -106,23 +72,12 @@ export default function PortfolioPage() {
 
       {/* Hero Section */}
       <section className="pt-36 pb-16 px-6 md:px-10 lg:px-16 max-w-[1200px] mx-auto">
-        <motion.div
-          initial={fadeUp.hidden}
-          animate={fadeUp.visible}
-          transition={smoothTransition(0, 0.8)}
-          className="text-center mb-12 md:mb-16"
-        >
-          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
-            <span className="w-8 h-px bg-stroke" />
-            Portfolio
-          </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-text leading-[1.03] mb-6">
-            All <span className="font-display italic">Work</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted max-w-2xl mx-auto">
-            A collection of selected projects spanning product design, web development, and design systems.
-          </p>
-        </motion.div>
+        <PageHero
+          eyebrow="Portfolio"
+          title={<>All <span className="font-display italic">Work</span></>}
+          subtitle="A collection of selected projects spanning product design, web development, and design systems."
+          className="mb-12 md:mb-16"
+        />
 
         {/* Filters & Sort */}
         <motion.div
@@ -145,27 +100,13 @@ export default function PortfolioPage() {
                       : "text-muted border-stroke bg-transparent hover:text-text hover:border-text/40"
                   }`}
                 >
-                  <span
-                    className={`absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 transition-opacity duration-500 ${
-                      selectedCategory === "All" ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                    }`}
-                    style={{ margin: "-2px" }}
-                  >
-                    <span className="flex w-full h-full rounded-full bg-bg" />
-                  </span>
+                  <GradientBorderRing active={selectedCategory === "All"} />
                   <span className="relative z-10">All</span>
                 </button>
 
                 {/* Category dropdown - mobile only */}
                 <div className="relative group" ref={categoryRef}>
-                  <span
-                    className={`absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 transition-opacity duration-500 ${
-                      selectedCategory !== "All" ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                    }`}
-                    style={{ margin: "-2px" }}
-                  >
-                    <span className="flex w-full h-full rounded-full bg-bg" />
-                  </span>
+                  <GradientBorderRing active={selectedCategory !== "All"} />
                   <button
                     type="button"
                     onClick={() => setIsCategoryOpen((prev) => !prev)}
@@ -187,113 +128,42 @@ export default function PortfolioPage() {
                     />
                   </button>
                   
-                  {isCategoryOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: easing.expo }}
-                      className="absolute left-0 mt-3 w-max min-w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
-                      <ul role="listbox" aria-label="Category options" className="relative z-10 p-2">
-                        {categories.filter(cat => cat !== "All").map((cat) => {
-                          const isActive = cat === selectedCategory;
-                          return (
-                            <li key={cat}>
-                              <button
-                                type="button"
-                                role="option"
-                                aria-selected={isActive}
-                                onClick={() => {
-                                  setSelectedCategory(cat);
-                                  setIsCategoryOpen(false);
-                                }}
-                                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-left text-sm transition-all ${
-                                  isActive
-                                    ? "bg-white/16 text-white"
-                                    : "text-white/80 hover:text-white hover:bg-white/10"
-                                }`}
-                              >
-                                <span className="whitespace-nowrap">{cat}</span>
-                                {isActive && (
-                                  <Check width={14} height={14} className="text-text/90 shrink-0" />
-                                )}
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </motion.div>
-                  )}
+                  <AnimatePresence>
+                    {isCategoryOpen && (
+                      <GlassMenu align="left" width="w-max min-w-[220px]">
+                        <ul role="listbox" aria-label="Category options" className="relative z-10 p-2">
+                          {categories.filter((cat) => cat !== "All").map((cat) => (
+                            <GlassMenuOption
+                              key={cat}
+                              isActive={cat === selectedCategory}
+                              onClick={() => {
+                                setSelectedCategory(cat);
+                                setIsCategoryOpen(false);
+                              }}
+                            >
+                              {cat}
+                            </GlassMenuOption>
+                          ))}
+                        </ul>
+                      </GlassMenu>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* Sort Dropdown - Mobile only (in same row) */}
-                <div className="relative group overflow-visible shrink-0 ml-auto" ref={sortRef}>
-                  <span
-                    className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500"
-                    style={{ margin: "-2px" }}
-                  >
-                    <span className="flex w-full h-full rounded-full bg-bg" />
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setIsSortOpen((prev) => !prev)}
-                    aria-haspopup="listbox"
-                    aria-expanded={isSortOpen}
-                    className="relative z-10 inline-flex items-center gap-2 px-4 py-3 text-left text-xs font-medium text-text bg-transparent border-2 border-stroke rounded-full shadow-none focus:outline-none focus:ring-2 focus:ring-text/60 transition-all hover:border-text/40 cursor-pointer"
-                  >
-                    <span className="whitespace-nowrap">
-                      {sortOptions.find((option) => option.value === sortBy)?.label ?? "Sort"}
-                    </span>
-                    <span className="pointer-events-none shrink-0">
-                      <ChevronDown
-                        width={12}
-                        height={12}
-                        className={`text-text/70 transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`}
-                      />
-                    </span>
-                  </button>
-                  {isSortOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                      transition={{ duration: 0.2, ease: easing.expo }}
-                      className="absolute right-0 mt-3 w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
-                      <ul role="listbox" aria-label="Sort options" className="relative z-10 p-2">
-                        {sortOptions.map((option) => {
-                          const isActive = option.value === sortBy;
-                          return (
-                            <li key={option.value}>
-                              <button
-                                type="button"
-                                role="option"
-                                aria-selected={isActive}
-                                onClick={() => {
-                                  setSortBy(option.value);
-                                  setIsSortOpen(false);
-                                }}
-                                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-left text-sm transition-all ${
-                                  isActive
-                                    ? "bg-white/16 text-white"
-                                    : "text-white/80 hover:text-white hover:bg-white/10"
-                                }`}
-                              >
-                                <span>{option.label}</span>
-                                {isActive && (
-                                  <Check width={14} height={14} className="text-text/90" />
-                                )}
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </motion.div>
-                  )}
-                </div>
+                <SortDropdown
+                  ref={sortRef}
+                  options={sortOptions}
+                  value={sortBy}
+                  onChange={(value) => {
+                    setSortBy(value);
+                    setIsSortOpen(false);
+                  }}
+                  isOpen={isSortOpen}
+                  onToggle={() => setIsSortOpen((prev) => !prev)}
+                  wrapperClassName="relative group overflow-visible shrink-0 ml-auto"
+                  buttonTextClass="text-xs"
+                />
               </div>
 
               {/* Desktop: All buttons horizontal */}
@@ -308,14 +178,7 @@ export default function PortfolioPage() {
                         : "text-muted border-stroke bg-transparent hover:text-text hover:border-text/40"
                     }`}
                   >
-                    <span
-                      className={`absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 transition-opacity duration-500 ${
-                        selectedCategory === cat ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                      }`}
-                      style={{ margin: "-2px" }}
-                    >
-                      <span className="flex w-full h-full rounded-full bg-bg" />
-                    </span>
+                    <GradientBorderRing active={selectedCategory === cat} />
                     <span className="relative z-10">{cat}</span>
                   </button>
                 ))}
@@ -323,71 +186,18 @@ export default function PortfolioPage() {
             </div>
 
             {/* Sort Dropdown - Desktop only */}
-            <div className="hidden md:block relative group overflow-visible">
-              <span
-                className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500"
-                style={{ margin: "-2px" }}
-              >
-                <span className="flex w-full h-full rounded-full bg-bg" />
-              </span>
-              <button
-                type="button"
-                onClick={() => setIsSortOpen((prev) => !prev)}
-                aria-haspopup="listbox"
-                aria-expanded={isSortOpen}
-                className="relative z-10 inline-flex items-center gap-2 px-4 py-3 text-left text-sm font-medium text-text bg-transparent border-2 border-stroke rounded-full shadow-none focus:outline-none focus:ring-2 focus:ring-text/60 transition-all hover:border-text/40 cursor-pointer"
-              >
-                <span className="whitespace-nowrap">
-                  {sortOptions.find((option) => option.value === sortBy)?.label ?? "Sort"}
-                </span>
-                <span className="pointer-events-none shrink-0">
-                  <ChevronDown
-                    width={12}
-                    height={12}
-                    className={`text-text/70 transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`}
-                  />
-                </span>
-              </button>
-              {isSortOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.2, ease: easing.expo }}
-                  className="absolute right-0 mt-3 w-[220px] rounded-2xl border border-white/15 bg-[#0e0e12]/95 backdrop-blur-xl shadow-2xl shadow-black/40 overflow-hidden z-20"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-white/2 to-transparent pointer-events-none" />
-                  <ul role="listbox" aria-label="Sort options" className="relative z-10 p-2">
-                    {sortOptions.map((option) => {
-                      const isActive = option.value === sortBy;
-                      return (
-                        <li key={option.value}>
-                          <button
-                            type="button"
-                            role="option"
-                            aria-selected={isActive}
-                            onClick={() => {
-                              setSortBy(option.value);
-                              setIsSortOpen(false);
-                            }}
-                            className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-left text-sm transition-all ${
-                              isActive
-                                ? "bg-white/16 text-white"
-                                : "text-white/80 hover:text-white hover:bg-white/10"
-                            }`}
-                          >
-                            <span>{option.label}</span>
-                            {isActive && (
-                              <Check width={14} height={14} className="text-text/90" />
-                            )}
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </motion.div>
-              )}
-            </div>
+            <SortDropdown
+              options={sortOptions}
+              value={sortBy}
+              onChange={(value) => {
+                setSortBy(value);
+                setIsSortOpen(false);
+              }}
+              isOpen={isSortOpen}
+              onToggle={() => setIsSortOpen((prev) => !prev)}
+              wrapperClassName="hidden md:block relative group overflow-visible"
+              buttonTextClass="text-sm"
+            />
           </div>
         </motion.div>
 
@@ -450,65 +260,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Footer CTA - Same as Contact Section */}
-      <section
-        id="contact"
-        className="relative bg-bg pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden"
-      >
-        {/* 3D Background */}
-        <FloatingObjectsContact />
-        
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-          
-          {/* Marquee */}
-          <div 
-            ref={marqueeRef} 
-            className="overflow-hidden mb-12 md:mb-16 -mx-[100vw]"
-          >
-            <div className="marquee-inner flex whitespace-nowrap" style={{ willChange: "transform" }}>
-              {[...Array(10)].map((_, i) => (
-                <span
-                  key={i}
-                  className="text-hero md:text-hero-md lg:text-hero-lg font-display italic text-text leading-none"
-                >
-                  LET'S WORK TOGETHER
-                  <span className="text-muted mx-6 md:mx-10">•</span>
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Center content */}
-          <AnimatedSection className="text-center mb-16 md:mb-20">
-            <p className="text-base md:text-lg text-muted mb-8 max-w-md mx-auto">
-              Have a project in mind? I'm always open to new ideas and collaborations.
-            </p>
-
-            <GradientButton
-              as={motion.a}
-              whileTap={{ scale: 0.97 }}
-              href="mailto:will.schulz@aw3.tech"
-              className="inline-flex items-center gap-3 px-8 py-4"
-            >
-              <span className="text-lg text-text relative z-10">will.schulz@aw3.tech</span>
-              <ArrowDiagonal width={18} height={18} className="text-muted group-hover:text-text group-hover:translate-x-1 group-hover:-translate-y-1 transition-all relative z-10" />
-            </GradientButton>
-          </AnimatedSection>
-
-          {/* Bottom bar */}
-          <div 
-            className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-stroke"
-          >
-            <SocialLinks />
-            
-            {/* Status */}
-            <div className="flex items-center gap-3">
-              <StatusDot />
-              <span className="text-sm text-muted">Available for projects</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <ContactFooter />
     </main>
   );
 }
