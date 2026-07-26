@@ -5,6 +5,7 @@ import Link from "next/link";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import Navbar from "@/components/Navbar";
 import ContactFooter from "@/components/ContactFooter";
+import LogoMarquee from "@/components/LogoMarquee";
 import Timeline from "@/components/Timeline";
 import { ArrowDiagonal } from "@/components/Icons";
 import GradientButton from "@/components/ui/GradientButton";
@@ -74,6 +75,22 @@ export default function AboutPage() {
               priority
             />
           </div>
+        </motion.div>
+      </section>
+
+      {/* Experience / logo marquee */}
+      <section className="pb-16 px-6 md:px-10 lg:px-16 max-w-content mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="eyebrow-label inline-flex items-center gap-2 mb-6">
+            <span className="w-8 h-px bg-stroke" />
+            Experience
+          </span>
+          <LogoMarquee />
         </motion.div>
       </section>
 
