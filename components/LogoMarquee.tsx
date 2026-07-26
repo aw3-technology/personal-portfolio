@@ -26,18 +26,24 @@ export default function LogoMarquee() {
           "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
       }}
     >
-      <div className="group flex w-max items-center gap-14 md:gap-24 px-7 md:px-12 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
+      <div className="group flex w-max items-center gap-12 md:gap-20 px-7 md:px-12 animate-marquee hover:[animation-play-state:paused] motion-reduce:animate-none">
         {track.map((logo, index) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          // Each logo sits in an equal-size slot so square and ultra-wide marks
+          // share the same visual footprint instead of scaling by aspect ratio.
+          <div
             key={`${logo.name}-${index}`}
-            src={logo.src}
-            alt={logo.name}
-            aria-hidden={index >= logos.length}
-            loading="lazy"
-            decoding="async"
-            className="h-7 md:h-9 w-auto shrink-0 object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-          />
+            className="flex h-8 w-28 md:h-10 md:w-36 shrink-0 items-center justify-center"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logo.src}
+              alt={logo.name}
+              aria-hidden={index >= logos.length}
+              loading="lazy"
+              decoding="async"
+              className="max-h-full max-w-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+            />
+          </div>
         ))}
       </div>
     </div>
