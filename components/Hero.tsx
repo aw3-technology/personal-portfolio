@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import Navbar from "./Navbar";
 import GradientButton from "./ui/GradientButton";
 
-const roles = ["Developer", "Designer", "Creative", "Founder"];
+const roles = ["Developer", "Designer", "Founder", "Creative"];
 
 const FloatingObjects = dynamic(() => import("./FloatingObjects"), {
   ssr: false,
