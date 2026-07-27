@@ -57,6 +57,15 @@ html, body {
   cursor: none;
 }
 
+/* The AngelSend chat widget is injected into the page DOM, so it inherits
+   cursor: none — and its chat window (z-index 10000) covers the custom
+   cursor (z-index 9999). Restore the native cursor over the whole widget;
+   CustomCursor hides its dot there. The widget's own inline cursor styles
+   (pointer on buttons) still apply. */
+.angelsend-widget {
+  cursor: auto;
+}
+
 html {
   scroll-behavior: smooth;
 }

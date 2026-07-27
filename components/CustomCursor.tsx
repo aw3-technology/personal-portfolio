@@ -7,6 +7,7 @@ import { useCursor } from "./CursorContext";
 export default function CustomCursor() {
   const { cursorType, cursorText } = useCursor();
   const [isMobile, setIsMobile] = useState(false);
+  const [overChatWidget, setOverChatWidget] = useState(false);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -26,6 +27,10 @@ export default function CustomCursor() {
     const moveMouse = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      // The chat widget shows the native cursor (see globals.css), so the
+      // custom dot gets out of the way while the pointer is over it.
+      const target = e.target instanceof Element ? e.target : null;
+      setOverChatWidget(!!target?.closest(".angelsend-widget"));
     };
 
     window.addEventListener("mousemove", moveMouse);
@@ -39,7 +44,9 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference"
+      className={`fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference transition-opacity duration-150 ${
+        overChatWidget ? "opacity-0" : "opacity-100"
+      }`}
       style={{
         x: smoothX,
         y: smoothY,
