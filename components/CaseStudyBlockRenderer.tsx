@@ -186,6 +186,27 @@ export function renderCaseStudyBlock(
           <p className="text-xl md:text-[1.6rem] text-text/90 leading-[1.6] italic">
             "{block.text}"
           </p>
+          {block.attribution && (
+            <div className="mt-6 flex items-center gap-4">
+              {block.attribution.image && (
+                <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border border-stroke flex-shrink-0">
+                  <ImageWithSkeleton
+                    src={block.attribution.image}
+                    alt={block.attribution.name}
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div>
+                <p className="text-base text-text">{block.attribution.name}</p>
+                {block.attribution.role && (
+                  <p className="text-sm text-muted">{block.attribution.role}</p>
+                )}
+              </div>
+            </div>
+          )}
         </motion.div>
       );
     }

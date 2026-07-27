@@ -207,7 +207,12 @@ export const blocksee: Project = {
             {
               type: "callout",
               tone: "quote",
-              text: "AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time. — Eric Forst, CEO & Founder",
+              text: "AW3 did an amazing job building out the frontend for our product Blocksee and are now helping us with fundraising. They delivered within budget and on time.",
+              attribution: {
+                name: "Eric Forst",
+                role: "CEO & Founder, Blocksee",
+                image: "/projects/eric-forst.jpg",
+              },
             },
           ],
         },

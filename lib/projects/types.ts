@@ -64,6 +64,12 @@ export type CaseStudyBlock =
       text: string;
       tone?: "quote" | "metric";
       label?: string;
+      /** Who said it — rendered under a quote callout with an optional headshot. */
+      attribution?: {
+        name: string;
+        role?: string;
+        image?: string;
+      };
     }
   | {
       type: "paragraph";

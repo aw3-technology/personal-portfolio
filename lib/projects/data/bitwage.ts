@@ -63,7 +63,12 @@ export const bitwage: Project = {
             {
               type: "callout",
               tone: "quote",
-              text: "AW3 has played a critical role in our fundraising, website development and sales/marketing execution. — Jonathan Chester, CEO & Co-Founder",
+              text: "AW3 has played a critical role in our fundraising, website development and sales/marketing execution.",
+              attribution: {
+                name: "Jonathan Chester",
+                role: "CEO & Co-Founder, Bitwage",
+                image: "/projects/jonathan-chester.jpg",
+              },
             },
           ],
         },

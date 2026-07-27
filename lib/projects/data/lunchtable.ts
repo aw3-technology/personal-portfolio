@@ -50,7 +50,12 @@ export const lunchtable: Project = {
             {
               type: "callout",
               tone: "quote",
-              text: "Without AW3 Technology's expertise in building projects from the ground up, we would have never made our critical first major client deadline. Will brings unparalleled swiftness and knowhow to the table. — Daniel Imberman, CTO of LunchTable",
+              text: "Without AW3 Technology's expertise in building projects from the ground up, we would have never made our critical first major client deadline. Will brings unparalleled swiftness and knowhow to the table.",
+              attribution: {
+                name: "Daniel Imberman",
+                role: "CTO, LunchTable",
+                image: "/projects/daniel-imberman.jpg",
+              },
             },
           ],
         },
