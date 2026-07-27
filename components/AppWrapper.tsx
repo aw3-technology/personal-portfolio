@@ -3,6 +3,7 @@
  import { useState, useEffect } from "react";
  import { usePathname } from "next/navigation";
  import { AnimatePresence } from "framer-motion";
+ import Script from "next/script";
  import LoadingScreen from "./LoadingScreen";
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
@@ -54,6 +55,16 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
        >
          {children}
        </div>
+
+      {/* AngelSend / customer support chat widget (Will Schulz GPT). Mounted only
+          once the intro loading screen is done, so its bubble never shows over
+          the landing-page loader. */}
+      {!isLoading && (
+        <Script
+          src="https://invazkujqgdgpkpsingh.supabase.co/functions/v1/intercom-widget?configId=ee7d6025-e52d-41a7-85fa-8755363d02dd"
+          strategy="afterInteractive"
+        />
+      )}
      </>
    );
  }
