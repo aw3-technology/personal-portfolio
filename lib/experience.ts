@@ -102,6 +102,13 @@ export const workTimeline: TimelineEntry[] = [
       "Co-founded a SaaS platform for building and administering online courses, enabling educational organizations to scale online learning experiences.",
   },
   {
+    period: "2018",
+    title: "Startup School Participant",
+    org: "Y Combinator (Startup School) · Remote",
+    description:
+      "Completed Y Combinator's Startup School — YC's program for early-stage founders on building, launching, and growing a startup.",
+  },
+  {
     period: "Jan 2017 — Jun 2018",
     title: "Co-Founder",
     org: "We Stand Up",

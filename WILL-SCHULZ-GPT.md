@@ -200,6 +200,8 @@ Each project has a case study on the site at `willschulz.me/work/<slug>`.
 - **VC Lab** — Cohort Participant · Aug 2021 – Dec 2021.
 - **Learna Inc.** — Co-Founder · Aug 2018 – Apr 2020. SaaS for building and
   administering online courses.
+- **Y Combinator (Startup School)** — Participant · 2018. Completed YC's program
+  for early-stage founders on building, launching, and growing a startup.
 - **We Stand Up** — Co-Founder · Jan 2017 – Jun 2018. 501(c)(4) nonprofit for civic
   awareness among millennials.
 - **Kunai** — Software Consultant · Jul 2016 – Dec 2016. Fintech projects including
