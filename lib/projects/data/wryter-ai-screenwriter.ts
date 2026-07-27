@@ -50,7 +50,12 @@ export const wryterAiScreenwriter: Project = {
             {
               type: "callout",
               tone: "quote",
-              text: "AW3 goes far above and beyond any other company of it's kind. I have worked with them on many different apps, websites and projects and I have been consistently impressed — they have completed ahead of schedule and under budget. — Liam McMullan, Founder & CTO of Wryter Inc.",
+              text: "AW3 goes far above and beyond any other company of it's kind. I have worked with them on many different apps, websites and projects and I have been consistently impressed — they have completed ahead of schedule and under budget.",
+              attribution: {
+                name: "Liam McMullan",
+                role: "Founder & CTO, Wryter Inc.",
+                image: "/projects/liam-mcmullan.jpg",
+              },
             },
             {
               type: "image",
