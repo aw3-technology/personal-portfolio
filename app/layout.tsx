@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import "@/styles/globals.css";
 import { CursorProvider } from "@/components/CursorContext";
 import CustomCursor from "@/components/CustomCursor";
@@ -89,6 +90,11 @@ export default function RootLayout({
             </AppWrapper>
           </CursorProvider>
         </ThemeProvider>
+        {/* AngelSend / customer support chat widget (Will Schulz GPT) */}
+        <Script
+          src="https://invazkujqgdgpkpsingh.supabase.co/functions/v1/intercom-widget?configId=ee7d6025-e52d-41a7-85fa-8755363d02dd"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
