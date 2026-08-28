@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { log } from "@/lib/diagnostics";
 
 export default function Error({
   error,
@@ -11,7 +12,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    log.error("Page error boundary caught:", error, error.digest ? `digest=${error.digest}` : "");
   }, [error]);
 
   return (
