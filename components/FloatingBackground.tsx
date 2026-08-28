@@ -4,32 +4,37 @@ import { Component, useEffect, useState, type ReactNode } from "react";
 import { Canvas } from "@react-three/fiber";
 
 /**
- * Probes for a usable WebGL context. Returns false when the browser blocks or
- * fails to create one (hardware acceleration off, sandboxed GPU process,
- * driver blocklist, headless/low-power environments).
+ * Cached so the probe only ever creates one context per page load. Each probe
+ * costs a real WebGL context, and browsers cap how many a page may hold (~16 in
+ * Chrome) — past the cap the browser drops the oldest, which would be a live
+ * background canvas.
+ */
+let webGLSupport: boolean | undefined;
+
+/**
+ * Probes for a usable WebGL2 context — the context three.js actually requests
+ * (r182 has no WebGL1 fallback). Returns false when the browser blocks or fails
+ * to create one: hardware acceleration off, sandboxed GPU process, driver
+ * blocklist, or a headless environment.
+ *
+ * Deliberately does not call WEBGL_lose_context.loseContext(). Forcing a context
+ * loss here can make the browser refuse the renderer's own context request
+ * moments later, which is worse than letting the probe context be collected.
  */
 function canUseWebGL(): boolean {
+  if (webGLSupport !== undefined) return webGLSupport;
   if (typeof window === "undefined") return false;
-  if (typeof WebGLRenderingContext === "undefined") return false;
 
   try {
-    const canvas = document.createElement("canvas");
-    const gl =
-      canvas.getContext("webgl2") ||
-      canvas.getContext("webgl") ||
-      canvas.getContext("experimental-webgl");
-
-    if (!gl) return false;
-
-    // Release the probe context immediately so it doesn't count against the
-    // browser's per-page context limit.
-    const lose = (gl as WebGLRenderingContext).getExtension("WEBGL_lose_context");
-    lose?.loseContext();
-
-    return true;
+    webGLSupport = !!(
+      window.WebGL2RenderingContext &&
+      document.createElement("canvas").getContext("webgl2")
+    );
   } catch {
-    return false;
+    webGLSupport = false;
   }
+
+  return webGLSupport;
 }
 
 /**
@@ -48,9 +53,7 @@ class CanvasErrorBoundary extends Component<
   }
 
   componentDidCatch(error: unknown) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn("FloatingBackground: WebGL unavailable, skipping.", error);
-    }
+    console.warn("FloatingBackground: renderer unavailable, skipping.", error);
   }
 
   render() {
@@ -76,13 +79,13 @@ export default function FloatingBackground({ children }: { children: ReactNode }
         <Canvas
           camera={{ position: [0, 0, 6], fov: 45 }}
           dpr={[1, 2]}
-          gl={{ antialias: true, alpha: true, failIfMajorPerformanceCaveat: false }}
+          gl={{ antialias: true, alpha: true }}
           onCreated={({ gl }) => {
-            // A context lost after creation (GPU reset, tab backgrounded on a
-            // constrained device) would otherwise throw on the next frame.
+            // preventDefault marks the loss as recoverable so three.js can
+            // rebuild on webglcontextrestored. Without it a transient loss
+            // (GPU reset, driver hiccup) permanently kills the background.
             gl.domElement.addEventListener("webglcontextlost", (event) => {
               event.preventDefault();
-              setSupported(false);
             });
           }}
         >
