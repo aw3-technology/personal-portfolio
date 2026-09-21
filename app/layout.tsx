@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 import { CursorProvider } from "@/components/CursorContext";
 import CustomCursor from "@/components/CustomCursor";
@@ -89,6 +90,7 @@ export default function RootLayout({
             </AppWrapper>
           </CursorProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
