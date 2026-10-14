@@ -200,43 +200,6 @@ export const bitwage: Project = {
         },
         {
           type: "stack",
-          heading: "The Series A story",
-          blocks: [
-            {
-              type: "paragraph",
-              text: "Part of the sales & marketing work was the investor narrative. I helped shape the Series A presentation (October 2022) that carried the same brand system into the fundraising story — a tight arc from what Bitwage is, to why it wins against neo-banks, exchanges, and EOR platforms, to the traction that backs it up.",
-            },
-            {
-              type: "image",
-              label: "Series A deck — cover",
-              src: "/projects/bitwage-deck-cover.png",
-              alt: "Bitwage Series A presentation cover (October 2022): the bitwage wordmark beside a 3D globe orbited by Bitcoin, USDC, and Ethereum coins, over the line 'Bitcoin & Cryptocurrency Payroll Solutions'",
-              aspect: "video",
-              rounded: "lg",
-              fit: "contain",
-            },
-            {
-              type: "image",
-              label: "Series A deck — competitive analysis",
-              src: "/projects/bitwage-deck-competitive.png",
-              alt: "Series A competitive-analysis matrix comparing Bitwage against Strike, TransferWise, Deel, Coinbase, and NYDIG across mass pay, BTC non-exclusive, deposit to any account on payday, direct deposits & invoices, global, company product, and worker product",
-              aspect: "video",
-              rounded: "lg",
-              fit: "contain",
-            },
-            {
-              type: "image",
-              label: "Series A deck — traction",
-              src: "/projects/bitwage-deck-traction.png",
-              alt: "Series A traction slide: 100% YOY growth since 2020, $200MM total payroll processed, a rising monthly-transaction-volume chart, and a milestone timeline from June 2020 through September 2022",
-              aspect: "video",
-              rounded: "lg",
-              fit: "contain",
-            },
-          ],
-        },
-        {
-          type: "stack",
           heading: "10 years, zero breaches",
           blocks: [
             {
