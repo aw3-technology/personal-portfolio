@@ -93,6 +93,7 @@ export const justiguide: Project = {
               aspect: "square",
               rounded: "lg",
               fit: "cover",
+              gallery: false,
             },
             {
               type: "callout",

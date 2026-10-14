@@ -89,6 +89,8 @@ export type CaseStudyBlock =
       rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
       /** Use object-contain instead of the default object-cover (avoids cropping UI screenshots). */
       fit?: "cover" | "contain";
+      /** Set false to keep the image on the case study but out of /gallery (e.g. headshots). */
+      gallery?: boolean;
     };
 
 export type CaseStudyLayout =

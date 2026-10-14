@@ -21,7 +21,7 @@ function collectProjectImages(project: Project): { src: string; label: string }[
   add(project.caseStudyImage, project.title);
 
   const visitBlock = (block: CaseStudyBlock) => {
-    if (block.type === "image") {
+    if (block.type === "image" && block.gallery !== false) {
       add(block.src, block.label || project.title);
     }
   };
