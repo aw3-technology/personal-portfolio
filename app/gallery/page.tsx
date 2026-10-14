@@ -25,7 +25,7 @@ export default function GalleryPage() {
           </h1>
         </div>
 
-        <GalleryGrid items={galleryItems} />
+        <GalleryGrid items={galleryItems} layout="editorial" />
       </section>
     </main>
   );

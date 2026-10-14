@@ -123,12 +123,37 @@ type GalleryGridProps = {
   items: Exploration[];
   /** When set, renders a full-width "All" tile linking to this href after the items. */
   allHref?: string;
+  /**
+   * "bento" crops tiles into a fixed grid; "editorial" lays images out in
+   * balanced columns at their full, uncropped aspect ratio.
+   */
+  layout?: "bento" | "editorial";
 };
 
 // How many tiles to reveal per scroll batch on the full gallery.
 const BATCH_SIZE = 8;
 
-export default function GalleryGrid({ items, allHref }: GalleryGridProps) {
+// Editorial column count per breakpoint (matches Tailwind's sm / lg).
+function useColumnCount() {
+  const [count, setCount] = useState(3);
+
+  useEffect(() => {
+    const sm = window.matchMedia("(min-width: 640px)");
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const update = () => setCount(lg.matches ? 3 : sm.matches ? 2 : 1);
+    update();
+    sm.addEventListener("change", update);
+    lg.addEventListener("change", update);
+    return () => {
+      sm.removeEventListener("change", update);
+      lg.removeEventListener("change", update);
+    };
+  }, []);
+
+  return count;
+}
+
+export default function GalleryGrid({ items, allHref, layout = "bento" }: GalleryGridProps) {
   const { setCursorType, setCursorText } = useCursor();
   // Only image-bearing tiles are openable, so the lightbox pages through this subset.
   const imageItems = useMemo(() => items.filter((item) => item.image), [items]);
@@ -211,9 +236,82 @@ export default function GalleryGrid({ items, allHref }: GalleryGridProps) {
 
   const activeItem = lightboxIndex === null ? null : imageItems[lightboxIndex];
 
+  const openItem = (item: Exploration) => {
+    if (!item.image) {
+      return;
+    }
+    const idx = imageItems.findIndex((it) => it.id === item.id);
+    if (idx !== -1) {
+      setLightboxIndex(idx);
+    }
+  };
+
+  const hoverHandlers = (item: Exploration) => ({
+    onMouseEnter: () => {
+      setCursorType("project");
+      setCursorText(item.image ? "View" : "Explore");
+      prefetch(item.image);
+    },
+    onMouseLeave: () => {
+      setCursorType("default");
+      setCursorText("");
+    },
+  });
+
+  // Greedy shortest-column placement. Items are placed in order, so revealing
+  // another batch only appends to columns and never reshuffles earlier tiles.
+  const columnCount = useColumnCount();
+  const columns = useMemo(() => {
+    const cols: Exploration[][] = Array.from({ length: columnCount }, () => []);
+    const heights = new Array(columnCount).fill(0);
+    for (const item of visibleItems) {
+      const ratio = item.imageSize ? item.imageSize.height / item.imageSize.width : 0.75;
+      const shortest = heights.indexOf(Math.min(...heights));
+      cols[shortest].push(item);
+      heights[shortest] += ratio;
+    }
+    return cols;
+  }, [visibleItems, columnCount]);
+
   return (
     <>
-      {/* Bento Grid */}
+      {layout === "editorial" ? (
+      <div className="flex gap-5 md:gap-6 px-2">
+        {columns.map((column, colIndex) => (
+          <div key={colIndex} className="flex flex-1 min-w-0 flex-col gap-5 md:gap-6">
+            {column.map((item) => (
+              <motion.button
+                key={item.id}
+                type="button"
+                className="group relative block w-full rounded-3xl bg-surface border border-stroke overflow-hidden cursor-pointer transition-colors duration-300 hover:border-text/30 text-left focus-ring-lg"
+                style={{
+                  aspectRatio: item.imageSize
+                    ? `${item.imageSize.width} / ${item.imageSize.height}`
+                    : "4 / 3",
+                }}
+                initial={fadeUp.hidden}
+                whileInView={fadeUp.visible}
+                viewport={viewportOnce}
+                transition={smoothTransition(colIndex * 0.08)}
+                {...hoverHandlers(item)}
+                onClick={() => openItem(item)}
+              >
+                {item.image && (
+                  <ImageWithSkeleton
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain"
+                  />
+                )}
+              </motion.button>
+            ))}
+          </div>
+        ))}
+      </div>
+      ) : (
+      /* Bento Grid */
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[240px] gap-5 md:gap-6 px-2">
         {visibleItems.map((item, index) => (
           <motion.button
@@ -224,24 +322,8 @@ export default function GalleryGrid({ items, allHref }: GalleryGridProps) {
             whileInView={fadeUp.visible}
             viewport={viewportOnce}
             transition={smoothTransition((index % BATCH_SIZE) * 0.08)}
-            onMouseEnter={() => {
-              setCursorType("project");
-              setCursorText(item.image ? "View" : "Explore");
-              prefetch(item.image);
-            }}
-            onMouseLeave={() => {
-              setCursorType("default");
-              setCursorText("");
-            }}
-            onClick={() => {
-              if (!item.image) {
-                return;
-              }
-              const idx = imageItems.findIndex((it) => it.id === item.id);
-              if (idx !== -1) {
-                setLightboxIndex(idx);
-              }
-            }}
+            {...hoverHandlers(item)}
+            onClick={() => openItem(item)}
           >
             {/* Image only for cards with image, otherwise show mockup with overlays */}
             {item.image ? (
@@ -321,6 +403,7 @@ export default function GalleryGrid({ items, allHref }: GalleryGridProps) {
           </motion.div>
         )}
       </div>
+      )}
 
       {/* Scroll sentinel + loading-more indicator */}
       {hasMore && (

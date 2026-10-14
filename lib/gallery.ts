@@ -1,4 +1,5 @@
 import type { Exploration } from "./explorations";
+import { getImageSize } from "./imageSize";
 import type { CaseStudyBlock, CaseStudyLayout, Project } from "./projects";
 import { projects } from "./projects";
 
@@ -60,4 +61,5 @@ export const galleryItems: Exploration[] = projects
     // Unused for items that have an image; present to satisfy the type.
     mockup: "dashboard",
     image: img.src,
+    imageSize: getImageSize(img.src),
   }));

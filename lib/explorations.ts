@@ -8,6 +8,8 @@ export type Exploration = {
   span: string;
   mockup: MockupType;
   image?: string;
+  /** Intrinsic pixel size, used by the editorial layout to keep the full aspect ratio. */
+  imageSize?: { width: number; height: number };
 };
 
 export const explorations: Exploration[] = [
